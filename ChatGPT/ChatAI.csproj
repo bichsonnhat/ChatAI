@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>ChatWpfUI</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\bin.png" />
+    <None Remove="Assets\chatgpt-icon.png" />
+    <None Remove="Assets\chatgpt-icon.svg" />
+    <None Remove="Assets\delete.png" />
+    <None Remove="Assets\Poster1.jpg" />
+    <None Remove="Assets\Poster2.jpg" />
+    <None Remove="Assets\Poster3.jpg" />
+    <None Remove="Assets\Poster4.jpg" />
+    <None Remove="Assets\poster5.jpeg" />
+    <None Remove="Assets\uitune.png" />
+    <None Remove="Assets\uitune_logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="LiteDB" Version="5.0.15" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="MdXaml" Version="1.17.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+    <PackageReference Include="WPF-UI" Version="3.0.0-preview.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\bin.png" />
+    <Resource Include="Assets\chatgpt-icon.png" />
+    <Resource Include="Assets\chatgpt-icon.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\delete.png" />
+    <Resource Include="Assets\Poster1.jpg" />
+    <Resource Include="Assets\Poster2.jpg" />
+    <Resource Include="Assets\Poster3.jpg" />
+    <Resource Include="Assets\Poster4.jpg" />
+    <Resource Include="Assets\poster5.jpeg" />
+    <Resource Include="Assets\uitune.png" />
+    <Resource Include="Assets\uitune_logo.ico" />
+  </ItemGroup>
+
+</Project>
