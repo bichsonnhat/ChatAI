@@ -19,7 +19,7 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         AllowsTransparency="True"
-        Icon="/Assets/uitune_logo.ico"
+        Icon="/Assets/uit-ai.ico"
         WindowStartupLocation="CenterScreen"
         >
     <Window.Resources>
@@ -28,7 +28,7 @@
                 <!-- Add your merged dictionaries here if needed -->
             </ResourceDictionary.MergedDictionaries>
 
-            <BitmapImage x:Key="Image1" UriSource="/Assets/Poster1.jpg"/>
+            <BitmapImage x:Key="Image1" UriSource="/Assets/Poster1.png"/>
             <BitmapImage x:Key="Image2" UriSource="/Assets/Poster2.jpg"/>
             <BitmapImage x:Key="Image3" UriSource="/Assets/Poster3.jpg"/>
             <BitmapImage x:Key="Image4" UriSource="/Assets/Poster4.jpg"/>
@@ -60,41 +60,34 @@
                                 Grid.Column="1">
                 <uc:ControlBarUC Height="27" Width="44"></uc:ControlBarUC>
             </StackPanel>
-            <!-- Login & Password -->
+            
+            <!-- Logo -->
+            
             <StackPanel
                 Grid.Column="1"
-                Margin="35">
+                Margin="35,8,35,290">
 
-                <Ellipse
-                    Width="150"
-                    Height="150"
-                    HorizontalAlignment="Center">
-                    <Ellipse.Fill>
+                <Rectangle
+                Width="150"
+                Height="150"
+                HorizontalAlignment="Center">
+                    <Rectangle.Fill>
                         <ImageBrush
-                            Stretch="UniformToFill"
-                            ImageSource="/Assets/uitune.png"
-                            />
-
-                    </Ellipse.Fill>
-                </Ellipse>
+                        Stretch="UniformToFill"
+                        ImageSource="/Assets/uitai.png"/>
+                    </Rectangle.Fill>
+                </Rectangle>
             </StackPanel>
 
             <!-- Login & PassWord-->
-            <materialDesign:PackIcon Kind="AccountCircle" Grid.Column="1" Margin="59,250,0,0" Height="30" Width="41"/>
-            <StackPanel
-                    Grid.Column="1" Margin="100,240,100,0" Height="50" VerticalAlignment="Top">
-                <TextBox
-                        Height="50"
-                        materialDesign:HintAssist.Hint="Username"
-                        AcceptsReturn="True"
-                        IsEnabled="{Binding IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"
-                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                        TextWrapping="Wrap"
-                        VerticalScrollBarVisibility="Auto" />
-            </StackPanel>
 
-            <materialDesign:PackIcon Kind="Lock" Grid.Column="1" Margin="59,305,0,0" Height="30" Width="41"/>
-
+            <PasswordBox
+                Grid.Column="1"
+                Margin="45 300"
+    VerticalAlignment="Top"
+    materialDesign:HintAssist.Hint="Password"
+    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledPasswordBoxEnabledComboBox}"
+    Style="{StaticResource MaterialDesignFilledPasswordBox}" />
 
             <!-- Images Transition -->
             <Image x:Name="posterImage" Stretch="UniformToFill">

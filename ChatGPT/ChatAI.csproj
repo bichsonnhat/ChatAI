@@ -13,12 +13,13 @@
     <None Remove="Assets\chatgpt-icon.png" />
     <None Remove="Assets\chatgpt-icon.svg" />
     <None Remove="Assets\delete.png" />
-    <None Remove="Assets\Poster1.jpg" />
+    <None Remove="Assets\Poster1.png" />
     <None Remove="Assets\Poster2.jpg" />
     <None Remove="Assets\Poster3.jpg" />
     <None Remove="Assets\Poster4.jpg" />
-    <None Remove="Assets\poster5.jpeg" />
-    <None Remove="Assets\uitune.png" />
+    <None Remove="Assets\Poster5.jpeg" />
+    <None Remove="Assets\uit-ai.ico" />
+    <None Remove="Assets\uitai.png" />
     <None Remove="Assets\uitune_logo.ico" />
   </ItemGroup>
 
@@ -38,17 +39,18 @@
 
   <ItemGroup>
     <Resource Include="Assets\bin.png" />
+    <Resource Include="Assets\Poster1.png" />
+    <Resource Include="Assets\Poster2.jpg" />
     <Resource Include="Assets\chatgpt-icon.png" />
     <Resource Include="Assets\chatgpt-icon.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\delete.png" />
-    <Resource Include="Assets\Poster1.jpg" />
-    <Resource Include="Assets\Poster2.jpg" />
     <Resource Include="Assets\Poster3.jpg" />
     <Resource Include="Assets\Poster4.jpg" />
-    <Resource Include="Assets\poster5.jpeg" />
-    <Resource Include="Assets\uitune.png" />
+    <Resource Include="Assets\Poster5.jpeg" />
+    <Resource Include="Assets\uit-ai.ico" />
+    <Resource Include="Assets\uitai.png" />
     <Resource Include="Assets\uitune_logo.ico" />
   </ItemGroup>
 
