@@ -24,6 +24,7 @@
         </Button>
 
         <Button 
+
             Command="{Binding CloseWindowCommand}"
             CommandParameter="{Binding ElementName=ucControlBar}"
             ToolBar.OverflowMode="AsNeeded"
@@ -32,7 +33,7 @@
             BorderBrush="Transparent"
             MouseEnter="Button_MouseEnter_1"
             MouseLeave="Button_MouseLeave_1"
-            materialDesign:ButtonAssist.CornerRadius="0,10,0,0" HorizontalAlignment="Center">
+            >
             <materialDesign:PackIcon Kind="WindowClose"
             Padding="0" VerticalAlignment="Center" />
         </Button>

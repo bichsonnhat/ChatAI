@@ -20,7 +20,6 @@
     <None Remove="Assets\Poster5.jpeg" />
     <None Remove="Assets\uit-ai.ico" />
     <None Remove="Assets\uitai.png" />
-    <None Remove="Assets\uitune_logo.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,7 +50,6 @@
     <Resource Include="Assets\Poster5.jpeg" />
     <Resource Include="Assets\uit-ai.ico" />
     <Resource Include="Assets\uitai.png" />
-    <Resource Include="Assets\uitune_logo.ico" />
   </ItemGroup>
 
 </Project>

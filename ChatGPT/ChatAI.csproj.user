@@ -5,12 +5,21 @@
     <Compile Update="UserControlChatAI\ControlBarUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ResourceXAML\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UserControlChatAI\ControlBarUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Login.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LoginWindow.xaml">

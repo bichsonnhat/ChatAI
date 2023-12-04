@@ -26,7 +26,7 @@ namespace ChatAI
     /// </summary>
     public partial class MainWindow : IWindow
     {
-        public MainViewModel ViewModel { get; }
+        public MainViewModel ViewModel { get; set; }
         public MainWindow(MainViewModel viewModel, INavigationService navigationService,
             IServiceProvider serviceProvider, ISnackbarService snackbarService,
             IDialogService dialogService)
@@ -39,6 +39,21 @@ namespace ChatAI
             InitializeComponent();
             RootDialog.Content = RootDialog.ContentTemplate.LoadContent();
             dialogService.SetDialogControl(RootDialog);
+        }
+
+
+        private void DeleteChat(object sender, RoutedEventArgs e)
+        {
+            // Access the selected chat
+            var selectedChat = ViewModel.SelectedChat;
+            // Delete the selected chat
+            ViewModel.DeleteChat(selectedChat);
+            //ViewModel.NewChat();
+        }
+
+        private void AddChat(object sender, RoutedEventArgs e)
+        {
+            ViewModel.NewChat();
         }
     }
 }

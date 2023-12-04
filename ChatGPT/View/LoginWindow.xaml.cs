@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Diagnostics;
+using System.Windows.Navigation;
 
 
 namespace ChatAI.View
@@ -24,5 +26,6 @@ namespace ChatAI.View
         {
             InitializeComponent();
         }
+
     }
 }

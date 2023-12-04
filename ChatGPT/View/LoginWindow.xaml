@@ -41,53 +41,78 @@
                 <ColumnDefinition Width="350"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label 
-                   Grid.Column="1"
-                   FontFamily="junegull"
-                   FontSize="35"
-                   FontWeight="UltraBlack"
-                   Foreground="#2877f7"
-                   Content="Welcome Back!"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   Height="50"
-                   Margin="0,-25,0,0">
-            </Label>
-            <StackPanel Orientation="Horizontal"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Right"
-                                Grid.Row="0"
-                                Grid.Column="1">
-                <uc:ControlBarUC Height="27" Width="44"></uc:ControlBarUC>
-            </StackPanel>
-            
+
             <!-- Logo -->
-            
+
             <StackPanel
                 Grid.Column="1"
                 Margin="35,8,35,290">
 
-                <Rectangle
-                Width="150"
-                Height="150"
-                HorizontalAlignment="Center">
-                    <Rectangle.Fill>
-                        <ImageBrush
-                        Stretch="UniformToFill"
-                        ImageSource="/Assets/uitai.png"/>
-                    </Rectangle.Fill>
-                </Rectangle>
+                <Border Width="150" Height="150" BorderBrush="White" BorderThickness="2" CornerRadius="75">
+                    <Rectangle Margin="-57,16,-53,-16">
+                        <Rectangle.Fill>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/uitai.png"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Border>
             </StackPanel>
 
             <!-- Login & PassWord-->
-
-            <PasswordBox
-                Grid.Column="1"
-                Margin="45 300"
-    VerticalAlignment="Top"
-    materialDesign:HintAssist.Hint="Password"
-    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledPasswordBoxEnabledComboBox}"
-    Style="{StaticResource MaterialDesignFilledPasswordBox}" />
+            <Grid
+                Grid.Column="1" Margin="0,-3,0,3">
+                <materialDesign:Card Width="350" Height="196" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,169,0,0"
+                                     UniformCornerRadius="8">
+                    <Grid>
+                        <Grid.Resources>
+                            <Style TargetType="Grid">
+                                <Setter Property="Margin" Value="15 15 15 0"></Setter>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <materialDesign:PackIcon Kind="AccountKey" Height="29" Width="29" Grid.Row="1" Margin="0,15,0,0" />
+                        <Label 
+                           FontFamily="junegull"
+                           FontSize="35"
+                           FontWeight="UltraBlack"
+                           Foreground="#2877f7"
+                           Content="Welcome Back!"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Height="40" Width="264"/>
+                        <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Right"
+                        >
+                        </StackPanel>
+                        <Grid Grid.Row="1" Margin="28,23,0,50" Grid.RowSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="75*"/>
+                                <ColumnDefinition Width="71*"/>
+                            </Grid.ColumnDefinitions>
+                            <ui:PasswordBox
+                                materialDesign:HintAssist.Hint="Enter Key"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,-23,-30,28" Grid.ColumnSpan="2"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Margin="15,23,-6,5" Grid.RowSpan="2">
+                            <Grid
+                                  Width="124">
+                                <Button
+                                    Margin="-13,15,15,31"
+                                    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                                    materialDesign:ButtonProgressAssist.Value="-1"
+                                    Content="Login"
+                                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                    Style="{StaticResource MaterialDesignRaisedButton}" RenderTransformOrigin="0.511,0.969" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </materialDesign:Card>
+            </Grid>
 
             <!-- Images Transition -->
             <Image x:Name="posterImage" Stretch="UniformToFill">

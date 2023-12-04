@@ -25,7 +25,7 @@ namespace ChatAI
         private readonly IServiceProvider _serviceProvider;
 
         [ObservableProperty]
-        private string _applicationTitle = "ChatGPT-UI"; // Rename Application Here
+        private string _applicationTitle = "ChatGPT - UIT"; // Rename Application Here
 
         [ObservableProperty]
         private ChatMessageViewModel _prompt = new ChatMessageViewModel();
@@ -34,7 +34,7 @@ namespace ChatAI
         private ObservableCollection<ChatViewModel> _chatList;
 
         [ObservableProperty]
-        private ChatViewModel _selectedChat;
+        public ChatViewModel _selectedChat;
 
         [ObservableProperty]
         private ObservableCollection<ChatMessageViewModel> _chatMessageList;
@@ -110,7 +110,7 @@ namespace ChatAI
             return chatMessages.ToArray();
         }
 
-        private void NewChat()
+        public void NewChat()
         {
             var newChat = new ChatViewModel
             {
@@ -200,6 +200,7 @@ namespace ChatAI
                 IsSent = false,
             };
             resultMessage.Send = this.Send;
+            resultMessage.Time = DateTime.Now;
             await chatService.GetResponseDataAsync(chatServiceSettings,
                 (responseStr) => 
                 {
@@ -211,7 +212,6 @@ namespace ChatAI
                     {
                         resultMessage.IsSent = true;
                         resultMessage.IsUser = false;
-                        resultMessage.Time = DateTime.Now;
                         resultMessage.Prompt = prompt;
                         resultMessage.ParentId = promptMessage.Id;
                     }
@@ -226,11 +226,18 @@ namespace ChatAI
                     lastMessage = resultMessage;
                     first = false;
                 });
+            if (SelectedChat != null)
+            {
+                if (SelectedChat.Name == "New Chat")
+                {
+                    SelectedChat.Name = resultMessage.Message; // Replace this with the desired new name
+                }
+            }
             //set resultMessage to current
             CurrentChatMessage = lastMessage;
             //set resultMessage to promptMessage's result
             promptMessage.Result = lastMessage;
-            await Save(SelectedChat, ChatMessageList);
+            Save(SelectedChat, ChatMessageList);
             IsEnabled = true;
         }
 
@@ -375,8 +382,13 @@ namespace ChatAI
             rootDialog.Show();
         }
 
-        private void DeleteChat(ChatViewModel chatViewModel)
+        public void DeleteChat(ChatViewModel chatViewModel)
         {
+            if (chatViewModel.Name == "New Chat")
+            {
+                MessageBox.Show("Can not delete empty chat, you need chat something before delete!", "Delete Chat");
+                return;
+            }
             if (chatViewModel != null)
             {
                 // Remove the chat from ChatList

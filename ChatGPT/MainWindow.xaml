@@ -8,6 +8,7 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:mdxam="clr-namespace:MdXaml;assembly=MdXaml"
         xmlns:model="clr-namespace:ChatAI.Model"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="{Binding ViewModel.ApplicationTitle, Mode=OneWay}"
         Height="600"
@@ -220,24 +221,10 @@
                             <DataTemplate>
                                 <Grid>
                                     <!-- Add other controls as needed -->
-
-                                    <!-- Delete Button -->
-                                    <Button Content="Delete" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" 
-                        CommandParameter="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0"/>
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-
-                    <Button Grid.Column="2" Command="{Binding DataContext.DeleteChatCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-        CommandParameter="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="120,0,0,0"
-        Width="50" Height="50">
-
-                        <!-- Use your image source here -->
-                        <Image Source="/Assets/delete.png" Width="20" Height="20" HorizontalAlignment="Center"/>
-
-                    </Button>
-
                 </Grid>
             </Border>
             <DataTemplate.Triggers>
@@ -251,8 +238,10 @@
         <DataTemplate x:Key="MessagesDataTemplate">
             <Border Name="MessageBorder" MinHeight="40" MinWidth="280" BorderThickness="1" Background="{DynamicResource ControlFillColorDefaultBrush}" 
                     Margin="10,0,60,10" BorderBrush="{DynamicResource ControlElevationBorderBrush}" CornerRadius="4" SnapsToDevicePixels="True"
-                    HorizontalAlignment="Left">
+                    HorizontalAlignment="Left"
+                    >
                 <Grid>
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition />
@@ -345,6 +334,7 @@
                          SelectedItem="{Binding ViewModel.SelectedChat}"                     
                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                          ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+
                 </Border>
 
                 <!--Messages-->
@@ -358,9 +348,10 @@
                                 <ItemsPresenter/>
                             </ScrollViewer>
                         </ControlTemplate>
+
                     </ItemsControl.Template>
                 </ItemsControl>
-                
+
                 <Border Grid.Row="1" Grid.Column="1" SnapsToDevicePixels="True"
                         BorderBrush="{DynamicResource ControlElevationBorderBrush}">
                     <Grid DataContext="{Binding ViewModel.Prompt}">
@@ -377,6 +368,9 @@
                                      Background="{DynamicResource ControlFillColorDefaultBrush}"
                                      Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                      Text="{Binding Prompt, UpdateSourceTrigger=PropertyChanged}">
+                            <TextBox.InputBindings>
+                                <KeyBinding Command="{Binding Path=SendCommand}" Key="Enter" />
+                            </TextBox.InputBindings>
                         </TextBox>
                         <Button x:Name="send" Grid.Column="1" Margin="10"
                                 Style="{DynamicResource SendButtonStyle}"
@@ -385,7 +379,7 @@
                 </Border>
             </Grid>
         </Grid>
-        
+
         <ui:Dialog
             x:Name="RootDialog"
             DialogHeight="260"
@@ -394,10 +388,37 @@
             Grid.Row="0"
             Grid.RowSpan="2"
             Padding="0,42,0,0" />
-        
+
         <ui:TitleBar
             Title="{Binding ViewModel.ApplicationTitle}"
             Grid.Row="0"
             Icon="pack://application:,,,/Assets/chatgpt-icon.png" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <!-- Add Button -->
+            <Button Grid.Column="1"
+                            Click="AddChat"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                            Style="{StaticResource MaterialDesignIconButton}"
+                            ToolTip="Add New Chat" Margin="180,2,458,1"
+                            HorizontalAlignment="Left">
+                <materialDesign:PackIcon Kind="ChatPlus" />
+            </Button>
+
+            <!-- Delete Button -->
+            <Button Grid.Column="1"
+                            Margin="130,2,458,1"
+                            Click="DeleteChat"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                            Style="{StaticResource MaterialDesignIconButton}"
+                            ToolTip="Delete Chat"
+                            HorizontalAlignment="Left">
+                <materialDesign:PackIcon Kind="DeleteCircle" />
+            </Button>
+        </Grid>
     </Grid>
 </ui:FluentWindow>
