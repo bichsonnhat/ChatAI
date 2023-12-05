@@ -1,4 +1,5 @@
 ﻿using ChatAI.Model;
+using ChatAI.View;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using LiteDB;
@@ -52,6 +53,8 @@ namespace ChatAI
 
         public MainViewModel(IServiceProvider serviceProvider, IDialogService dialogService) 
         {
+            //LoginWindow loginWindow = new LoginWindow();
+            //loginWindow.ShowDialog();
             _serviceProvider = serviceProvider;
             _dialogService = dialogService;
             ChatList = new ObservableCollection<ChatViewModel>();
@@ -59,7 +62,6 @@ namespace ChatAI
             LoadHistory();
             LoadConfig();
             NewChat();
-            //DeleteChat(SelectedChat);
             this.PropertyChanged += MainViewModel_PropertyChanged;
             this.MainViewModel_PropertyChanged(null, new PropertyChangedEventArgs(nameof(SelectedChat)));
         }

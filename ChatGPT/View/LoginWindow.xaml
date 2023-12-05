@@ -94,6 +94,7 @@
                                 <ColumnDefinition Width="71*"/>
                             </Grid.ColumnDefinitions>
                             <ui:PasswordBox
+                                x:Name="passwordBox"
                                 materialDesign:HintAssist.Hint="Enter Key"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,-23,-30,28" Grid.ColumnSpan="2"/>
                         </Grid>
@@ -106,6 +107,7 @@
                                     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
                                     materialDesign:ButtonProgressAssist.Value="-1"
                                     Content="Login"
+                                    Click="Login"
                                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                     Style="{StaticResource MaterialDesignRaisedButton}" RenderTransformOrigin="0.511,0.969" />
                             </Grid>

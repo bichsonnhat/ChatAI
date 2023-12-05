@@ -13,7 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Windows.Navigation;
-
+using System.Data.SqlClient;
+using System.Data;
 
 namespace ChatAI.View
 {
@@ -25,6 +26,42 @@ namespace ChatAI.View
         public LoginWindow()
         {
             InitializeComponent();
+        }
+        SqlConnection conn = new SqlConnection(@"Data Source=NHATBS;Initial Catalog=LoginChat;Integrated Security=True");
+        private void Login(object sender, RoutedEventArgs e)
+        {
+           string enteredPassword = passwordBox.Password;
+           if (string.IsNullOrEmpty(enteredPassword) ) {
+                MessageBox.Show("Please enter your key", "Login Unsucessful", MessageBoxButton.OK, MessageBoxImage.Information);
+           } else
+           {
+                try
+                {
+                    string query = "SELECT * FROM Login WHERE [key] = @EnteredPassword";
+                    SqlCommand com = new SqlCommand(query, conn);
+                    com.Parameters.AddWithValue("@EnteredPassword", enteredPassword);
+
+                    using (SqlDataAdapter sda = new SqlDataAdapter(com))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        if (dt.Rows.Count > 0)
+                        {
+                            MessageBox.Show("Login successful", "ChatGPT-UIT", MessageBoxButton.OK, MessageBoxImage.Information);
+                            Close();
+                            //Environment.Exit(0);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Oops! You pressed the wrong key! Try again!", "Login Unsucessful", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Error", "Login Unsucessful", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+           }
         }
 
     }

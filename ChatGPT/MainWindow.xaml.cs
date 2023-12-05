@@ -18,6 +18,7 @@ using static System.Net.Mime.MediaTypeNames;
 using OpenAI;
 using Wpf.Ui.Contracts;
 using System.Windows.Forms;
+using ChatAI.View;
 
 namespace ChatAI
 {
@@ -35,6 +36,8 @@ namespace ChatAI
 
             ViewModel = viewModel;
             DataContext = this;
+            LoginWindow login = new LoginWindow();
+            login.ShowDialog();
 
             InitializeComponent();
             RootDialog.Content = RootDialog.ContentTemplate.LoadContent();
