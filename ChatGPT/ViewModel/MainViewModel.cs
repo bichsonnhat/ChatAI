@@ -68,9 +68,35 @@ namespace ChatAI
         {
             if(e.PropertyName == nameof(SelectedChat))
             {
-                if(SelectedChat.ChatMessageList != null)
+                if (SelectedChat.ChatMessageList != null)
                 {
-                    ChatMessageList = new ObservableCollection<ChatMessageViewModel>(SelectedChat.ChatMessageList);
+                    //ChatMessageList = new ObservableCollection<ChatMessageViewModel>(SelectedChat.ChatMessageList);
+                    using (var db = new LiteDatabase(@".\store.db"))
+                    {
+                        var chats = db.GetCollection<ChatDo>("chat");
+                        ChatDo chatDo = chats.FindById(SelectedChat.Id);
+                        if (chatDo != null)
+                        {
+                            var allMessages = chatDo.messages.Select(p =>
+                                new ChatMessageViewModel
+                                {
+                                    Id = p.id,
+                                    IsUser = p.isUser,
+                                    Message = p.message,
+                                    Time = p.time,
+                                    ParentId = p.parentId
+                                }
+                            );
+                            foreach (var message in allMessages)
+                            {
+                                if (message.IsUser)
+                                {
+                                    message.Result = allMessages.FirstOrDefault(p => p.ParentId == message.Id);
+                                }
+                            }
+                            ChatMessageList = new ObservableCollection<ChatMessageViewModel>(allMessages.OrderBy(p => p.Time).ToList());
+                        }
+                    }
                 }
                 else
                 {
