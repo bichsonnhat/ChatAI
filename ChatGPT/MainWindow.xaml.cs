@@ -38,6 +38,10 @@ namespace ChatAI
             DataContext = this;
             LoginWindow login = new LoginWindow();
             login.ShowDialog();
+            if (login.IsLogin == false)
+            {
+                Environment.Exit(0);
+            }
 
             InitializeComponent();
             RootDialog.Content = RootDialog.ContentTemplate.LoadContent();

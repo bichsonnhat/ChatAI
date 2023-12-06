@@ -53,8 +53,6 @@ namespace ChatAI
 
         public MainViewModel(IServiceProvider serviceProvider, IDialogService dialogService) 
         {
-            //LoginWindow loginWindow = new LoginWindow();
-            //loginWindow.ShowDialog();
             _serviceProvider = serviceProvider;
             _dialogService = dialogService;
             ChatList = new ObservableCollection<ChatViewModel>();

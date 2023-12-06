@@ -23,7 +23,8 @@
         WindowBackdropType="Mica"
         WindowCornerPreference="Default"
         WindowStartupLocation="CenterScreen"
-        WindowStyle="None">
+        WindowStyle="None"
+        Icon="/Assets/logo.ico">
     <ui:FluentWindow.Resources>
         <Style x:Key="SendButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="Transparent"/>
@@ -392,7 +393,7 @@
         <ui:TitleBar
             Title="{Binding ViewModel.ApplicationTitle}"
             Grid.Row="0"
-            Icon="pack://application:,,,/Assets/chatgpt-icon.png" />
+            Icon="pack://application:,,,/Assets/uitai (2).png" />
 
         <Grid>
             <Grid.ColumnDefinitions>

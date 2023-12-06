@@ -23,16 +23,18 @@ namespace ChatAI.View
     /// </summary>
     public partial class LoginWindow : Window
     {
+        public bool IsLogin { get; private set; } = false;
         public LoginWindow()
         {
             InitializeComponent();
         }
         SqlConnection conn = new SqlConnection(@"Data Source=NHATBS;Initial Catalog=LoginChat;Integrated Security=True");
+        bool isLogin = false;
         private void Login(object sender, RoutedEventArgs e)
         {
            string enteredPassword = passwordBox.Password;
            if (string.IsNullOrEmpty(enteredPassword) ) {
-                MessageBox.Show("Please enter your key", "Login Unsucessful", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Please enter your key", "Login Unsucessful", MessageBoxButton.OK, MessageBoxImage.Warning);
            } else
            {
                 try
@@ -47,6 +49,7 @@ namespace ChatAI.View
                         sda.Fill(dt);
                         if (dt.Rows.Count > 0)
                         {
+                            IsLogin = true;
                             MessageBox.Show("Login successful", "ChatGPT-UIT", MessageBoxButton.OK, MessageBoxImage.Information);
                             Close();
                             //Environment.Exit(0);

@@ -7,24 +7,24 @@
              mc:Ignorable="d" 
              Name="ucControlBar"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             Background="Transparent">
+             Background="Transparent"
+             >
     <Grid>
         <Button
             Command="{Binding MinimizeWindowCommand}"
             CommandParameter="{Binding ElementName=ucControlBar}"
             ToolBar.OverflowMode="AsNeeded"
-            Margin="-39,0,0,0"
+            Margin="-38,0,0,0"
             BorderThickness="0"
             Background="Transparent"
             Foreground="Black"
             BorderBrush="Transparent"
             MouseEnter="Button_MouseEnter"
             MouseLeave="Button_MouseLeave">
-            <materialDesign:PackIcon Kind="WindowMinimize" VerticalAlignment="Center" />
+            <materialDesign:PackIcon Kind="WindowMinimize" />
         </Button>
 
         <Button 
-
             Command="{Binding CloseWindowCommand}"
             CommandParameter="{Binding ElementName=ucControlBar}"
             ToolBar.OverflowMode="AsNeeded"
@@ -33,9 +33,9 @@
             BorderBrush="Transparent"
             MouseEnter="Button_MouseEnter_1"
             MouseLeave="Button_MouseLeave_1"
-            >
+            materialDesign:ButtonAssist.CornerRadius="0,10,0,0" Margin="2,-1,-2,1">
             <materialDesign:PackIcon Kind="WindowClose"
-            Padding="0" VerticalAlignment="Center" />
+            Padding="0" />
         </Button>
     </Grid>
 </UserControl>

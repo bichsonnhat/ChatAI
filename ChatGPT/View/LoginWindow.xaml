@@ -19,7 +19,7 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         AllowsTransparency="True"
-        Icon="/Assets/uit-ai.ico"
+        Icon="/Assets/logo.ico"
         WindowStartupLocation="CenterScreen"
         >
     <Window.Resources>
@@ -41,7 +41,6 @@
                 <ColumnDefinition Width="350"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
             <!-- Logo -->
 
             <StackPanel
@@ -56,7 +55,16 @@
                     </Rectangle>
                 </Border>
             </StackPanel>
-
+            
+            <!--Control Bar -->
+            <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Right"
+                                Grid.Row="0"
+                                Grid.Column="1">
+                <uc:ControlBarUC></uc:ControlBarUC>
+            </StackPanel>
+            
             <!-- Login & PassWord-->
             <Grid
                 Grid.Column="1" Margin="0,-3,0,3">
@@ -108,6 +116,7 @@
                                     materialDesign:ButtonProgressAssist.Value="-1"
                                     Content="Login"
                                     Click="Login"
+                                    IsDefault="True"
                                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                     Style="{StaticResource MaterialDesignRaisedButton}" RenderTransformOrigin="0.511,0.969" />
                             </Grid>

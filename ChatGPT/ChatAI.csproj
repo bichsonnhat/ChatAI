@@ -13,12 +13,14 @@
     <None Remove="Assets\chatgpt-icon.png" />
     <None Remove="Assets\chatgpt-icon.svg" />
     <None Remove="Assets\delete.png" />
+    <None Remove="Assets\logo.ico" />
     <None Remove="Assets\Poster1.png" />
     <None Remove="Assets\Poster2.jpg" />
     <None Remove="Assets\Poster3.jpg" />
     <None Remove="Assets\Poster4.jpg" />
     <None Remove="Assets\Poster5.jpeg" />
     <None Remove="Assets\uit-ai.ico" />
+    <None Remove="Assets\uitai %282%29.png" />
     <None Remove="Assets\uitai.png" />
   </ItemGroup>
 
@@ -39,6 +41,7 @@
 
   <ItemGroup>
     <Resource Include="Assets\bin.png" />
+    <Resource Include="Assets\logo.ico" />
     <Resource Include="Assets\Poster1.png" />
     <Resource Include="Assets\Poster2.jpg" />
     <Resource Include="Assets\chatgpt-icon.png" />
@@ -50,6 +53,7 @@
     <Resource Include="Assets\Poster4.jpg" />
     <Resource Include="Assets\Poster5.jpeg" />
     <Resource Include="Assets\uit-ai.ico" />
+    <Resource Include="Assets\uitai (2).png" />
     <Resource Include="Assets\uitai.png" />
   </ItemGroup>
 
