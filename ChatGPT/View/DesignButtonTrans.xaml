@@ -1,0 +1,30 @@
+﻿<Window x:Class="ChatWpfUI.View.DesignButtonTrans"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatWpfUI.View"
+        Title="DesignButtonTrans"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        mc:Ignorable="d" d:DesignWidth="70" d:DesignHeight="35"
+		Width="70"
+	    Height="35"
+        Background="Transparent"
+		Deactivated="Window_Deactivated"
+        AllowsTransparency="True"
+        WindowStyle="None">
+
+    <Border BorderThickness="2" CornerRadius="15" Background="#3498db" Margin="0,0,-3,-2">
+        <Grid>
+            <Button
+                Click="Button_Click"
+                Content="Trans"
+                materialDesign:ButtonAssist.CornerRadius="15"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Translate to Vietnamese">
+            </Button>
+        </Grid>
+    </Border>
+</Window>

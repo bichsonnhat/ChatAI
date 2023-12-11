@@ -395,6 +395,7 @@
             Grid.Row="0"
             Icon="pack://application:,,,/Assets/uitai (2).png" />
 
+        <TextBox x:Name="TestTrans" Grid.Row="1"></TextBox>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
