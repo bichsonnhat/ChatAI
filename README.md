@@ -53,7 +53,7 @@ Trong thời đại công nghệ phát triển mạnh mẽ, nhu cầu học ngo�
 
 ### 2. Công nghệ
 * Hệ thống API: WPF - Mô hình MVVM, ChatGPT
-* IDE: Visual Studio 2019
+* IDE: Visual Studio 2022
 * Database: SQL Server
 * Công cụ quản lý: Git, GitHub
 
