@@ -22,6 +22,8 @@ using ChatAI.View;
 using SharpHook;
 using SharpHook.Native;
 using ChatWpfUI.View;
+using LiteDB;
+using System.ComponentModel;
 
 namespace ChatAI
 {
@@ -31,6 +33,12 @@ namespace ChatAI
         public static string transText = string.Empty;
         public static string langSecond = "vi";
     }
+}
+
+public class ComboBoxItemModel
+{
+    public ObjectId Id { get; set; }
+    public string Content { get; set; }
 }
 
 namespace ChatAI
@@ -69,6 +77,17 @@ namespace ChatAI
             hook.RunAsync();
             RootDialog.Content = RootDialog.ContentTemplate.LoadContent();
             dialogService.SetDialogControl(RootDialog);
+            using (var db = new LiteDatabase(@".\store.db"))
+            {
+                List<ComboBoxItemModel> items;
+                var comboBoxItems = db.GetCollection<ComboBoxItemModel>("ComboBoxItems");
+                items = comboBoxItems.FindAll().ToList();
+                foreach (var item in items)
+                {
+                    Topic.Items.Add(item.Content);
+                }
+
+            }
         }
         public void OnMouseRelease(object sender, MouseHookEventArgs e)
         {
@@ -91,7 +110,7 @@ namespace ChatAI
                 string text = System.Windows.Clipboard.GetText();
 
                 // Nếu text ko có giá trị hoặc trùng giá trị trước đó thì ko làm gì
-                if (text is null || text == " " || text == currentText)
+                if (String.IsNullOrWhiteSpace(text) || text == currentText)
                 {
                     //await Clipboard.SetTextAsync(temp);
                     return;
@@ -100,7 +119,7 @@ namespace ChatAI
                 // gán text cho transText để đưa đi dịch
                 ShareData.transText = text;
                 // Mở popup window tại vị trí con chuột đang đứng
-                TestTrans.Text = text;
+                //TestTrans.Text = text;
 
                 DesignButtonTrans designButtonTrans = new DesignButtonTrans();
                 designButtonTrans.Left = e.Data.X;
@@ -128,6 +147,80 @@ namespace ChatAI
         private void AddChat(object sender, RoutedEventArgs e)
         {
             ViewModel.NewChat();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            String getTopic = AddTopic.Text;
+            if (String.IsNullOrWhiteSpace(getTopic))
+            {
+                System.Windows.MessageBox.Show("Please fill topic box!", "Notification",  MessageBoxButton.OK, MessageBoxImage.Warning);
+            } else
+            {
+                using (var db = new LiteDatabase(@".\store.db"))
+                {
+                    ComboBoxItem newItem = new ComboBoxItem();
+                    newItem.Content = getTopic;
+                    Topic.Items.Add(newItem);
+                    var comboBoxItems = db.GetCollection<ComboBoxItemModel>("ComboBoxItems");
+                    // Insert the new item into the LiteDB collection
+                    var newItemModel = new ComboBoxItemModel
+                    {
+                        Content = getTopic
+                    };
+                    comboBoxItems.Insert(newItemModel);
+                }
+                System.Windows.MessageBox.Show("Add your topic successful", "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            ViewModel.IsAdvance = true;
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ViewModel.isAdvance = false;
+        }
+
+        private void SkillChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBox = sender as System.Windows.Controls.ComboBox;
+            if (comboBox.SelectedItem != null)
+            {
+                ViewModel.getSkill = comboBox.SelectedItem.ToString().Remove(0, 38);
+            }
+            else
+            {
+                ViewModel.getSkill = "";
+            }
+        }
+
+        private void BandChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBox = sender as System.Windows.Controls.ComboBox;
+            if (comboBox.SelectedItem != null)
+            {
+                ViewModel.getBand = comboBox.SelectedItem.ToString().Remove(0, 38);
+            }
+            else
+            {
+                ViewModel.getBand = "";
+            }
+        }
+
+        private void TopicChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBox = sender as System.Windows.Controls.ComboBox;
+            if (comboBox.SelectedItem != null)
+            {
+                ViewModel.getTopic = comboBox.SelectedItem.ToString().Remove(0, 38);
+            }
+            else
+            {
+                ViewModel.getTopic = "";
+            }
         }
     }
 }

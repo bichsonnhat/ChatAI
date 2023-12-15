@@ -11,12 +11,12 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="{Binding ViewModel.ApplicationTitle, Mode=OneWay}"
-        Height="600"
-        Width="800"
+        Height="700"
+        Width="1090"
         d:DataContext="{d:DesignInstance local:MainWindow,
                                          IsDesignTimeCreatable=False}"
         d:DesignHeight="400"
-        d:DesignWidth="600"
+        d:DesignWidth="1090"
         ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
         ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
         ExtendsContentIntoTitleBar="True"
@@ -215,7 +215,7 @@
                     <!--Name-->
                     <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left"
                                Margin="5,0" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"
-                               Text="{Binding Name}" SnapsToDevicePixels="True"/>
+                               Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" SnapsToDevicePixels="True"/>
                     <!-- Button -->
                     <ListBox ItemsSource="{Binding ChatList}" SelectedItem="{Binding SelectedChat}" Grid.Column="0">
                         <ListBox.ItemTemplate>
@@ -335,7 +335,6 @@
                          SelectedItem="{Binding ViewModel.SelectedChat}"                     
                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                          ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-
                 </Border>
 
                 <!--Messages-->
@@ -392,10 +391,7 @@
 
         <ui:TitleBar
             Title="{Binding ViewModel.ApplicationTitle}"
-            Grid.Row="0"
-            Icon="pack://application:,,,/Assets/uitai (2).png" />
-
-        <TextBox x:Name="TestTrans" Grid.Row="1"></TextBox>
+            Icon="pack://application:,,,/Assets/uitai (2).png" Height="55" VerticalAlignment="Center" />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -419,8 +415,150 @@
                             Style="{StaticResource MaterialDesignIconButton}"
                             ToolTip="Delete Chat"
                             HorizontalAlignment="Left">
-                <materialDesign:PackIcon Kind="DeleteCircle" />
+                <materialDesign:PackIcon Kind="DeleteCircle" HorizontalAlignment="Center" />
             </Button>
+
+            <ComboBox
+                  SelectedItem="{Binding getSkill, Mode=TwoWay}"
+                  Name="Skill"
+                  SelectionChanged="SkillChanged"
+                  HorizontalAlignment="Left"
+                  MinWidth="80"
+                  materialDesign:ColorZoneAssist.Mode="PrimaryDark"
+                  materialDesign:HintAssist.HelperText="Select your skill"
+                  materialDesign:HintAssist.Hint="Skills"
+                  materialDesign:TextFieldAssist.HasClearButton="True"
+                  materialDesign:TextFieldAssist.SuffixText=""
+                  materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueLightBrush}"
+                  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Grid.ColumnSpan="2" Margin="650,-4,0,0" VerticalAlignment="Top" Width="100">
+                <ComboBoxItem Content="Reading" />
+                <ComboBoxItem Content="Listening" />
+                <ComboBoxItem Content="Writing" />
+                <ComboBoxItem Content="Speaking" />
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Text="{Binding Content}" IsEnabled="False" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Grid
+  Grid.Column="1" Margin="674,12,250,9">
+                <Button
+                    HorizontalAlignment="Left"
+    Margin="-270,0,0,2"
+    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+    materialDesign:ButtonProgressAssist.Value="-1"
+    Content="Add"
+    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+    Style="{StaticResource MaterialDesignOutlinedButton}" Click="Button_Click" />
+            </Grid>
+            <ComboBox
+                  SelectedItem="{Binding getTopic, Mode=TwoWay}"
+                  Name="Topic"
+                  SelectionChanged="TopicChanged"
+                  HorizontalAlignment="Left"
+                  MinWidth="80"
+                  materialDesign:ColorZoneAssist.Mode="PrimaryDark"
+                  materialDesign:HintAssist.HelperText="Select your topic"
+                  materialDesign:HintAssist.Hint="Topic"
+                  materialDesign:TextFieldAssist.HasClearButton="True"
+                  materialDesign:TextFieldAssist.SuffixText=""
+                  materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueLightBrush}"
+                  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="475,-4,0,0" VerticalAlignment="Top" Width="156" Grid.Column="1">
+                <ComboBoxItem Content="Football" />
+                <ComboBoxItem Content="Sustainable Energy" />
+                <ComboBoxItem Content="Global Warming" />
+                <ComboBoxItem Content="Artificial Intelligence" />
+                <ComboBoxItem Content="Space Exploration" />
+                <ComboBoxItem Content="Cultural Diversity" />
+                <ComboBoxItem Content="Mental Health Awareness" />
+                <ComboBoxItem Content="Gender Equality" />
+                <ComboBoxItem Content="Social Media Influence" />
+                <ComboBoxItem Content="Online Education" />
+                <ComboBoxItem Content="Climate Change" />
+                <ComboBoxItem Content="Renewable Resources" />
+                <ComboBoxItem Content="Wildlife Conservation" />
+                <ComboBoxItem Content="Healthy Lifestyle" />
+                <ComboBoxItem Content="Cybersecurity" />
+                <ComboBoxItem Content="E-commerce" />
+                <ComboBoxItem Content="Cultural Heritage" />
+                <ComboBoxItem Content="Plastic Pollution" />
+                <ComboBoxItem Content="Sustainable Agriculture" />
+                <ComboBoxItem Content="Digital Innovation" />
+                <ComboBoxItem Content="Urbanization" />
+                <ComboBoxItem Content="Entrepreneurship" />
+                <ComboBoxItem Content="Water Scarcity" />
+                <ComboBoxItem Content="Mental Well-being" />
+                <ComboBoxItem Content="Robotics" />
+                <ComboBoxItem Content="Deforestation" />
+                <ComboBoxItem Content="Genetic Engineering" />
+                <ComboBoxItem Content="Cultural Exchange Programs" />
+                <ComboBoxItem Content="Travel and Tourism" />
+                <ComboBoxItem Content="Artificial Reality (AR) and Virtual Reality (VR)" />
+                <ComboBoxItem Content="Sustainable Fashion" />
+                <ComboBoxItem Content="Smart Cities" />
+                <ComboBoxItem Content="Ocean Conservation" />
+                <ComboBoxItem Content="Nuclear Energy" />
+                <ComboBoxItem Content="Social Justice" />
+                <ComboBoxItem Content="Internet Privacy" />
+                <ComboBoxItem Content="Food Security" />
+                <ComboBoxItem Content="Autonomous Vehicles" />
+                <ComboBoxItem Content="Genetic Diversity" />
+                <ComboBoxItem Content="Classical Arts and Literature" />
+                <ComboBoxItem Content="Medical Breakthroughs" />
+                <ComboBoxItem Content="Job Automation" />
+                <ComboBoxItem Content="Sustainable Transportation" />
+                <ComboBoxItem Content="Cultural Festivals" />
+                <ComboBoxItem Content="Antibiotic Resistance" />
+                <ComboBoxItem Content="Social Networking" />
+                <ComboBoxItem Content="Indigenous Rights" />
+                <ComboBoxItem Content="Educational Technology" />
+                <ComboBoxItem Content="Future of Work" />
+                <ComboBoxItem Content="Wildlife Trafficking" />
+            </ComboBox>
+            <TextBox
+                  Name="AddTopic"
+                  HorizontalAlignment="Left"
+                  MinWidth="80"
+                  materialDesign:HintAssist.Hint="Add your topic"
+                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Margin="233,1,0,9" Width="160" />
+
+            <ComboBox
+                  SelectedItem="{Binding getBand, Mode=TwoWay}"
+                  SelectionChanged="BandChanged"
+                  Name="Band"
+                  HorizontalAlignment="Left"
+                  MinWidth="80"
+                  materialDesign:ColorZoneAssist.Mode="PrimaryDark"
+                  materialDesign:HintAssist.HelperText="Select your band"
+                  materialDesign:HintAssist.Hint="Band"
+                  materialDesign:TextFieldAssist.HasClearButton="True"
+                  materialDesign:TextFieldAssist.SuffixText=""
+                  materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueLightBrush}"
+                  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="768,-4,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
+                <ComboBoxItem Content="3.0" />
+                <ComboBoxItem Content="3.5" />
+                <ComboBoxItem Content="4.0" />
+                <ComboBoxItem Content="4.5" />
+                <ComboBoxItem Content="5.0" />
+                <ComboBoxItem Content="5.5" />
+                <ComboBoxItem Content="6.0" />
+                <ComboBoxItem Content="6.5" />
+                <ComboBoxItem Content="7.0" />
+                <ComboBoxItem Content="7.5" />
+                <ComboBoxItem Content="8.0" />
+                <ComboBoxItem Content="8.5" />
+                <ComboBoxItem Content="9.0" />
+            </ComboBox>
+            <CheckBox
+                Content="Advance"
+                IsChecked="{Binding isAdvance, Mode = OneWay}"
+                Style="{StaticResource MaterialDesignFilterChipPrimaryCheckBox}" Grid.Column="1" Margin="873,5,0,18" 
+                Checked="CheckBox_Checked" 
+                Unchecked="CheckBox_Unchecked"/>
         </Grid>
     </Grid>
 </ui:FluentWindow>

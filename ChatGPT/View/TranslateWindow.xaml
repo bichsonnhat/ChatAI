@@ -14,7 +14,14 @@
         WindowStyle="None"
         AllowsTransparency="True"
 		>
-    <Border BorderThickness="2" CornerRadius="15" Background="#41b1f2">
+    <Border BorderThickness="2" CornerRadius="15">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#4D8ED3" Offset="0"/>
+                <GradientStop Color="#8250ba" Offset="0.5"/>
+                <GradientStop Color="Pink" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
         <Grid>
             <Rectangle Margin="10,28,746,377">
                 <Rectangle.Fill>

@@ -17,6 +17,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Threading;
+using System.Windows.Xps.Serialization;
 using Wpf.Ui.Contracts;
 
 namespace ChatAI
@@ -46,6 +47,74 @@ namespace ChatAI
         [ObservableProperty]
         private bool _isEnabled;
 
+        [ObservableProperty]
+        private string _name;
+
+        [ObservableProperty]
+        private bool _isAdvance;
+
+        public bool isAdvance
+        {
+            get { return _isAdvance; }
+            set
+            {
+                if (_isAdvance != value)
+                {
+                    _isAdvance = value;
+                    OnPropertyChanged(nameof(isAdvance));
+                }
+            }
+        }
+
+        [ObservableProperty]
+        private String _getTopic;
+
+        public String getTopic
+        {
+            get { return _getTopic; }
+            set
+            {
+                if (_getTopic != value)
+                {
+                    _getTopic = value;
+                    OnPropertyChanged(nameof(getTopic));
+                }
+            }
+        }
+
+        [ObservableProperty]
+        private String _getSkill;
+
+        public String getSkill
+        {
+            get { return _getSkill; }
+            set
+            {
+                if (_getSkill != value)
+                {
+                    _getSkill = value;
+                    OnPropertyChanged(nameof(getSkill));
+                }
+            }
+        }
+
+        [ObservableProperty]
+        private String _getBand;
+
+        public String getBand
+        {
+            get { return _getBand; }
+            set
+            {
+                if (_getBand != value)
+                {
+                    _getBand = value;
+                    OnPropertyChanged(nameof(getBand));
+                }
+            }
+        }
+
+
 
         public Config SysConfig => _serviceProvider.GetService<Config>();
 
@@ -68,7 +137,7 @@ namespace ChatAI
         {
             if(e.PropertyName == nameof(SelectedChat))
             {
-                if (SelectedChat.ChatMessageList != null)
+                if (SelectedChat != null && SelectedChat.ChatMessageList != null)
                 {
                     //ChatMessageList = new ObservableCollection<ChatMessageViewModel>(SelectedChat.ChatMessageList);
                     using (var db = new LiteDatabase(@".\store.db"))
@@ -131,7 +200,7 @@ namespace ChatAI
             {
                 Role = "user",
                 Content = sendMessage.Prompt
-            });
+            }); ;
 
             return chatMessages.ToArray();
         }
@@ -163,6 +232,29 @@ namespace ChatAI
 
         private async Task Send(ChatMessageViewModel sendMessage)
         {
+            //System.Windows.MessageBox.Show(getTopic + " " + getSkill + " " + getBand, "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+            if (isAdvance == true)
+            {
+                if (!string.IsNullOrEmpty(sendMessage.Prompt))
+                {
+                    System.Windows.MessageBox.Show("Please turn off Advance!", "Notification", MessageBoxButton.OK, MessageBoxImage.Stop);
+                    return;
+                }
+                if (String.IsNullOrEmpty(getTopic) || String.IsNullOrEmpty(GetSkill) || String.IsNullOrEmpty(getBand))
+                {
+                    System.Windows.MessageBox.Show("Please completely fill in the fields: Topic, Skills, Band!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                sendMessage.Prompt = "I focus on design Academic Reading part for IELTS exams [exams].\n" +
+                    "• You act as IELTS examiner to provide a reading passages [passages], including various types of questions. For training purpose, please provide the passages with different bands in IELTS [bands], from band 4 to band 8.\n" +
+                    "• Please provide one question by one for the questions following the each reading passages. Then wait for my answer, give the feedback and clarify why other choices are incorrect, and then provide next question until finish.\n" +
+                    "• After finish reading each passages, please provide the list of academic words with short definition corresponding to the reading context."
+                    + "Let start with the follow variable values:\n"
+                    + "[exams] =" + getTopic + "\n"
+                    + "[bands] =" + getBand + "\n"
+                    + "[passages] = 1";
+            }
+
             if(string.IsNullOrEmpty(sendMessage.Prompt))
             {
                 return;
@@ -274,7 +366,7 @@ namespace ChatAI
                 var chats = db.GetCollection<ChatDo>("chat");
 
                 ChatDo exists = chats.FindOne(p => p.Id.Equals(chatViewModel.Id));
-                if(exists != null) 
+                if (exists != null) 
                 {
                     var messages = new List<MessageDo>();
                     foreach (var messageViewModel in chatMessageViewModels)

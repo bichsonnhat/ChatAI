@@ -7,12 +7,19 @@ namespace ChatAI
     public class ChatViewModel : ObservableObject
     {
         public string Id { get; set; }
-        public string Name { get; set; }
+
+        private string _name;
+        public string Name
+        {
+            get => _name;
+            set => SetProperty(ref _name, value);
+        }
 
         public DateTime Time { get; set; }
 
         public string Avatar { get; set; }
 
         public List<ChatMessageViewModel> ChatMessageList { get; set; } 
+
     }
 }
