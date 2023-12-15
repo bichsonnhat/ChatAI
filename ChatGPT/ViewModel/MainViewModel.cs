@@ -245,14 +245,17 @@ namespace ChatAI
                     System.Windows.MessageBox.Show("Please completely fill in the fields: Topic, Skills, Band!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                sendMessage.Prompt = "I focus on design Academic Reading part for IELTS exams [exams].\n" +
-                    "• You act as IELTS examiner to provide a reading passages [passages], including various types of questions. For training purpose, please provide the passages with different bands in IELTS [bands], from band 4 to band 8.\n" +
-                    "• Please provide one question by one for the questions following the each reading passages. Then wait for my answer, give the feedback and clarify why other choices are incorrect, and then provide next question until finish.\n" +
-                    "• After finish reading each passages, please provide the list of academic words with short definition corresponding to the reading context."
-                    + "Let start with the follow variable values:\n"
-                    + "[exams] =" + getTopic + "\n"
-                    + "[bands] =" + getBand + "\n"
-                    + "[passages] = 1";
+                if (getSkill == "Reading")
+                {
+                    sendMessage.Prompt = "I focus on design Academic Reading part for IELTS exams [exams].\n" +
+                                        "• You act as IELTS examiner to provide a reading passages [passages], including various types of questions. For training purpose, please provide the passages with different bands in IELTS [bands], from band 4 to band 8.\n" +
+                                        "• Please provide one question by one for the questions following the each reading passages. Then wait for my answer, give the feedback and clarify why other choices are incorrect, and then provide next question until finish.\n" +
+                                        "• After finish reading each passages, please provide the list of academic words with short definition corresponding to the reading context."
+                                        + "Let start with the follow variable values:\n"
+                                        + "[exams] =" + getTopic + "\n"
+                                        + "[bands] =" + getBand + "\n"
+                                        + "[passages] = 1";
+                }
             }
 
             if(string.IsNullOrEmpty(sendMessage.Prompt))
