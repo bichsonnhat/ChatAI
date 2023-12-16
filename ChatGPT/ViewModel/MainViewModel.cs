@@ -283,7 +283,6 @@ namespace ChatAI
                     System.Windows.MessageBox.Show("Please completely fill in the fields: Topic, Skills, Band!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                MessageBox.Show(getSkill);
                 if (getSkill == "📖 Reading")
                 {
                     sendMessage.Prompt = "I focus on design Academic Reading part for IELTS exams [exams].\n" +
