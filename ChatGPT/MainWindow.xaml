@@ -397,19 +397,10 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <!-- Add Button -->
-            <Button Grid.Column="1"
-                            Click="AddChat"
-                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                            Style="{StaticResource MaterialDesignIconButton}"
-                            ToolTip="Add New Chat" Margin="180,2,458,1"
-                            HorizontalAlignment="Left">
-                <materialDesign:PackIcon Kind="ChatPlus" />
-            </Button>
 
             <!-- Delete Button -->
             <Button Grid.Column="1"
-                            Margin="130,2,458,1"
+                            Margin="180,2,458,1"
                             Click="DeleteChat"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignIconButton}"
@@ -430,11 +421,11 @@
                   materialDesign:TextFieldAssist.HasClearButton="True"
                   materialDesign:TextFieldAssist.SuffixText=""
                   materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueLightBrush}"
-                  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Grid.ColumnSpan="2" Margin="650,-4,0,0" VerticalAlignment="Top" Width="100">
-                <ComboBoxItem Content="Reading" />
-                <ComboBoxItem Content="Listening" />
-                <ComboBoxItem Content="Writing" />
-                <ComboBoxItem Content="Speaking" />
+                  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Grid.ColumnSpan="2" Margin="650,-4,0,0" VerticalAlignment="Top" Width="113">
+                <ComboBoxItem Content="📖 Reading" />
+                <ComboBoxItem Content="👂 Listening" />
+                <ComboBoxItem Content="✎ Writing" />
+                <ComboBoxItem Content="🗣️ Speaking" />
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -538,7 +529,7 @@
                   materialDesign:TextFieldAssist.HasClearButton="True"
                   materialDesign:TextFieldAssist.SuffixText=""
                   materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueLightBrush}"
-                  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="768,-4,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
+                  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="773,-4,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
                 <ComboBoxItem Content="3.0" />
                 <ComboBoxItem Content="3.5" />
                 <ComboBoxItem Content="4.0" />
@@ -556,7 +547,7 @@
             <CheckBox
                 Content="Advance"
                 IsChecked="{Binding isAdvance, Mode = OneWay}"
-                Style="{StaticResource MaterialDesignFilterChipPrimaryCheckBox}" Grid.Column="1" Margin="873,5,0,18" 
+                Style="{StaticResource MaterialDesignFilterChipPrimaryCheckBox}" Grid.Column="1" Margin="878,5,0,18" 
                 Checked="CheckBox_Checked" 
                 Unchecked="CheckBox_Unchecked"/>
         </Grid>

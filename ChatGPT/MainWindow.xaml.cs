@@ -213,9 +213,16 @@ namespace ChatAI
         private void TopicChanged(object sender, SelectionChangedEventArgs e)
         {
             var comboBox = sender as System.Windows.Controls.ComboBox;
-            if (comboBox.SelectedItem != null)
+            if (comboBox.SelectedItem != null && comboBox != null)
             {
-                ViewModel.getTopic = comboBox.SelectedItem.ToString().Remove(0, 38);
+                string selectedItemString = comboBox.SelectedItem.ToString();
+                if (selectedItemString.StartsWith("System.Windows.Controls.ComboBoxItem:"))
+                {
+                    ViewModel.getTopic = selectedItemString.Remove(0, 38);
+                } else
+                {
+                    ViewModel.getTopic = selectedItemString;
+                }
             }
             else
             {

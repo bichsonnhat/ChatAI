@@ -137,6 +137,11 @@ namespace ChatAI
         {
             if(e.PropertyName == nameof(SelectedChat))
             {
+                if (SelectedChat != null && SelectedChat.Name == "New Chat")
+                {
+                    ChatMessageList = new ObservableCollection<ChatMessageViewModel>();
+                    return;
+                }
                 if (SelectedChat != null && SelectedChat.ChatMessageList != null)
                 {
                     //ChatMessageList = new ObservableCollection<ChatMessageViewModel>(SelectedChat.ChatMessageList);
@@ -169,7 +174,40 @@ namespace ChatAI
                 }
                 else
                 {
-                    ChatMessageList = new ObservableCollection<ChatMessageViewModel>();
+                    String selectChatId = SelectedChat?.Id;
+                    if (selectChatId == null)
+                    {
+                        selectChatId = "null";
+                    }
+                    // Show history here!
+                    using (var db = new LiteDatabase(@".\store.db"))
+                    {
+                        var chats = db.GetCollection<ChatDo>("chat");
+
+                        ChatDo chatDo = chats.FindById(selectChatId);
+                        if (chatDo != null)
+                        {
+                            var allMessages = chatDo.messages.Select(p =>
+                                new ChatMessageViewModel
+                                {
+                                    Id = p.id,
+                                    IsUser = p.isUser,
+                                    Message = p.message,
+                                    Time = p.time,
+                                    ParentId = p.parentId
+                                }
+                            );
+                            foreach (var message in allMessages)
+                            {
+                                if (message.IsUser)
+                                {
+                                    message.Result = allMessages.FirstOrDefault(p => p.ParentId == message.Id);
+                                }
+                            }
+                            ChatMessageList = new ObservableCollection<ChatMessageViewModel>(allMessages.OrderBy(p => p.Time).ToList());
+                        }
+                    }
+                    //ChatMessageList = new ObservableCollection<ChatMessageViewModel>();
                 }
             }
         }
@@ -245,16 +283,36 @@ namespace ChatAI
                     System.Windows.MessageBox.Show("Please completely fill in the fields: Topic, Skills, Band!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                if (getSkill == "Reading")
+                MessageBox.Show(getSkill);
+                if (getSkill == "📖 Reading")
                 {
                     sendMessage.Prompt = "I focus on design Academic Reading part for IELTS exams [exams].\n" +
-                                        "• You act as IELTS examiner to provide a reading passages [passages], including various types of questions. For training purpose, please provide the passages with different bands in IELTS [bands], from band 4 to band 8.\n" +
-                                        "• Please provide one question by one for the questions following the each reading passages. Then wait for my answer, give the feedback and clarify why other choices are incorrect, and then provide next question until finish.\n" +
+                                        "• You act as IELTS examiner to provide a reading passages [passages] with topic [topic], including various types of questions. For training purpose, please provide the passages with different bands in IELTS [bands], from band 4 to band 8.\n" +
+                                        "• Please provide one question by one for the questions following the each reading passages. " +
+                                        "Then wait for my answer your question, give the feedback and clarify why other choices are incorrect, and then provide next question until finish.\n" +
                                         "• After finish reading each passages, please provide the list of academic words with short definition corresponding to the reading context."
                                         + "Let start with the follow variable values:\n"
-                                        + "[exams] =" + getTopic + "\n"
+                                        + "[exam] = \"IELTS\";"
+                                        + "[topics] = " + getTopic + "\n"
                                         + "[bands] =" + getBand + "\n"
                                         + "[passages] = 1";
+                }
+                if (getSkill == "✎ Writing")
+                {
+                    sendMessage.Prompt = "I focus on scoring IELTS writing test exams [exam]. Please provide the information for IELTS writing part.\n"
+                                        + "• I'll provide the information for the IELTS writing, including writing task [task], topic [topics], my taget band [band], and the writing answer [answer]\n"
+                                        + "• You act as IELTS examiner to score the writing task. And then give the feedbacks and suggestions to improve the writing for the following points:\n"
+                                        + "+) Task achievement;\n"
+                                        + "+) Vocabulary and collocations;\n"
+                                        + "+) Grammar and sentence structure;\n"
+                                        + "+) Coherence and Cohesion;\n"
+                                        + "+) Give me band score writing in IELTS"
+                                        + "Let start with the following variable values:"
+                                        + "[exam] = \"IELTS\";"
+                                        + "[task] = \"1\";"
+                                        + "[topics] = " + getTopic + "\n"
+                                        + "[band] = " + getBand + "\n"
+                                        + "[answer]: Please request me to give you an answer";
                 }
             }
 
@@ -351,7 +409,24 @@ namespace ChatAI
             {
                 if (SelectedChat.Name == "New Chat")
                 {
-                    SelectedChat.Name = resultMessage.Message; // Replace this with the desired new name
+                    if (getSkill == "📖 Reading")
+                    {
+                        SelectedChat.Name = "📖";
+                    }
+                    if (getSkill == "✎ Writing")
+                    {
+                        SelectedChat.Name = "✎";
+                    }
+                    if (getSkill == "Speaking")
+                    {
+                        SelectedChat.Name = "🗣️";
+                    }
+                    if (getSkill == "Listening")
+                    {
+                        SelectedChat.Name = "👂";
+                    }
+                    SelectedChat.Name += GetBand + " - " + GetTopic;
+                    //SelectedChat.Name = resultMessage.Message; // Replace this with the desired new name
                 }
             }
             //set resultMessage to current
@@ -510,6 +585,17 @@ namespace ChatAI
                 MessageBox.Show("Can not delete empty chat, you need chat something before delete!", "Delete Chat");
                 return;
             }
+            if (SelectedChat == ChatList[0])
+            {
+                if (chatViewModel.ChatMessageList != null && chatViewModel.ChatMessageList.Any())
+                {
+                    ChatList[0].ChatMessageList.Clear();
+                }
+                ChatList[0].Name = "New Chat";
+                ChatMessageList = new ObservableCollection<ChatMessageViewModel>();
+                SaveChatDeletion(ChatList[0]);
+                return;
+            }
             if (chatViewModel != null)
             {
                 // Remove the chat from ChatList
@@ -520,9 +606,9 @@ namespace ChatAI
                 {
                     ChatMessageList.Remove(messageViewModel);
                 }
-
                 // Optionally, save your changes to persistent storage if needed
                 SaveChatDeletion(chatViewModel);
+
             }
 
             // Select another chat (e.g., the first one) if there are remaining chats
