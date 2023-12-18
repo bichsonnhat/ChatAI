@@ -1,4 +1,5 @@
 # Chat GPT - UIT
+*Get instant answers, find creative inspiration, learn something new.*
 
 ![Logo Chat GPT - UIT](./ChatGPT/Assets/uitai.png)
 
