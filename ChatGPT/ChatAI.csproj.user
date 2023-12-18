@@ -11,6 +11,9 @@
     <Compile Update="View\LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\MainUserWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\TranslateWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -26,6 +29,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MainUserWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\TranslateWindow.xaml">

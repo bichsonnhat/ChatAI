@@ -1,0 +1,99 @@
+﻿<Border
+        Background="white"
+        BorderThickness="2"
+        CornerRadius="15">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Background="#001822">
+            <Grid Grid.Row="0" HorizontalAlignment="Right">
+                <uc:ControlBarUCMain />
+            </Grid>
+        </Grid>
+        <Grid
+                Grid.Row="1"
+                Margin="20"
+                HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Ellipse
+                    Grid.Column="0"
+                    Width="80"
+                    Height="80"
+                    HorizontalAlignment="Left">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/Images/uitune.png" Stretch="UniformToFill" />
+
+                </Ellipse.Fill>
+            </Ellipse>
+            <Grid Grid.Column="1">
+                <Border
+                        Width="500"
+                        Height="50"
+                        Background="#001822"
+                        BorderThickness="2"
+                        CornerRadius="15">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon
+                                Grid.Column="0"
+                                Width="20"
+                                Height="20"
+                                Margin="15"
+                                VerticalAlignment="Center"
+                                Foreground="White"
+                                Kind="Magnify" />
+                        <TextBox
+                                Grid.Column="1"
+                                Margin="0,0,20,0"
+                                materialDesign:HintAssist.Hint="Search"
+                                Foreground="White"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                TextChanged="TextBox_TextChanged" />
+                    </Grid>
+                </Border>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button
+                        Grid.Column="0"
+                        Width="50"
+                        Height="50"
+                        Background="#001822"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton">
+                    <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Foreground="White"
+                            Kind="Settings" />
+                </Button>
+                <Button
+                        Grid.Column="1"
+                        Width="50"
+                        Height="50"
+                        Background="#001822"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton">
+                    <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Foreground="White"
+                            Kind="People" />
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Border>
