@@ -97,7 +97,9 @@ Trong thời đại công nghệ phát triển mạnh mẽ, nhu cầu học ngo�
 
 ### 6. Hướng dẫn sử dụng
 * Bước 1: Clone repo về thiết bị
-   > git clone https://github.com/bichsonnhat/ChatAI.git
+   ```
+   git clone https://github.com/bichsonnhat/ChatAI.git
+   ```
 * Bước 2: Open project trong Visual Studio 2022
 * Bước 3: Vào phần `LoginWindow.xaml.cs`, thay đổi `NhatBS` thành *sever name* của thiết bị trong SQL Server
 * Bước 4: Chạy và màn hình `login` hiện lên, nhập key = `admin` để sử dụng ứng dụng.
