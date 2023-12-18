@@ -286,7 +286,7 @@ namespace ChatAI
                 if (getSkill == "📖 Reading")
                 {
                     sendMessage.Prompt = "I focus on design Academic Reading part for IELTS exams [exams].\n" +
-                                        "• You act as IELTS examiner to provide a reading passages [passages] with topic [topic], including various types of questions. For training purpose, please provide the passages with different bands in IELTS [bands], from band 4 to band 8.\n" +
+                                        "• You act as IELTS examiner to provide a reading passages [passages] with topic [topic], including various types of questions. For training purpose, please provide the passages with different bands in IELTS [bands], from band 3 to band 9.\n" +
                                         "• Please provide one question by one for the questions following the each reading passages. " +
                                         "Then wait for my answer your question, give the feedback and clarify why other choices are incorrect, and then provide next question until finish.\n" +
                                         "• After finish reading each passages, please provide the list of academic words with short definition corresponding to the reading context."
@@ -312,6 +312,35 @@ namespace ChatAI
                                         + "[topics] = " + getTopic + "\n"
                                         + "[band] = " + getBand + "\n"
                                         + "[answer]: Please request me to give you an answer";
+                }
+                if (getSkill == "🗣️ Speaking")
+                {
+                    sendMessage.Prompt = "I focus on scoring IELTS Speaking test exams [exam]. Please provide the information for IELTS writing part.\n"
+                                        + "• I'll provide the information for the IELTS Speaking, including Speaking task [task], topic [topics], my taget band [band]"
+                                        + "• You act as IELTS examiner to score the Speaking task. Please give me a speaking related to the topic and ensure the following points:\n"
+                                        + "+) Task achievement;\n"
+                                        + "+) Vocabulary and collocations;\n"
+                                        + "+) Grammar and sentence structure;\n"
+                                        + "+) Coherence and Cohesion;\n"
+                                        + "+) Give me band score writing in IELTS"
+                                        + "Let start with the following variable values:"
+                                        + "[exam] = \"IELTS\";"
+                                        + "[task] = \"1\";"
+                                        + "[topics] = " + getTopic + "\n"
+                                        + "[band] = " + getBand + "\n";
+                }
+                if (getSkill == "👂 Listening")
+                {
+                    sendMessage.Prompt = "I focus on design Academic Listening part for IELTS exams [exams].\n" +
+                                        "• You act as IELTS examiner to provide a Listening passages [passages] with topic [topic], including various types of questions. For training purpose, please provide the passages with different bands in IELTS [bands], from band 3 to band 9.\n" +
+                                        "• Please provide five questions following the each Listening passages. " +
+                                        "Then wait for my answer your question, give the feedback and clarify why other choices are incorrect\n" +
+                                        "• After finish Listening each passages, please provide the list of academic words with short definition corresponding to the Listening context."
+                                        + "Let start with the follow variable values:\n"
+                                        + "[exam] = \"IELTS\";"
+                                        + "[topics] = " + getTopic + "\n"
+                                        + "[bands] =" + getBand + "\n"
+                                        + "[passages] = 1";
                 }
             }
 
@@ -351,6 +380,14 @@ namespace ChatAI
 
             var prompt = sendMessage.Prompt;
             promptMessage.Message = prompt;
+            if (isAdvance == true)
+            {
+                promptMessage.Message = "\r\nTopic: " + getTopic + "," +
+                                        "\r\nSkill: " + getSkill + "," +
+                                        "\r\nBand: " + getBand + " || " +
+                                        "This is an automated message from the system. Please don't request too quickly to avoid crashing while processing the request. Thank you!";
+
+            }
             promptMessage.Prompt = "";
             promptMessage.IsSent = true;
             promptMessage.IsUser = true;
@@ -416,11 +453,11 @@ namespace ChatAI
                     {
                         SelectedChat.Name = "✎";
                     }
-                    if (getSkill == "Speaking")
+                    if (getSkill == "🗣️ Speaking")
                     {
                         SelectedChat.Name = "🗣️";
                     }
-                    if (getSkill == "Listening")
+                    if (getSkill == "👂 Listening")
                     {
                         SelectedChat.Name = "👂";
                     }
