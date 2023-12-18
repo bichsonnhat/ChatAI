@@ -40,28 +40,28 @@ Trong thời đại công nghệ phát triển mạnh mẽ, nhu cầu học ngo�
 <div id="Ytuong"></div>
 
 ### 1. Ý tưởng
-* Để nâng cao trải nghiệm người dùng, sử dụng công nghệ WPF cùng ngôn ngữ XAML mang lại một giao diện người dùng mới, hiện đại và dễ sử dụng, đảm bảo rằng ngôn ngữ lập trình dễ tiếp cận và thân thiện với người dùng, giúp việc thiết kế và điều chỉnh GUI trở nên dễ dàng hơn.
+* Để nâng cao trải nghiệm người dùng, nhóm sử dụng công nghệ WPF cùng ngôn ngữ XAML mang lại một giao diện người dùng mới, hiện đại và dễ sử dụng, đảm bảo rằng ngôn ngữ lập trình dễ tiếp cận và thân thiện với người dùng, giúp việc thiết kế và điều chỉnh GUI trở nên dễ dàng hơn.
 
 * Ứng dụng này cũng được xây dựng trên mô hình MVVM, cho phép phân chia rõ ràng giữa giao diện người dùng và xử lý logic, tăng cường khả năng tái sử dụng và linh hoạt trong việc cập nhật giao diện mà không cần thay đổi quá nhiều trong mã nguồn, đẩy nhanh tốc độ phát triển và thuận tiện trong việc bảo trì cũng như nâng cấp.
 
 * Lập trình theo hướng đa luồng (MultiThreading) giúp tối ưu hóa hiệu suất của phần cứng và tăng tốc độ xử lý của ứng dụng.
-* Áp dụng SQL Database, một hệ thống quản lý cơ sở dữ liệu mạnh mẽ, giúp việc đồng bộ hóa dữ liệu trên nhiều thiết bị của người dùng, đảm bảo dữ liệu luôn nhất quán và chính xác.
-* Kỹ thuật mã hóa MD5 được áp dụng trong quản lý tài khoản người dùng, cung cấp một tầng bảo mật chắc chắn, giảm thiểu rủi ro mất mát dữ liệu và tăng cường sự an toàn cho người dùng.
+* Áp dụng SQL Database kết hợp với LiteDatabase (NoSQL), một hệ thống quản lý cơ sở dữ liệu mạnh mẽ, giúp việc đồng bộ hóa dữ liệu trên nhiều thiết bị của người dùng, đảm bảo dữ liệu luôn nhất quán và chính xác.
 
 
 <div id="Congnghe"></div>
 
 ### 2. Công nghệ
-* Hệ thống API: WPF - Mô hình MVVM, ChatGPT
+* Hệ thống API: WPF - Mô hình MVVM, API ChatGPT, API Google Translate
 * IDE: Visual Studio 2022
-* Database: SQL Server
+* Database: SQL Server, LiteDatabase (NoSQL)
 * Công cụ quản lý: Git, GitHub
 
 
 <div id="Doituongsudung"></div>
 
 ### 3. Đối tượng sử dụng
-* Người dùng
+* Người muốn học tiếng anh (thi chứng chỉ tiếng Anh, nâng cao kĩ năng ngôn ngữ, làm việc ở nước ngoài, ...)
+* Dành cho mọi đối tượng muốn sử dụng Chat GPT như một công cụ học tập, làm việc
 
 
 <div id="Muctieu"></div>
@@ -82,8 +82,6 @@ Trong thời đại công nghệ phát triển mạnh mẽ, nhu cầu học ngo�
     * Dễ dàng tra cứu và tìm kiếm thông tin liên quan đến tiến trình học, nguồn tài liệu, và lịch sử học tập của người dùng.
     
     * Cải thiện và lập kế hoạch học tập phải dễ dàng, chính xác để đáp ứng nhu cầu học tập.
-    
-    * Dễ dàng cập nhật và lựa chọn lên lịch chiếu phim phải phù hợp, chính xác hạn chế thấp nhất sai sót để nâng cao chất lượng phục vụ của rạp.
   
     * Ứng dụng phải tương thích với nhiều hệ điều hành khác nhau và hoạt động ổn định, tránh gây lỗi hay xung đột trong quá trình sử dụng. Việc mở rộng và nâng cấp sau này cũng cần được đảm bảo dễ dàng thực hiện.
 
@@ -91,13 +89,18 @@ Trong thời đại công nghệ phát triển mạnh mẽ, nhu cầu học ngo�
 <div id="Tinhnang"></div>
 
 ### 5. Tính năng
-
-
+* Với đối tượng muốn học tiếng Anh:
+   * Chỉ cần bật chế độ "Advance", Chat GPT sẽ trở thành một trợ lí đắc lực cho người dùng, phục vụ cho việc học tiếng Anh, giải đáp các thắc mắc, đưa ra những bài tập với đa dạng *chủ đề, band* điểm chuẩn trong chứng chỉ quốc tế IELTS với bốn kĩ năng cần thiết (nghe, nói, đọc, viết) và hỗ trợ dịch từ ngữ *Anh-Việt* ở mọi nơi trên thiết bị.
+* Với đối tượng muốn sử dụng cho học tập, công việc:
+   * Chỉ cần tắt chế độ "Advance", Chat GPT sẽ trả lời các câu hỏi về đa dạng chủ đề khác nhau như sửa lỗi trong lập trình, sáng tạo làm thơ, soạn nhạc,... phục vụ tối đa nhu cầu của người dùng.
 <div id="Huongdansudung"></div>
 
 ### 6. Hướng dẫn sử dụng
-
-
+* Bước 1: Clone repo về thiết bị
+   > git clone https://github.com/bichsonnhat/ChatAI.git
+* Bước 2: Open project trong Visual Studio 2022
+* Bước 3: Vào phần `LoginWindow.xaml.cs`, thay đổi `NhatBS` thành *sever name* của thiết bị trong SQL Server
+* Bước 4: Chạy và màn hình `login` hiện lên, nhập key = `admin` để sử dụng ứng dụng.
 <!-- TÁC GIẢ -->
 <div id="Tacgia"></div>
 
