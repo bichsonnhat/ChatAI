@@ -1,4 +1,7 @@
-# ChatGPT - UIT
+# Chat GPT - UIT
+
+![Logo Chat GPT - UIT](./ChatGPT/Assets/uitai.png)
+
 
 ## Mục lục
 [I. Mở đầu](#Modau)
