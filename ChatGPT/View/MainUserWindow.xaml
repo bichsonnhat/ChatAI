@@ -1,12 +1,13 @@
-﻿<Window x:Class="ChatAI.View.MainUserWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ChatAI.View"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d"
-        Title="MainUserWindow"     Width="1280"
+﻿<Window
+    x:Class="ChatAI.View.MainUserWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ChatAI.View"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainUserWindow"
+    Width="1280"
     Height="832"
     AllowsTransparency="True"
     Background="Transparent"
@@ -24,8 +25,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid Background="#001822">
-                <Grid Grid.Row="0" HorizontalAlignment="Right">
-                </Grid>
+                <Grid Grid.Row="0" HorizontalAlignment="Right" />
             </Grid>
             <Grid
                 Grid.Row="1"
