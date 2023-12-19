@@ -28,15 +28,17 @@ namespace ChatAI.View
         {
             InitializeComponent();
         }
-        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-F88VQPDJ;Initial Catalog=LoginChat;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=NHATBS;Initial Catalog=LoginChat;Integrated Security=True");
         bool isLogin = false;
         private void Login(object sender, RoutedEventArgs e)
         {
-           string enteredPassword = passwordBox.Password;
-           if (string.IsNullOrEmpty(enteredPassword) ) {
+            string enteredPassword = passwordBox.Password;
+            if (string.IsNullOrEmpty(enteredPassword))
+            {
                 MessageBox.Show("Please enter your key", "Login Unsucessful", MessageBoxButton.OK, MessageBoxImage.Warning);
-           } else
-           {
+            }
+            else
+            {
                 try
                 {
                     string query = "SELECT * FROM Login WHERE [key] = @EnteredPassword";
@@ -64,7 +66,7 @@ namespace ChatAI.View
                 {
                     MessageBox.Show("Error", "Login Unsucessful", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
-           }
+            }
         }
 
     }

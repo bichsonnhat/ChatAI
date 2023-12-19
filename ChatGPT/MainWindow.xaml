@@ -1,68 +1,66 @@
-﻿<ui:FluentWindow
-    x:Class="ChatAI.MainWindow"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-    xmlns:local="clr-namespace:ChatAI"
-    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:mdxam="clr-namespace:MdXaml;assembly=MdXaml"
-    xmlns:model="clr-namespace:ChatAI.Model"
-    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="{Binding ViewModel.ApplicationTitle, Mode=OneWay}"
-    Width="1090"
-    Height="700"
-    d:DataContext="{d:DesignInstance local:MainWindow,
-                                     IsDesignTimeCreatable=False}"
-    d:DesignHeight="400"
-    d:DesignWidth="1090"
-    ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
-    ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-    ExtendsContentIntoTitleBar="True"
-    Icon="/Assets/logo.ico"
-    WindowBackdropType="Mica"
-    WindowCornerPreference="Default"
-    WindowStartupLocation="CenterScreen"
-    WindowStyle="None"
-    mc:Ignorable="d">
+﻿<ui:FluentWindow x:Class="ChatAI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:local="clr-namespace:ChatAI"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:mdxam="clr-namespace:MdXaml;assembly=MdXaml"
+        xmlns:model="clr-namespace:ChatAI.Model"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="{Binding ViewModel.ApplicationTitle, Mode=OneWay}"
+        Height="700"
+        Width="1090"
+        d:DataContext="{d:DesignInstance local:MainWindow,
+                                         IsDesignTimeCreatable=False}"
+        d:DesignHeight="400"
+        d:DesignWidth="1090"
+        ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+        ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+        ExtendsContentIntoTitleBar="True"
+        WindowBackdropType="Mica"
+        WindowCornerPreference="Default"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Icon="/Assets/logo.ico">
     <ui:FluentWindow.Resources>
         <Style x:Key="SendButtonStyle" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
-            <Setter Property="Cursor" Value="Hand" />
-            <Setter Property="FontWeight" Value="Medium" />
-            <Setter Property="FontSize" Value="26" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-            <Setter Property="VerticalContentAlignment" Value="Stretch" />
-            <Setter Property="Padding" Value="0" />
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Padding" Value="0"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid Background="#00000000">
                             <ui:SymbolIcon
                                 Name="SendIcon"
-                                Width="Auto"
-                                Height="Auto"
-                                Margin="{TemplateBinding Padding}"
+                                SnapsToDevicePixels="True"
+                                Foreground="{TemplateBinding Foreground}"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                Foreground="{TemplateBinding Foreground}"
-                                SnapsToDevicePixels="True"
+                                Margin="{TemplateBinding Padding}"
+                                Width="Auto" Height="Auto"
                                 Symbol="Send20" />
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="SendIcon" Property="Foreground" Value="{DynamicResource SystemAccentColorBrush}" />
-                                <Setter TargetName="SendIcon" Property="Background" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+                                <Setter Property="Foreground" TargetName="SendIcon" Value="{DynamicResource SystemAccentColorBrush}"/>
+                                <Setter Property="Background" TargetName="SendIcon" Value="{DynamicResource TextFillColorPrimaryBrush}"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="True">
-                                <Setter TargetName="SendIcon" Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+                                <Setter Property="Foreground" TargetName="SendIcon" Value="{DynamicResource TextFillColorPrimaryBrush}"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Opacity" Value="0.23" />
+                                <Setter Property="Opacity" Value="0.23"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -71,41 +69,40 @@
         </Style>
 
         <Style x:Key="SettingButtonStyle" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
-            <Setter Property="Cursor" Value="Hand" />
-            <Setter Property="FontWeight" Value="Medium" />
-            <Setter Property="FontSize" Value="26" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-            <Setter Property="VerticalContentAlignment" Value="Stretch" />
-            <Setter Property="Padding" Value="0" />
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Padding" Value="0"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid Background="#00000000">
                             <ui:SymbolIcon
                                 Name="SettingIcon"
-                                Width="Auto"
-                                Height="Auto"
-                                Margin="{TemplateBinding Padding}"
+                                SnapsToDevicePixels="True"
+                                Foreground="{TemplateBinding Foreground}"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                Foreground="{TemplateBinding Foreground}"
-                                SnapsToDevicePixels="True"
+                                Margin="{TemplateBinding Padding}"
+                                Width="Auto" Height="Auto"
                                 Symbol="Settings32" />
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="SettingIcon" Property="Foreground" Value="{DynamicResource SystemAccentColorBrush}" />
-                                <Setter TargetName="SettingIcon" Property="Background" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+                                <Setter Property="Foreground" TargetName="SettingIcon" Value="{DynamicResource SystemAccentColorBrush}"/>
+                                <Setter Property="Background" TargetName="SettingIcon" Value="{DynamicResource TextFillColorPrimaryBrush}"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="True">
-                                <Setter TargetName="SettingIcon" Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+                                <Setter Property="Foreground" TargetName="SettingIcon" Value="{DynamicResource TextFillColorPrimaryBrush}"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Opacity" Value="0.23" />
+                                <Setter Property="Opacity" Value="0.23"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -113,34 +110,30 @@
             </Setter>
         </Style>
 
-        <Style
-            x:Key="ImageButtonStyle"
-            BasedOn="{StaticResource SendButtonStyle}"
-            TargetType="Button">
+        <Style x:Key="ImageButtonStyle" TargetType="Button" BasedOn="{StaticResource SendButtonStyle}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid Background="#00000000">
                             <ui:SymbolIcon
                                 Name="PhotoIcon"
-                                Width="Auto"
-                                Height="Auto"
-                                Margin="{TemplateBinding Padding}"
+                                SnapsToDevicePixels="True"
+                                Foreground="{TemplateBinding Foreground}"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                Foreground="{TemplateBinding Foreground}"
-                                SnapsToDevicePixels="True"
+                                Margin="{TemplateBinding Padding}"
+                                Width="Auto" Height="Auto"
                                 Symbol="Image24" />
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="PhotoIcon" Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+                                <Setter Property="Foreground" TargetName="PhotoIcon" Value="{DynamicResource TextFillColorPrimaryBrush}"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="True">
-                                <Setter TargetName="PhotoIcon" Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+                                <Setter Property="Foreground" TargetName="PhotoIcon" Value="{DynamicResource TextFillColorPrimaryBrush}"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Opacity" Value="0.23" />
+                                <Setter Property="Opacity" Value="0.23"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -150,27 +143,26 @@
 
         <Style x:Key="ChatListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
             <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
-            <Setter Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}" />
-            <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
-            <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
-            <Setter Property="Padding" Value="2,0,0,0" />
-            <Setter Property="Margin" Value="0" />
+            <Setter Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}"/>
+            <Setter Property="HorizontalContentAlignment" 
+                    Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="VerticalContentAlignment" 
+                    Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="Padding" Value="2,0,0,0"/>
+            <Setter Property="Margin" Value="0"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListBoxItem}">
                         <Grid Name="root">
-                            <Border
-                                x:Name="Bd"
-                                Padding="{TemplateBinding Padding}"
-                                Background="{TemplateBinding Background}"
+                            <Border x:Name="Bd"
                                 BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                SnapsToDevicePixels="true">
-                                <ContentPresenter
-                                    Grid.Column="1"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Background="{TemplateBinding Background}"
+                                Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                                <ContentPresenter Grid.Column="1"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                             </Border>
                         </Grid>
                         <ControlTemplate.Triggers>
@@ -179,11 +171,11 @@
                                     <BeginStoryboard>
                                         <Storyboard>
                                             <DoubleAnimation
-                                                Storyboard.TargetName="Bd"
-                                                Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Opacity)"
-                                                From="0.0"
-                                                To="1.0"
-                                                Duration="{StaticResource DynamicButtonHoverAnimationDuration}" />
+                                            Storyboard.TargetName="Bd"
+                                            Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Opacity)"
+                                            From="0.0"
+                                            To="1.0"
+                                            Duration="{StaticResource DynamicButtonHoverAnimationDuration}" />
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </Trigger.EnterActions>
@@ -191,17 +183,17 @@
                                     <BeginStoryboard>
                                         <Storyboard>
                                             <DoubleAnimation
-                                                Storyboard.TargetName="Bd"
-                                                Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Opacity)"
-                                                From="1.0"
-                                                To="0.0"
-                                                Duration="{StaticResource DynamicButtonHoverAnimationDuration}" />
+                                            Storyboard.TargetName="Bd"
+                                            Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Opacity)"
+                                            From="1.0"
+                                            To="0.0"
+                                            Duration="{StaticResource DynamicButtonHoverAnimationDuration}" />
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </Trigger.ExitActions>
                             </Trigger>
                             <Trigger Property="IsSelected" Value="false">
-                                <Setter TargetName="Bd" Property="Background" Value="Transparent" />
+                                <Setter Property="Background" TargetName="Bd" Value="Transparent"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -210,40 +202,26 @@
         </Style>
 
         <DataTemplate x:Key="ChatListBoxItemTemplate">
-            <Border
-                Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}}"
-                Height="50"
-                Margin="-2,0,0,0"
-                BorderBrush="{DynamicResource ControlElevationBorderBrush}"
-                BorderThickness="0,0,0,1">
+            <Border BorderThickness="0,0,0,1" BorderBrush="{DynamicResource ControlElevationBorderBrush}"
+                    Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}}"
+                    Height="50" Margin="-2,0,0,0">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5" />
-                        <ColumnDefinition />
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Rectangle
-                        x:Name="isSelected"
-                        Fill="{DynamicResource SystemAccentColorBrush}"
-                        Visibility="Hidden" />
-                    <!--  Name  -->
-                    <TextBlock
-                        Grid.Column="2"
-                        Margin="5,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        FontWeight="SemiBold"
-                        SnapsToDevicePixels="True"
-                        Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
-                        TextTrimming="CharacterEllipsis" />
-                    <!--  Button  -->
-                    <ListBox
-                        Grid.Column="0"
-                        ItemsSource="{Binding ChatList}"
-                        SelectedItem="{Binding SelectedChat}">
+                    <Rectangle x:Name="isSelected" Fill="{DynamicResource SystemAccentColorBrush}"
+                               Visibility="Hidden"/>
+                    <!--Name-->
+                    <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left"
+                               Margin="5,0" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"
+                               Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" SnapsToDevicePixels="True"/>
+                    <!-- Button -->
+                    <ListBox ItemsSource="{Binding ChatList}" SelectedItem="{Binding SelectedChat}" Grid.Column="0">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <!--  Add other controls as needed  -->
+                                    <!-- Add other controls as needed -->
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -251,73 +229,57 @@
                 </Grid>
             </Border>
             <DataTemplate.Triggers>
-                <DataTrigger Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}}" Value="true">
-                    <Setter TargetName="isSelected" Property="Visibility" Value="Visible" />
+                <DataTrigger Binding="{Binding Path=IsSelected,
+                                RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}}" Value="true">
+                    <Setter Property="Visibility" TargetName="isSelected" Value="Visible"/>
                 </DataTrigger>
             </DataTemplate.Triggers>
         </DataTemplate>
 
         <DataTemplate x:Key="MessagesDataTemplate">
-            <Border
-                Name="MessageBorder"
-                MinWidth="280"
-                MinHeight="40"
-                Margin="10,0,60,10"
-                HorizontalAlignment="Left"
-                Background="{DynamicResource ControlFillColorDefaultBrush}"
-                BorderBrush="{DynamicResource ControlElevationBorderBrush}"
-                BorderThickness="1"
-                CornerRadius="4"
-                SnapsToDevicePixels="True">
+            <Border Name="MessageBorder" MinHeight="40" MinWidth="280" BorderThickness="1" Background="{DynamicResource ControlFillColorDefaultBrush}" 
+                    Margin="10,0,60,10" BorderBrush="{DynamicResource ControlElevationBorderBrush}" CornerRadius="4" SnapsToDevicePixels="True"
+                    HorizontalAlignment="Left"
+                    >
                 <Grid>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition />
-                        <RowDefinition Height="15" />
+                        <RowDefinition Height="15"/>
                     </Grid.RowDefinitions>
-                    <mdxam:MarkdownScrollViewer
-                        x:Name="MessageTxtBlock"
-                        Grid.Row="1"
-                        Margin="7,5,7,0"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        Background="{DynamicResource SystemAltHighColorBrush}"
-                        FontFamily="Arial,SimSun"
-                        Markdown="{Binding Message}"
-                        MarkdownStyle="{StaticResource MdStyle}" />
-                    <!--<TextBlock x:Name="MessageTxtBlock" Grid.Row="1" Margin="7,5,7,0" TextWrapping="Wrap"
+                    <mdxam:MarkdownScrollViewer x:Name="MessageTxtBlock" Grid.Row="1" Margin="7,5,7,0"
+                                                FontFamily="Arial,SimSun" Background="{DynamicResource SystemAltHighColorBrush}"
                                VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                                MarkdownStyle="{StaticResource MdStyle}"
+                               Markdown="{Binding Message}" />
+                    <!--<TextBlock x:Name="MessageTxtBlock" Grid.Row="1" Margin="7,5,7,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
                                Text="{Binding Message}"/>-->
-                    <TextBlock
-                        Grid.Row="2"
-                        Margin="0,0,5,0"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Stretch"
-                        FontSize="10"
-                        Opacity="0.8"
-                        Text="{Binding Time, StringFormat={}{0:t}}" />
+                    <TextBlock Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Stretch"
+                               Margin="0,0,5,0" FontSize="10" Opacity="0.8"
+                               Text="{Binding Time, StringFormat={}{0:t}}"/>
                 </Grid>
             </Border>
             <DataTemplate.Triggers>
                 <DataTrigger Binding="{Binding IsUser}" Value="True">
-                    <Setter TargetName="MessageBorder" Property="HorizontalAlignment" Value="Right" />
-                    <Setter TargetName="MessageBorder" Property="Margin" Value="60,0,10,10" />
-                    <Setter TargetName="MessageBorder" Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}" />
-                    <Setter TargetName="MessageBorder" Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
+                    <Setter TargetName="MessageBorder" Property="HorizontalAlignment" Value="Right"/>
+                    <Setter TargetName="MessageBorder" Property="Margin" Value="60,0,10,10"/>
+                    <Setter TargetName="MessageBorder" Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}"/>
+                    <Setter TargetName="MessageBorder" Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}"/>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding Message}" Value="{x:Null}">
-                    <Setter TargetName="MessageTxtBlock" Property="Visibility" Value="Collapsed" />
-                    <Setter TargetName="MessageBorder" Property="MaxWidth" Value="320" />
+                    <Setter TargetName="MessageTxtBlock" Property="Visibility" Value="Collapsed"/>
+                    <Setter TargetName="MessageBorder" Property="MaxWidth" Value="320"/>
                 </DataTrigger>
                 <MultiDataTrigger>
                     <MultiDataTrigger.Conditions>
-                        <Condition Binding="{Binding Message}" Value="{x:Null}" />
-                        <Condition Binding="{Binding IsUser}" Value="True" />
+                        <Condition Binding="{Binding Message}" Value="{x:Null}"/>
+                        <Condition Binding="{Binding IsUser}" Value="True"/>
                     </MultiDataTrigger.Conditions>
                     <MultiDataTrigger.Setters>
-                        <Setter TargetName="MessageBorder" Property="Margin" Value="0,0,10,10" />
-                        <Setter TargetName="MessageBorder" Property="HorizontalAlignment" Value="Right" />
+                        <Setter TargetName="MessageBorder" Property="Margin" Value="0,0,10,10"/>
+                        <Setter TargetName="MessageBorder" Property="HorizontalAlignment" Value="Right"/>
                     </MultiDataTrigger.Setters>
                 </MultiDataTrigger>
             </DataTemplate.Triggers>
@@ -328,20 +290,14 @@
         </ControlTemplate>-->
 
         <DataTemplate x:Key="ConfigTemplate" DataType="{x:Type model:Config}">
-            <StackPanel Margin="0,20,0,0" Orientation="Vertical">
-                <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
-                    <Label
-                        Width="80"
-                        VerticalAlignment="Center"
-                        Content="APIKEY:" />
-                    <TextBox Width="260" Text="{Binding ApiKey}" />
+            <StackPanel Orientation="Vertical" Margin="0 20 0 0">
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 0">
+                    <Label Content="APIKEY:" Width="80" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding ApiKey}" Width="260"/>
                 </StackPanel>
-                <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
-                    <Label
-                        Width="80"
-                        VerticalAlignment="Center"
-                        Content="PROXY:" />
-                    <TextBox Width="260" Text="{Binding Proxy}" />
+                <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                    <Label Content="PROXY:" Width="80" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Proxy}" Width="260"/>
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
@@ -363,75 +319,62 @@
         <Grid Grid.Row="1">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="220" />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="220"/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Border
-                    Grid.Row="0"
-                    BorderBrush="{DynamicResource ControlElevationBorderBrush}"
-                    BorderThickness="0,0,0,0"
-                    SnapsToDevicePixels="True">
-                    <ListBox
-                        ItemContainerStyle="{DynamicResource ChatListBoxItemStyle}"
-                        ItemTemplate="{DynamicResource ChatListBoxItemTemplate}"
-                        ItemsSource="{Binding ViewModel.ChatList}"
-                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                        ScrollViewer.VerticalScrollBarVisibility="Auto"
-                        SelectedIndex="0"
-                        SelectedItem="{Binding ViewModel.SelectedChat}" />
+                <Border Grid.Row="0" BorderThickness="0,0,0,0" SnapsToDevicePixels="True"
+                        BorderBrush="{DynamicResource ControlElevationBorderBrush}">
+                    <ListBox ItemsSource="{Binding ViewModel.ChatList}"
+                         SelectedIndex="0"
+                         ItemTemplate="{DynamicResource ChatListBoxItemTemplate}"
+                         ItemContainerStyle="{DynamicResource ChatListBoxItemStyle}"
+                         SelectedItem="{Binding ViewModel.SelectedChat}"                     
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                 </Border>
 
-                <!--  Messages  -->
-                <ItemsControl
-                    Grid.Column="1"
-                    Margin="0,5,0,0"
-                    ItemTemplate="{DynamicResource MessagesDataTemplate}"
-                    ItemsSource="{Binding ViewModel.ChatMessageList}"
-                    ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <!--Messages-->
+                <ItemsControl Grid.Column="1" Margin="0,5,0,0" 
+                      ItemsSource="{Binding ViewModel.ChatMessageList}" 
+                      ItemTemplate="{DynamicResource MessagesDataTemplate}"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <ItemsControl.Template>
                         <ControlTemplate TargetType="ItemsControl">
                             <ScrollViewer>
-                                <ItemsPresenter />
+                                <ItemsPresenter/>
                             </ScrollViewer>
                         </ControlTemplate>
 
                     </ItemsControl.Template>
                 </ItemsControl>
 
-                <Border
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    BorderBrush="{DynamicResource ControlElevationBorderBrush}"
-                    SnapsToDevicePixels="True">
+                <Border Grid.Row="1" Grid.Column="1" SnapsToDevicePixels="True"
+                        BorderBrush="{DynamicResource ControlElevationBorderBrush}">
                     <Grid DataContext="{Binding ViewModel.Prompt}">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="50"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox
-                            x:Name="prompt"
-                            AcceptsReturn="True"
-                            Background="{DynamicResource ControlFillColorDefaultBrush}"
-                            BorderBrush="{DynamicResource ControlElevationBorderBrush}"
-                            CaretBrush="{DynamicResource TextFillColorPrimaryBrush}"
-                            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                            Text="{Binding Prompt, UpdateSourceTrigger=PropertyChanged}"
-                            TextWrapping="Wrap"
-                            VerticalScrollBarVisibility="Auto">
+                        <TextBox x:Name="prompt" 
+                                     BorderBrush="{DynamicResource ControlElevationBorderBrush}"
+                                     TextWrapping="Wrap" 
+                                     AcceptsReturn="True" 
+                                     CaretBrush="{DynamicResource TextFillColorPrimaryBrush}"
+                                     VerticalScrollBarVisibility="Auto" 
+                                     Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                     Text="{Binding Prompt, UpdateSourceTrigger=PropertyChanged}">
                             <TextBox.InputBindings>
-                                <KeyBinding Key="Enter" Command="{Binding Path=SendCommand}" />
+                                <KeyBinding Command="{Binding Path=SendCommand}" Key="Enter" />
                             </TextBox.InputBindings>
                         </TextBox>
-                        <Button
-                            x:Name="send"
-                            Grid.Column="1"
-                            Margin="10"
-                            Command="{Binding SendCommand}"
-                            Style="{DynamicResource SendButtonStyle}" />
+                        <Button x:Name="send" Grid.Column="1" Margin="10"
+                                Style="{DynamicResource SendButtonStyle}"
+                                Command="{Binding SendCommand}"/>
                     </Grid>
                 </Border>
             </Grid>
@@ -439,206 +382,174 @@
 
         <ui:Dialog
             x:Name="RootDialog"
+            DialogHeight="260"
+            DataContext="{Binding ViewModel.SysConfig}"
+            ContentTemplate="{StaticResource ConfigTemplate}"
             Grid.Row="0"
             Grid.RowSpan="2"
-            Padding="0,42,0,0"
-            ContentTemplate="{StaticResource ConfigTemplate}"
-            DataContext="{Binding ViewModel.SysConfig}"
-            DialogHeight="260" />
+            Padding="0,42,0,0" />
 
+        <ui:TitleBar
+            Title="{Binding ViewModel.ApplicationTitle}"
+            Icon="pack://application:,,,/Assets/uitai (2).png" Height="55" VerticalAlignment="Center" />
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <ui:TitleBar
-                    Title="{Binding ViewModel.ApplicationTitle}"
-                    Height="50"
-                    VerticalAlignment="Top"
-                    Icon="pack://application:,,,/Assets/uitai (2).png" />
-            </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row="1" VerticalAlignment="Center">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto" />
-                    <ColumnDefinition Width="auto" />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
+            <!-- Delete Button -->
+            <Button Grid.Column="1"
+                            Margin="180,2,458,1"
+                            Click="DeleteChat"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                            Style="{StaticResource MaterialDesignIconButton}"
+                            ToolTip="Delete Chat"
+                            HorizontalAlignment="Left">
+                <materialDesign:PackIcon Kind="DeleteCircle" HorizontalAlignment="Center" />
+            </Button>
 
-                <!--  Delete Button  -->
+            <ComboBox
+                  SelectedItem="{Binding getSkill, Mode=TwoWay}"
+                  Name="Skill"
+                  SelectionChanged="SkillChanged"
+                  HorizontalAlignment="Left"
+                  MinWidth="80"
+                  materialDesign:ColorZoneAssist.Mode="PrimaryDark"
+                  materialDesign:HintAssist.HelperText="Select your skill"
+                  materialDesign:HintAssist.Hint="Skills"
+                  materialDesign:TextFieldAssist.HasClearButton="True"
+                  materialDesign:TextFieldAssist.SuffixText=""
+                  materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueLightBrush}"
+                  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Grid.ColumnSpan="2" Margin="650,-4,0,0" VerticalAlignment="Top" Width="113">
+                <ComboBoxItem Content="📖 Reading" />
+                <ComboBoxItem Content="👂 Listening" />
+                <ComboBoxItem Content="✎ Writing" />
+                <ComboBoxItem Content="🗣️ Speaking" />
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Text="{Binding Content}" IsEnabled="False" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Grid
+  Grid.Column="1" Margin="674,12,250,9">
                 <Button
-                    Grid.Column="0"
                     HorizontalAlignment="Left"
-                    Click="DeleteChat"
-                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                    Style="{StaticResource MaterialDesignIconButton}"
-                    ToolTip="Delete Chat">
-                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="DeleteCircle" />
-                </Button>
-
-                <Grid Grid.Column="1" Margin="10">
-                    <Button
-                        HorizontalAlignment="Left"
-                        materialDesign:ButtonProgressAssist.IsIndeterminate="True"
-                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
-                        materialDesign:ButtonProgressAssist.Value="-1"
-                        Click="Button_Click"
-                        Content="Add"
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                        Style="{StaticResource MaterialDesignOutlinedButton}" />
-                </Grid>
-
-                <TextBox
-                    Name="AddTopic"
-                    Grid.Column="2"
-                    Width="160"
-                    MinWidth="80"
-                    HorizontalAlignment="Center"
-                    materialDesign:HintAssist.Hint="Add your topic"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <ComboBox
-                    Name="Topic"
-                    Grid.Column="3"
-                    Width="156"
-                    MinWidth="80"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    materialDesign:ColorZoneAssist.Mode="PrimaryDark"
-                    materialDesign:HintAssist.HelperText="Select your topic"
-                    materialDesign:HintAssist.Hint="Topic"
-                    materialDesign:TextFieldAssist.HasClearButton="True"
-                    materialDesign:TextFieldAssist.SuffixText=""
-                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueLightBrush}"
-                    SelectedItem="{Binding getTopic, Mode=TwoWay}"
-                    SelectionChanged="TopicChanged"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                    <ComboBoxItem Content="Football" />
-                    <ComboBoxItem Content="Sustainable Energy" />
-                    <ComboBoxItem Content="Global Warming" />
-                    <ComboBoxItem Content="Artificial Intelligence" />
-                    <ComboBoxItem Content="Space Exploration" />
-                    <ComboBoxItem Content="Cultural Diversity" />
-                    <ComboBoxItem Content="Mental Health Awareness" />
-                    <ComboBoxItem Content="Gender Equality" />
-                    <ComboBoxItem Content="Social Media Influence" />
-                    <ComboBoxItem Content="Online Education" />
-                    <ComboBoxItem Content="Climate Change" />
-                    <ComboBoxItem Content="Renewable Resources" />
-                    <ComboBoxItem Content="Wildlife Conservation" />
-                    <ComboBoxItem Content="Healthy Lifestyle" />
-                    <ComboBoxItem Content="Cybersecurity" />
-                    <ComboBoxItem Content="E-commerce" />
-                    <ComboBoxItem Content="Cultural Heritage" />
-                    <ComboBoxItem Content="Plastic Pollution" />
-                    <ComboBoxItem Content="Sustainable Agriculture" />
-                    <ComboBoxItem Content="Digital Innovation" />
-                    <ComboBoxItem Content="Urbanization" />
-                    <ComboBoxItem Content="Entrepreneurship" />
-                    <ComboBoxItem Content="Water Scarcity" />
-                    <ComboBoxItem Content="Mental Well-being" />
-                    <ComboBoxItem Content="Robotics" />
-                    <ComboBoxItem Content="Deforestation" />
-                    <ComboBoxItem Content="Genetic Engineering" />
-                    <ComboBoxItem Content="Cultural Exchange Programs" />
-                    <ComboBoxItem Content="Travel and Tourism" />
-                    <ComboBoxItem Content="Artificial Reality (AR) and Virtual Reality (VR)" />
-                    <ComboBoxItem Content="Sustainable Fashion" />
-                    <ComboBoxItem Content="Smart Cities" />
-                    <ComboBoxItem Content="Ocean Conservation" />
-                    <ComboBoxItem Content="Nuclear Energy" />
-                    <ComboBoxItem Content="Social Justice" />
-                    <ComboBoxItem Content="Internet Privacy" />
-                    <ComboBoxItem Content="Food Security" />
-                    <ComboBoxItem Content="Autonomous Vehicles" />
-                    <ComboBoxItem Content="Genetic Diversity" />
-                    <ComboBoxItem Content="Classical Arts and Literature" />
-                    <ComboBoxItem Content="Medical Breakthroughs" />
-                    <ComboBoxItem Content="Job Automation" />
-                    <ComboBoxItem Content="Sustainable Transportation" />
-                    <ComboBoxItem Content="Cultural Festivals" />
-                    <ComboBoxItem Content="Antibiotic Resistance" />
-                    <ComboBoxItem Content="Social Networking" />
-                    <ComboBoxItem Content="Indigenous Rights" />
-                    <ComboBoxItem Content="Educational Technology" />
-                    <ComboBoxItem Content="Future of Work" />
-                    <ComboBoxItem Content="Wildlife Trafficking" />
-                </ComboBox>
-
-                <ComboBox
-                    Name="Skill"
-                    Grid.Column="4"
-                    Width="113"
-                    MinWidth="80"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    materialDesign:ColorZoneAssist.Mode="PrimaryDark"
-                    materialDesign:HintAssist.HelperText="Select your skill"
-                    materialDesign:HintAssist.Hint="Skills"
-                    materialDesign:TextFieldAssist.HasClearButton="True"
-                    materialDesign:TextFieldAssist.SuffixText=""
-                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueLightBrush}"
-                    SelectedItem="{Binding getSkill, Mode=TwoWay}"
-                    SelectionChanged="SkillChanged"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                    <ComboBoxItem Content="📖 Reading" />
-                    <ComboBoxItem Content="👂 Listening" />
-                    <ComboBoxItem Content="✎ Writing" />
-                    <ComboBoxItem Content="🗣️ Speaking" />
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBox IsEnabled="False" Text="{Binding Content}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-
-                <ComboBox
-                    Name="Band"
-                    Grid.Column="5"
-                    Width="100"
-                    MinWidth="80"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    materialDesign:ColorZoneAssist.Mode="PrimaryDark"
-                    materialDesign:HintAssist.HelperText="Select your band"
-                    materialDesign:HintAssist.Hint="Band"
-                    materialDesign:TextFieldAssist.HasClearButton="True"
-                    materialDesign:TextFieldAssist.SuffixText=""
-                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueLightBrush}"
-                    SelectedItem="{Binding getBand, Mode=TwoWay}"
-                    SelectionChanged="BandChanged"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                    <ComboBoxItem Content="3.0" />
-                    <ComboBoxItem Content="3.5" />
-                    <ComboBoxItem Content="4.0" />
-                    <ComboBoxItem Content="4.5" />
-                    <ComboBoxItem Content="5.0" />
-                    <ComboBoxItem Content="5.5" />
-                    <ComboBoxItem Content="6.0" />
-                    <ComboBoxItem Content="6.5" />
-                    <ComboBoxItem Content="7.0" />
-                    <ComboBoxItem Content="7.5" />
-                    <ComboBoxItem Content="8.0" />
-                    <ComboBoxItem Content="8.5" />
-                    <ComboBoxItem Content="9.0" />
-                </ComboBox>
-                <CheckBox
-                    Grid.Column="6"
-                    Margin="0,10,0,10"
-                    HorizontalAlignment="Center"
-                    Checked="CheckBox_Checked"
-                    Content="Advance"
-                    IsChecked="{Binding isAdvance, Mode=OneWay}"
-                    Style="{StaticResource MaterialDesignFilterChipPrimaryCheckBox}"
-                    Unchecked="CheckBox_Unchecked" />
+    Margin="-270,0,0,2"
+    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+    materialDesign:ButtonProgressAssist.Value="-1"
+    Content="Add"
+    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+    Style="{StaticResource MaterialDesignOutlinedButton}" Click="Button_Click" />
             </Grid>
+            <ComboBox
+                  SelectedItem="{Binding getTopic, Mode=TwoWay}"
+                  Name="Topic"
+                  SelectionChanged="TopicChanged"
+                  HorizontalAlignment="Left"
+                  MinWidth="80"
+                  materialDesign:ColorZoneAssist.Mode="PrimaryDark"
+                  materialDesign:HintAssist.HelperText="Select your topic"
+                  materialDesign:HintAssist.Hint="Topic"
+                  materialDesign:TextFieldAssist.HasClearButton="True"
+                  materialDesign:TextFieldAssist.SuffixText=""
+                  materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueLightBrush}"
+                  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="475,-4,0,0" VerticalAlignment="Top" Width="156" Grid.Column="1">
+                <ComboBoxItem Content="Football" />
+                <ComboBoxItem Content="Sustainable Energy" />
+                <ComboBoxItem Content="Global Warming" />
+                <ComboBoxItem Content="Artificial Intelligence" />
+                <ComboBoxItem Content="Space Exploration" />
+                <ComboBoxItem Content="Cultural Diversity" />
+                <ComboBoxItem Content="Mental Health Awareness" />
+                <ComboBoxItem Content="Gender Equality" />
+                <ComboBoxItem Content="Social Media Influence" />
+                <ComboBoxItem Content="Online Education" />
+                <ComboBoxItem Content="Climate Change" />
+                <ComboBoxItem Content="Renewable Resources" />
+                <ComboBoxItem Content="Wildlife Conservation" />
+                <ComboBoxItem Content="Healthy Lifestyle" />
+                <ComboBoxItem Content="Cybersecurity" />
+                <ComboBoxItem Content="E-commerce" />
+                <ComboBoxItem Content="Cultural Heritage" />
+                <ComboBoxItem Content="Plastic Pollution" />
+                <ComboBoxItem Content="Sustainable Agriculture" />
+                <ComboBoxItem Content="Digital Innovation" />
+                <ComboBoxItem Content="Urbanization" />
+                <ComboBoxItem Content="Entrepreneurship" />
+                <ComboBoxItem Content="Water Scarcity" />
+                <ComboBoxItem Content="Mental Well-being" />
+                <ComboBoxItem Content="Robotics" />
+                <ComboBoxItem Content="Deforestation" />
+                <ComboBoxItem Content="Genetic Engineering" />
+                <ComboBoxItem Content="Cultural Exchange Programs" />
+                <ComboBoxItem Content="Travel and Tourism" />
+                <ComboBoxItem Content="Artificial Reality (AR) and Virtual Reality (VR)" />
+                <ComboBoxItem Content="Sustainable Fashion" />
+                <ComboBoxItem Content="Smart Cities" />
+                <ComboBoxItem Content="Ocean Conservation" />
+                <ComboBoxItem Content="Nuclear Energy" />
+                <ComboBoxItem Content="Social Justice" />
+                <ComboBoxItem Content="Internet Privacy" />
+                <ComboBoxItem Content="Food Security" />
+                <ComboBoxItem Content="Autonomous Vehicles" />
+                <ComboBoxItem Content="Genetic Diversity" />
+                <ComboBoxItem Content="Classical Arts and Literature" />
+                <ComboBoxItem Content="Medical Breakthroughs" />
+                <ComboBoxItem Content="Job Automation" />
+                <ComboBoxItem Content="Sustainable Transportation" />
+                <ComboBoxItem Content="Cultural Festivals" />
+                <ComboBoxItem Content="Antibiotic Resistance" />
+                <ComboBoxItem Content="Social Networking" />
+                <ComboBoxItem Content="Indigenous Rights" />
+                <ComboBoxItem Content="Educational Technology" />
+                <ComboBoxItem Content="Future of Work" />
+                <ComboBoxItem Content="Wildlife Trafficking" />
+            </ComboBox>
+            <TextBox
+                  Name="AddTopic"
+                  HorizontalAlignment="Left"
+                  MinWidth="80"
+                  materialDesign:HintAssist.Hint="Add your topic"
+                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Margin="233,1,0,9" Width="160" />
 
+            <ComboBox
+                  SelectedItem="{Binding getBand, Mode=TwoWay}"
+                  SelectionChanged="BandChanged"
+                  Name="Band"
+                  HorizontalAlignment="Left"
+                  MinWidth="80"
+                  materialDesign:ColorZoneAssist.Mode="PrimaryDark"
+                  materialDesign:HintAssist.HelperText="Select your band"
+                  materialDesign:HintAssist.Hint="Band"
+                  materialDesign:TextFieldAssist.HasClearButton="True"
+                  materialDesign:TextFieldAssist.SuffixText=""
+                  materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueLightBrush}"
+                  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="773,-4,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
+                <ComboBoxItem Content="3.0" />
+                <ComboBoxItem Content="3.5" />
+                <ComboBoxItem Content="4.0" />
+                <ComboBoxItem Content="4.5" />
+                <ComboBoxItem Content="5.0" />
+                <ComboBoxItem Content="5.5" />
+                <ComboBoxItem Content="6.0" />
+                <ComboBoxItem Content="6.5" />
+                <ComboBoxItem Content="7.0" />
+                <ComboBoxItem Content="7.5" />
+                <ComboBoxItem Content="8.0" />
+                <ComboBoxItem Content="8.5" />
+                <ComboBoxItem Content="9.0" />
+            </ComboBox>
+            <CheckBox
+                Content="Advance"
+                IsChecked="{Binding isAdvance, Mode = OneWay}"
+                Style="{StaticResource MaterialDesignFilterChipPrimaryCheckBox}" Grid.Column="1" Margin="878,5,0,18" 
+                Checked="CheckBox_Checked" 
+                Unchecked="CheckBox_Unchecked"/>
         </Grid>
     </Grid>
 </ui:FluentWindow>
