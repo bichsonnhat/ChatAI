@@ -28,7 +28,6 @@ namespace ChatWpfUI.View
             InitializeComponent();
             httpClient = new HttpClient();
             string input = ConvertString(ShareData.transText);
-            engBox.Text = input;
             transBox.Text = TranslateText(input, "auto", ShareData.langSecond);
         }
         public string TranslateText(string input, string lang_first, string lang_second)
