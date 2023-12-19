@@ -28,7 +28,7 @@ namespace ChatAI.View
         {
             InitializeComponent();
         }
-        SqlConnection conn = new SqlConnection(@"Data Source=NHATBS;Initial Catalog=LoginChat;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-F88VQPDJ;Initial Catalog=LoginChat;Integrated Security=True");
         bool isLogin = false;
         private void Login(object sender, RoutedEventArgs e)
         {

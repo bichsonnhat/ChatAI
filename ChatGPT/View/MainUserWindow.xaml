@@ -71,8 +71,7 @@
                                 Margin="0,0,20,0"
                                 materialDesign:HintAssist.Hint="Search"
                                 Foreground="White"
-                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                TextChanged="TextBox_TextChanged" />
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         </Grid>
                     </Border>
                 </Grid>
