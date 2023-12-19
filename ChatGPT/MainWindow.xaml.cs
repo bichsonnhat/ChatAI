@@ -65,12 +65,12 @@ namespace ChatAI
 
             ViewModel = viewModel;
             DataContext = this;
-            LoginWindow login = new LoginWindow();
-            login.ShowDialog();
-            if (login.IsLogin == false)
-            {
-                Environment.Exit(0);
-            }
+            //LoginWindow login = new LoginWindow();
+            //login.ShowDialog();
+            //if (login.IsLogin == false)
+            //{
+            //    Environment.Exit(0);
+            //}
 
             InitializeComponent();
             hook.MouseReleased += OnMouseRelease;
