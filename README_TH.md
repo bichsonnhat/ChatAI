@@ -24,7 +24,9 @@
    git clone https://github.com/bichsonnhat/ChatAI.git
    ```
 * Bước 2: Open project trong Visual Studio 2022
-* Bước 3: Vào phần `LoginWindow.xaml.cs`, thay đổi `NhatBS` thành *sever name* của thiết bị trong SQL Server
+* Bước 3: Vào phần `LoginWindow.xaml.cs`, thay đổi `NhatBS` thành *server name* của thiết bị trong SQL Server
+* Bước 4: Mở ứng dụng SQL Server, chạy file `LoginChat.sql`
+* Bước 5: Vào Visual Studio 2022, chọn `Tool` -> `Connect to Database`, nhập *server name* và ấn `Test Connection`
 * Bước 4: Chạy và màn hình `login` hiện lên, nhập key = `admin` để sử dụng ứng dụng.
 
 **Additional information**: 
