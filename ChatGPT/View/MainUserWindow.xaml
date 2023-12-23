@@ -74,12 +74,21 @@
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         </Grid>
                     </Border>
+                    <Button
+                        Grid.Column="0"
+                        Width="50"
+                        Height="50"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                        ToolTip="MaterialDesignFloatingActionMiniDarkButton" Margin="835,21,76,21">
+                        <materialDesign:PackIcon Kind="DownloadBox" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Button>
                 </Grid>
                 <Grid Grid.Column="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
-                    </Grid.ColumnDefinitions>          
+                    </Grid.ColumnDefinitions>
                     <Button
                         Margin="-61,0,74,0"
                         materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding IsSaving}"
@@ -88,7 +97,7 @@
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}" Height="56" VerticalAlignment="Center">
                         <!-- simple example of toggling/animating pack icon with a data trigger -->
-                    <materialDesign:PackIcon
+                        <materialDesign:PackIcon
                         Width="24"
                         Height="24">
                             <materialDesign:PackIcon.Style>
@@ -150,6 +159,7 @@
                     </Button>
                 </Grid>
             </Grid>
+
         </Grid>
     </Border>
 </Window>
