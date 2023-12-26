@@ -21,7 +21,7 @@ using System.Windows.Forms;
 using ChatAI.View;
 using SharpHook;
 using SharpHook.Native;
-using ChatWpfUI.View;
+using ChatAI.View;
 using LiteDB;
 using System.ComponentModel;
 
@@ -127,7 +127,6 @@ namespace ChatAI
                 designButtonTrans.Topmost = true;
                 designButtonTrans.WindowStartupLocation = WindowStartupLocation.Manual;
                 designButtonTrans.Show();
-                //DesignButtonTrans.Position = 
             });
         }
         private void Window_Closed(object? sender, System.EventArgs e)

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ChatWpfUI.View
+namespace ChatAI.View
 {
     /// <summary>
     /// Interaction logic for DesignButtonTrans.xaml
@@ -28,6 +28,13 @@ namespace ChatWpfUI.View
         {
             TranslateWindow translateWindow = new TranslateWindow();
             translateWindow.Show();
+            this.Close();
+        }
+
+        private void Speaking(object sender, RoutedEventArgs e)
+        {
+            TextToSpeech textToSpeech = new TextToSpeech();
+            textToSpeech.Show();
             this.Close();
         }
 
