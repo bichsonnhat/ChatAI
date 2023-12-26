@@ -106,6 +106,35 @@
                             Foreground="White"
                             Kind="People" />
                     </Button>
+
+
+                    <Button
+                        Grid.Column="1"
+                        Width="50"
+                        Height="100"
+                        Background="#c95951"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton">
+                    </Button>
+                    <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Foreground="White"
+                            Kind="OctagonOutline" />
+
+                    <Button
+                        Grid.Column="1"
+                        Width="50"
+                        Height="100"
+                        Background="#c95951"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton">
+                    </Button>
+                    <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Foreground="White"
+                            Kind="Stop" />
                 </Grid>
             </Grid>
         </Grid>
