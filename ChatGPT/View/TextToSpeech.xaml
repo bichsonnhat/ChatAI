@@ -46,7 +46,7 @@
               Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
               IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
               Style="{StaticResource MaterialDesignIconButton}"
-              ToolTip="MaterialDesignIconButton" Margin="267,382,481,16" Click="Play">
+              ToolTip="Play" Margin="267,382,481,16" Click="Play">
                 <materialDesign:PackIcon
                 Kind="Play" VerticalAlignment="Center" />
             </Button>
@@ -54,7 +54,7 @@
               Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
               IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
               Style="{StaticResource MaterialDesignIconButton}"
-              ToolTip="MaterialDesignIconButton" Margin="354,382,394,16" Click="Pause">
+              ToolTip="Pause" Margin="354,382,394,16" Click="Pause">
                 <materialDesign:PackIcon
                 Kind="Pause" VerticalAlignment="Center" />
             </Button>
@@ -62,7 +62,7 @@
               Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
               IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
               Style="{StaticResource MaterialDesignIconButton}"
-              ToolTip="MaterialDesignIconButton" Margin="529,382,219,16" Click="Stop">
+              ToolTip="Stop" Margin="529,382,219,16" Click="Stop">
                 <materialDesign:PackIcon
                 Kind="Stop" VerticalAlignment="Center" />
             </Button>
@@ -70,7 +70,7 @@
               Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
               IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
               Style="{StaticResource MaterialDesignIconButton}"
-              ToolTip="MaterialDesignIconButton" Margin="440,382,308,16" Click="Resume">
+              ToolTip="Resume" Margin="440,382,308,16" Click="Resume">
                 <materialDesign:PackIcon
                 Kind="Replay" VerticalAlignment="Center" />
             </Button>

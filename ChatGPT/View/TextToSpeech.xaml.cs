@@ -21,6 +21,7 @@ namespace ChatAI.View
     public partial class TextToSpeech : Window
     {
         SpeechSynthesizer sapi = new SpeechSynthesizer();
+        bool isStop = false;
         public TextToSpeech()
         {
             InitializeComponent();
@@ -41,6 +42,7 @@ namespace ChatAI.View
                 sapi.Dispose();
                 sapi = new SpeechSynthesizer();
                 sapi.SpeakAsync(engBox.Text);
+                isStop = false;
             } else
             {
                 MessageBox.Show("Text is empty!");
@@ -49,6 +51,10 @@ namespace ChatAI.View
 
         private void Pause(object sender, RoutedEventArgs e)
         {
+            if (isStop == true)
+            {
+                return;
+            }
             if (sapi.State == SynthesizerState.Speaking)
             {
                 sapi.Pause();
@@ -57,6 +63,10 @@ namespace ChatAI.View
 
         private void Resume(object sender, RoutedEventArgs e)
         {
+            if (isStop == true)
+            {
+                return;
+            }
             if (sapi != null)
             {
                 if (sapi.State == SynthesizerState.Paused)
@@ -71,6 +81,7 @@ namespace ChatAI.View
             if (sapi != null)
             {
                 sapi.Dispose();
+                isStop = true;
             }
         }
     }
