@@ -154,8 +154,9 @@ namespace ChatAI
             String getTopic = AddTopic.Text;
             if (String.IsNullOrWhiteSpace(getTopic))
             {
-                System.Windows.MessageBox.Show("Please fill topic box!", "Notification",  MessageBoxButton.OK, MessageBoxImage.Warning);
-            } else
+                System.Windows.MessageBox.Show("Please fill topic box!", "Notification", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
             {
                 using (var db = new LiteDatabase(@".\store.db"))
                 {
@@ -219,7 +220,8 @@ namespace ChatAI
                 if (selectedItemString.StartsWith("System.Windows.Controls.ComboBoxItem:"))
                 {
                     ViewModel.getTopic = selectedItemString.Remove(0, 38);
-                } else
+                }
+                else
                 {
                     ViewModel.getTopic = selectedItemString;
                 }
