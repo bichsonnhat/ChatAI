@@ -31,7 +31,9 @@
 
                 x:Name="BasicRatingBar"
                 ValueChanged="BasicRatingBar_ValueChanged"
-                Value="3" Margin="10,650,-10,10" Grid.Row="2" />
+                Value="3" Margin="10,627,-10,33" Grid.Row="2" />
+            <ProgressBar
+                IsIndeterminate="True" Margin="20,680,20,16" Grid.Row="2" />
             <Grid
                 Grid.Row="1"
                 Margin="20"
