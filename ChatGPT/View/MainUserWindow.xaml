@@ -15,7 +15,7 @@
     WindowStyle="None"
     mc:Ignorable="d">
     <Border
-        Background="white"
+        Background="#001822"
         BorderThickness="2"
         CornerRadius="15">
         <Grid>
@@ -27,6 +27,11 @@
             <Grid Background="#001822">
                 <Grid Grid.Row="0" HorizontalAlignment="Right" />
             </Grid>
+            <materialDesign:RatingBar
+
+                x:Name="BasicRatingBar"
+                ValueChanged="BasicRatingBar_ValueChanged"
+                Value="3" Margin="10,650,-10,10" Grid.Row="2" />
             <Grid
                 Grid.Row="1"
                 Margin="20"
@@ -50,7 +55,7 @@
                     <Border
                         Width="500"
                         Height="50"
-                        Background="#001822"
+                        Background="SteelBlue"
                         BorderThickness="2"
                         CornerRadius="15">
                         <Grid>
@@ -84,7 +89,7 @@
                         Grid.Column="0"
                         Width="50"
                         Height="50"
-                        Background="#001822"
+                        Background="SteelBlue"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                         ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
@@ -97,7 +102,7 @@
                         Grid.Column="1"
                         Width="50"
                         Height="50"
-                        Background="#001822"
+                        Background="SteelBlue"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                         ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
@@ -120,7 +125,7 @@
                             Grid.Column="0"
                             Width="50"
                             Height="50"
-                            Background="#001822"
+                            Background="SteelBlue"
                             Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                             ToolTip="MaterialDesignFloatingActionLightButton" Margin="-64,15,83,15">
                     <materialDesign:PackIcon
