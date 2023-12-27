@@ -10,7 +10,7 @@
         Title="TextToSpeech" Height="450" Width="800"
         WindowStyle="None"
         Background="Transparent"
-            AllowsTransparency="True">
+        AllowsTransparency="True">
     <Border BorderThickness="2" CornerRadius="15">
         <Border.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
