@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ChatWpfUI.View
+namespace ChatAI.View
 {
     /// <summary>
     /// Interaction logic for WordWindow.xaml
