@@ -27,11 +27,17 @@
             <Grid Background="#001822">
                 <Grid Grid.Row="0" HorizontalAlignment="Right" />
             </Grid>
+            <ToggleButton
+                Width="60"
+                Height="60"
+                Background="Aqua"
+                IsChecked="True"
+                Style="{StaticResource MaterialDesignSwitchSecondaryToggleButton}"
+                ToolTip="MaterialDesignSwitchSecondaryToggleButton" Margin="1167,605,41,57" Grid.Row="2" />
             <materialDesign:RatingBar
-
                 x:Name="BasicRatingBar"
                 ValueChanged="BasicRatingBar_ValueChanged"
-                Value="3" Margin="10,627,-10,33" Grid.Row="2" />
+                Value="3" Margin="10,627,1024,33" Grid.Row="2" />
             <ProgressBar
                 IsIndeterminate="True" Margin="20,680,20,16" Grid.Row="2" />
             <Grid
