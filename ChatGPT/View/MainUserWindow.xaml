@@ -15,7 +15,7 @@
     WindowStyle="None"
     mc:Ignorable="d">
     <Border
-        Background="#001822"
+        Background="#1f1e1e"
         BorderThickness="2"
         CornerRadius="15">
         <Grid>
@@ -30,7 +30,7 @@
             <ToggleButton
                 Width="60"
                 Height="60"
-                Background="Aqua"
+                Background="DeepSkyBlue"
                 IsChecked="True"
                 Style="{StaticResource MaterialDesignSwitchSecondaryToggleButton}"
                 ToolTip="MaterialDesignSwitchSecondaryToggleButton" Margin="1167,605,41,57" Grid.Row="2" />
@@ -50,10 +50,8 @@
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
                 <Ellipse
-                    Grid.Column="0"
-                    Width="80"
-                    Height="80"
-                    HorizontalAlignment="Left">
+                    Width="137"
+                    HorizontalAlignment="Center" Margin="0,-24,0,-33">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Assets/uitai.png" Stretch="UniformToFill" />
 
@@ -63,7 +61,7 @@
                     <Border
                         Width="650"
                         Height="50"
-                        Background="SteelBlue"
+                        Background="#0b5394"
                         BorderThickness="2"
                         CornerRadius="15">
                         <Grid>
@@ -97,7 +95,7 @@
                         Grid.Column="0"
                         Width="50"
                         Height="50"
-                        Background="SteelBlue"
+                        Background="#0b5394"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                         ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
@@ -110,7 +108,7 @@
                         Grid.Column="1"
                         Width="50"
                         Height="50"
-                        Background="SteelBlue"
+                        Background="#0b5394"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                         ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
@@ -133,10 +131,10 @@
                             Grid.Column="0"
                             Width="50"
                             Height="50"
-                            Background="SteelBlue"
+                            Background="#0b5394"
                             Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                             ToolTip="MaterialDesignFloatingActionLightButton" Margin="-64,15,83,15">
-                    <materialDesign:PackIcon
+                        <materialDesign:PackIcon
                             Width="30"
                             Height="30"
                             Foreground="White"
