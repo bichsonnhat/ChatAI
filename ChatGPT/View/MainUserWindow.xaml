@@ -36,11 +36,11 @@
                         PlacementMode="BottomAndAlignRightEdges">
                         <ListBox>
                             <ListBoxItem
-                                Content="Hello World" />
+                                Content="Login" />
                             <ListBoxItem
-                                Content="Nice Popup" />
+                                Content="Sign Up" />
                             <ListBoxItem
-                                Content="Goodbye" />
+                                Content="Option" />
                         </ListBox>
                     </materialDesign:PopupBox>
                     <StackPanel
@@ -48,9 +48,10 @@
                         <ToggleButton
                                 Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
                         <TextBlock
+                                FontSize="40"
                                 Margin="16,0,0,0"
                                 VerticalAlignment="Center"
-                                Text="Material Design In XAML Toolkit" />
+                                Text="UIT AI" />
                     </StackPanel>
                 </DockPanel>
             </materialDesign:ColorZone>
@@ -105,11 +106,12 @@
                                 Foreground="White"
                                 Kind="Magnify" />
                             <TextBox
+                                FontSize="17"
                                 Grid.Column="1"
-                                Margin="0,0,20,0"
+                                Margin="0,-8,16,-8"
                                 materialDesign:HintAssist.Hint="Search"
                                 Foreground="white"
-                                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" />
                         </Grid>
                     </Border>
                 </Grid>
