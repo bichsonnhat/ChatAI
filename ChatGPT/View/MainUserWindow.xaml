@@ -27,6 +27,33 @@
             <Grid Background="#001822">
                 <Grid Grid.Row="0" HorizontalAlignment="Right" />
             </Grid>
+            <materialDesign:ColorZone
+                Padding="16"
+                Mode="Inverted" Margin="0,-5,0,0" Height="122" Grid.RowSpan="2">
+                <DockPanel>
+                    <materialDesign:PopupBox
+                        DockPanel.Dock="Right"
+                        PlacementMode="BottomAndAlignRightEdges">
+                        <ListBox>
+                            <ListBoxItem
+                                Content="Hello World" />
+                            <ListBoxItem
+                                Content="Nice Popup" />
+                            <ListBoxItem
+                                Content="Goodbye" />
+                        </ListBox>
+                    </materialDesign:PopupBox>
+                    <StackPanel
+                                Orientation="Horizontal">
+                        <ToggleButton
+                                Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
+                        <TextBlock
+                                Margin="16,0,0,0"
+                                VerticalAlignment="Center"
+                                Text="Material Design In XAML Toolkit" />
+                    </StackPanel>
+                </DockPanel>
+            </materialDesign:ColorZone>
             <ToggleButton
                 Width="60"
                 Height="60"
@@ -42,22 +69,22 @@
                 IsIndeterminate="True" Margin="20,680,20,16" Grid.Row="2" />
             <Grid
                 Grid.Row="1"
-                Margin="20"
-                HorizontalAlignment="Stretch">
+                Margin="20,20,20,99">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="7*" />
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
                 <Ellipse
-                    Width="137"
-                    HorizontalAlignment="Center" Margin="0,-24,0,-33">
+                    Height="300"
+                    Width="300"
+                    HorizontalAlignment="Center" Margin="0,171,0,-228" Grid.Column="1">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Assets/uitai.png" Stretch="UniformToFill" />
 
                     </Ellipse.Fill>
                 </Ellipse>
-                <Grid Grid.Column="1">
+                <Grid Grid.ColumnSpan="3" Margin="137,-77,137,77">
                     <Border
                         Width="650"
                         Height="50"
@@ -97,7 +124,7 @@
                         Height="50"
                         Background="#0b5394"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton">
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-33,21,52,172">
                         <materialDesign:PackIcon
                             Width="20"
                             Height="20"
@@ -105,35 +132,24 @@
                             Kind="Settings" />
                     </Button>
                     <Button
-                        Grid.Column="1"
                         Width="50"
                         Height="50"
                         Background="#0b5394"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton">
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="44,21,43,172" Grid.ColumnSpan="2">
                         <materialDesign:PackIcon
                             Width="20"
                             Height="20"
                             Foreground="White"
                             Kind="People" />
                     </Button>
-                    <materialDesign:PackIcon
-                            Width="20"
-                            Height="20"
-                            Foreground="White"
-                            Kind="OctagonOutline" />
-                    <materialDesign:PackIcon
-                            Width="20"
-                            Height="20"
-                            Foreground="White"
-                            Kind="Stop" />
                     <Button
                             Grid.Column="0"
                             Width="50"
                             Height="50"
                             Background="#0b5394"
                             Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                            ToolTip="MaterialDesignFloatingActionLightButton" Margin="-64,15,83,15">
+                            ToolTip="MaterialDesignFloatingActionLightButton" Margin="-108,21,127,172">
                         <materialDesign:PackIcon
                             Width="30"
                             Height="30"
