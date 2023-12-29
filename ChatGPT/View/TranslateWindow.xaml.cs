@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
 
-namespace ChatWpfUI.View
+namespace ChatAI.View
 {
     /// <summary>
     /// Interaction logic for TranslateWindow.xaml

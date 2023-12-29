@@ -64,8 +64,7 @@
                 ToolTip="MaterialDesignSwitchSecondaryToggleButton" Margin="1196,384,20,22" Grid.Row="2" />
             <materialDesign:RatingBar
                 x:Name="BasicRatingBar"
-                ValueChanged="BasicRatingBar_ValueChanged"
-                Value="3" Margin="20,401,1004,27" Grid.Row="2" />
+                Value="3" Margin="10,627,-10,33" Grid.Row="2" />
             <ProgressBar
                 IsIndeterminate="True" Margin="20,444,20,10" Grid.Row="2" />
             <Grid

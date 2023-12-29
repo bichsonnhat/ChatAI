@@ -14,7 +14,13 @@
     <Compile Update="View\MainUserWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\TextToSpeech.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\TranslateWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\WordWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -34,7 +40,13 @@
     <Page Update="View\MainUserWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\TextToSpeech.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\TranslateWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\WordWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

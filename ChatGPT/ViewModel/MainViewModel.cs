@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Threading;
 using System.Windows.Xps.Serialization;
@@ -618,7 +619,7 @@ namespace ChatAI
         {
             if (chatViewModel.Name == "New Chat")
             {
-                MessageBox.Show("Can not delete empty chat, you need chat something before delete!", "Delete Chat");
+                System.Windows.MessageBox.Show("Can not delete empty chat, you need chat something before delete!", "Delete Chat", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
             if (SelectedChat == ChatList[0])

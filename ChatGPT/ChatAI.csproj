@@ -40,6 +40,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="SharpHook" Version="5.1.2" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    <PackageReference Include="System.Speech" Version="8.0.0" />
     <PackageReference Include="WPF-UI" Version="3.0.0-preview.1" />
   </ItemGroup>
 
