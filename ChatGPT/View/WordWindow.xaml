@@ -5,8 +5,114 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChatAI.View"
         mc:Ignorable="d"
-        Title="WordWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="WordWindow" Height="600" Width="370"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:viewmodel="clr-namespace:ChatAI.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:WordWindowViewModel}"
+        DataContext="{Binding WordWindowViewModel}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Background="Transparent">
+
+    <Grid Background="White">
+        <materialDesign:Card
+  Width="370">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition
+        Height="140" />
+                    <RowDefinition
+        Height="*" />
+                    <RowDefinition
+        Height="Auto" />
+                    <RowDefinition
+        Height="Auto" />
+                    <RowDefinition
+        Height="Auto" />
+                    <RowDefinition
+        Height="Auto" />
+                </Grid.RowDefinitions>
+                <Image
+      Height="140"
+      Source="/Assets/uitai.png"
+      Stretch="UniformToFill" />
+                <StackPanel
+      Grid.Row="1"
+      Margin="8,5,8,295">
+                    <TextBlock
+        Margin="0"
+        Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+        Text="{Binding Word}" FontSize="30" />
+                    <Viewbox
+        Height="16"
+        Margin="0,4,0,8"
+        HorizontalAlignment="Left">
+                        <materialDesign:RatingBar
+          Margin="0"
+          Foreground="Gold"
+          Orientation="Horizontal"
+          Value="3" />
+                        
+                    </Viewbox>
+                    <TextBlock Text="{Binding Phonetic}" Height="27" FontSize="20"/>
+                </StackPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Margin="10,100,10,0">
+                        <ItemsControl ItemsSource="{Binding Definitions}" Height="324">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="0,0,0,10">
+                                        <TextBlock FontWeight="Bold" Text="{Binding PartOfSpeech}" FontSize="20" />
+
+                                        <!-- Displaying Def2exs -->
+                                        <ItemsControl ItemsSource="{Binding Def2exs}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding Meaning}" FontSize="14" TextWrapping="Wrap" FontWeight="SemiBold"/>
+                                                        <TextBlock Text="{Binding Example}" Visibility="{Binding IsHasExample, Converter={StaticResource BooleanToVisibilityConverter}}" FontSize="14" TextWrapping="Wrap" FontWeight="Light"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+
+                                        <!-- Displaying Synonyms -->
+                                        <TextBlock Text="Synonyms:" FontWeight="Bold" Visibility="{Binding IsHasSynonym, Converter={StaticResource BooleanToVisibilityConverter}}" FontSize="16" />
+                                        <ItemsControl ItemsSource="{Binding Synonyms}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding}" FontSize="16"/>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+
+                                        <!-- Displaying Antonyms -->
+                                        <TextBlock Text="Antonyms:" FontWeight="Bold" Visibility="{Binding IsHasAntonym, Converter={StaticResource BooleanToVisibilityConverter}}" FontSize="16" />
+                                        <ItemsControl ItemsSource="{Binding Antonyms}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding}" FontSize="16" />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                <Separator
+      Grid.Row="3"
+      Margin="8,0,8,28"
+      Style="{StaticResource MaterialDesignDarkSeparator}" Grid.RowSpan="3" />
+                <StackPanel
+      Grid.Row="5">
+                    <Button
+                        
+        Content="CLOSE"
+        Click="Close"
+        Style="{StaticResource MaterialDesignFlatButton}" />
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChatAI.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,16 @@ namespace ChatAI.View
     /// </summary>
     public partial class WordWindow : Window
     {
+        public WordWindowViewModel WordWindowViewModel { get; set; }
         public WordWindow()
         {
             InitializeComponent();
+            this.DataContext = new WordWindowViewModel();
+        }
+
+        private void Close(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

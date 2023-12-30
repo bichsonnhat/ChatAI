@@ -9,6 +9,7 @@ using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using ChatAI.Model;
 using Newtonsoft.Json.Linq;
+using System.Windows;
 
 namespace ChatAI.ViewModel
 {
@@ -26,7 +27,7 @@ namespace ChatAI.ViewModel
         public bool isHasAudio = false;
 
         [ObservableProperty]
-        public string word = "empty";
+        public string _word = "empty";
 
         [ObservableProperty]
         public string sound = "default";
@@ -43,6 +44,7 @@ namespace ChatAI.ViewModel
         public WordWindowViewModel()
         {
             string input = ConvertString(ShareData.transText);
+            MessageBox.Show(input);
             TranslateWord(input);
         }
         public void TranslateWord(string input)
