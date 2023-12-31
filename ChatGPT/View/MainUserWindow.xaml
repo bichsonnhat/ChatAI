@@ -68,13 +68,15 @@
                 </DockPanel>
             </materialDesign:ColorZone>
             <ToggleButton
+                Height="80"
+                Width="80"
                 Background="DeepSkyBlue"
                 IsChecked="True"
                 Style="{StaticResource MaterialDesignSwitchSecondaryToggleButton}"
-                ToolTip="MaterialDesignSwitchSecondaryToggleButton" Margin="1209,384,33,22" Grid.Row="3" />
+                ToolTip="MaterialDesignSwitchSecondaryToggleButton" Margin="1176,348,20,27" Grid.Row="3" Checked="ToggleButton_Checked" />
             <materialDesign:RatingBar
                 x:Name="BasicRatingBar"
-                Value="3" Margin="10,358,-10,27" Grid.Row="3" RenderTransformOrigin="0.5,0.5" >
+                Value="3" Margin="10,339,-10,46" Grid.Row="3" RenderTransformOrigin="0.5,0.5" >
                 <materialDesign:RatingBar.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
@@ -85,7 +87,7 @@
                 </materialDesign:RatingBar.RenderTransform>
             </materialDesign:RatingBar>
             <ProgressBar
-                IsIndeterminate="True" Margin="20,469,20,-26" Grid.Row="3" />
+                IsIndeterminate="True" Margin="20,428,20,15" Grid.Row="3" />
             <Grid
                 Grid.Row="1"
                 Margin="20,20,20,69">
