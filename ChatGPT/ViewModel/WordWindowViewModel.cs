@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using ChatAI.Model;
 using Newtonsoft.Json.Linq;
 using System.Windows;
+using PexelsDotNetSDK.Api;
 
 namespace ChatAI.ViewModel
 {
@@ -33,7 +34,10 @@ namespace ChatAI.ViewModel
         public string sound = "default";
 
         [ObservableProperty]
-        public string phonetic = "muted";
+        public string phonetic = "None";
+
+        [ObservableProperty]
+        public string image = "";
 
         [ObservableProperty]
         public ObservableCollection<Definition> definitions = new ObservableCollection<Definition> { };
@@ -47,10 +51,38 @@ namespace ChatAI.ViewModel
             MessageBox.Show(input);
             TranslateWord(input);
         }
+
+/*        public async Task<byte[]> GetImageBytesAsync(string input)
+        {
+            var pexelsClient = new PexelsClient("6fSPa7GAHXcbXcitxFp3rN3yeHdiazkkT7mxh7rYY7RxMbOEm8VbUnmB");
+            var imageResult = await pexelsClient.SearchPhotosAsync(input);
+
+            if (imageResult?.photos != null && imageResult.photos.Any())
+            {
+                var photo = imageResult.photos.First(); // Assuming you want the first photo
+
+                // Download the image bytes
+                using (var httpClient = new HttpClient())
+                {
+                    var imageBytes = await httpClient.GetByteArrayAsync(photo.source.large);
+                    return imageBytes;
+                }
+            }
+
+            return null; // No image found
+        }*/
         public void TranslateWord(string input)
         {
             // tạo link để gọi API
             string url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + input;
+            HttpResponseMessage response = httpClient.GetAsync(url).Result;
+            if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                Word = ConvertString(ShareData.transText);
+                phonetic = "This word does not exist";
+                return;
+            }
+
             // gọi API và lấy kết quả trả về
             string result = httpClient.GetStringAsync(url).Result;
             JArray jsonArray = JArray.Parse(result);
