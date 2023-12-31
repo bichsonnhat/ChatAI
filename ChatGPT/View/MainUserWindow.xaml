@@ -197,7 +197,7 @@
                             Width="50"
                             Height="50"
                             Kind="Facebook" 
-                            Foreground="White"/>
+                            Foreground="White" VerticalAlignment="Center"/>
                     </Button>
                     <Button
                         Background="#FF0000"
@@ -208,7 +208,7 @@
                             Width="50"
                             Height="50"
                             Kind="Youtube" 
-                            Foreground="White"/>
+                            Foreground="White" VerticalAlignment="Center"/>
                     </Button>
                     <Button
                         Background="#876cd7"
@@ -219,6 +219,18 @@
                             Width="50"
                             Height="50"
                             Kind="Github" 
+                            Foreground="White" VerticalAlignment="Center"/>
+                    </Button>
+                    <Button
+                        Background="#0F9D58
+"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-872,103,885,79">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="Google" 
                             Foreground="White" VerticalAlignment="Center"/>
                     </Button>
                 </Grid>
