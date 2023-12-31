@@ -40,7 +40,7 @@
             <materialDesign:ColorZone
                 Background="#011129"
                 Padding="16"
-                Mode="Inverted" Height="122" Grid.RowSpan="2">
+                Mode="Inverted" Height="117" Grid.RowSpan="2">
                 <DockPanel>
                     <materialDesign:PopupBox
                         DockPanel.Dock="Right"
@@ -103,7 +103,7 @@
 
                     </Ellipse.Fill>
                 </Ellipse>
-                <Grid Grid.ColumnSpan="3" Margin="137,-72,137,72">
+                <Grid Grid.ColumnSpan="3" Margin="137,-77,137,77">
                     <Border
                         Width="650"
                         Height="50"
@@ -144,7 +144,7 @@
                         Height="50"
                         Background="#0b5394"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-33,21,52,172">
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-33,12,52,176">
                         <materialDesign:PackIcon
                             Width="20"
                             Height="20"
@@ -156,7 +156,7 @@
                         Height="50"
                         Background="#0b5394"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="44,21,43,172" Grid.ColumnSpan="2">
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="44,12,43,176" Grid.ColumnSpan="2">
                         <materialDesign:PackIcon
                             Width="20"
                             Height="20"
@@ -169,7 +169,7 @@
                             Height="50"
                             Background="#0b5394"
                             Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                            ToolTip="MaterialDesignFloatingActionLightButton" Margin="-108,21,127,172">
+                            ToolTip="MaterialDesignFloatingActionLightButton" Margin="-108,12,127,176">
                         <materialDesign:PackIcon
                             Width="30"
                             Height="30"
