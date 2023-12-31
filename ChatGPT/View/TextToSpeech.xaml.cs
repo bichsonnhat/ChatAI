@@ -27,6 +27,12 @@ namespace ChatAI.View
             InitializeComponent();
             string input = ConvertString(ShareData.transText);
             engBox.Text = input;
+            Closing += TextToSpeech_Closing;
+        }
+
+        private void TextToSpeech_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            sapi.Dispose();
         }
 
         string ConvertString(string input)
@@ -84,5 +90,6 @@ namespace ChatAI.View
                 isStop = true;
             }
         }
+
     }
 }

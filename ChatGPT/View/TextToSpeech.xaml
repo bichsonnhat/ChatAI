@@ -25,7 +25,7 @@
                     <ImageBrush ImageSource="/Assets/usa.png" Stretch="UniformToFill" />
                 </Rectangle.Fill>
             </Rectangle>
-            <uc:ControlBarUC Margin="755,-210,-21,210" />
+            <uc:ControlBarUC Margin="755,-210,-21,210"/>
             <Border
                 Margin="72,29,46,78"
                 Padding="10"
