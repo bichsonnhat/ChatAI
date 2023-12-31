@@ -86,8 +86,18 @@
                     </TransformGroup>
                 </materialDesign:RatingBar.RenderTransform>
             </materialDesign:RatingBar>
-            <ProgressBar
-                IsIndeterminate="True" Margin="20,428,20,15" Grid.Row="3" />
+            <materialDesign:Snackbar         
+                x:Name="SnackbarThree"
+                MessageQueue="{materialDesign:MessageQueue}" Margin="222,266,0,0" Grid.Row="3" VerticalAlignment="Top" Height="162" RenderTransformOrigin="0.5,0.5" Width="852" HorizontalAlignment="Left" >
+                <materialDesign:Snackbar.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </materialDesign:Snackbar.RenderTransform>
+            </materialDesign:Snackbar>
             <Grid
                 Grid.Row="1"
                 Margin="20,20,20,69">
