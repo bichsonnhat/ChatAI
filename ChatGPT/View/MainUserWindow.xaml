@@ -148,8 +148,8 @@
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                         ToolTip="MaterialDesignFloatingActionLightButton" Margin="-33,12,52,176">
                         <materialDesign:PackIcon
-                            Width="20"
-                            Height="20"
+                            Width="30"
+                            Height="30"
                             Foreground="White"
                             Kind="Settings" />
                     </Button>
@@ -160,10 +160,10 @@
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                         ToolTip="MaterialDesignFloatingActionLightButton" Margin="44,12,43,176" Grid.ColumnSpan="2">
                         <materialDesign:PackIcon
-                            Width="20"
-                            Height="20"
+                            Width="30"
+                            Height="30"
                             Foreground="White"
-                            Kind="People" />
+                            Kind="Account" />
                     </Button>
                     <Button
                             Grid.Column="0"
