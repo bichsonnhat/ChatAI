@@ -21,12 +21,22 @@
         <Grid RenderTransformOrigin="0.5,0.5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="327" />
+                <RowDefinition Height="46"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid Background="#ffffff" Grid.RowSpan="2" Margin="0,0,0,240">
+            <Grid Background="#ffffff" Grid.RowSpan="2" Margin="0,0,0,210">
                 <Grid Grid.Row="0" HorizontalAlignment="Right" />
             </Grid>
+            <TextBlock
+                FontSize="34"
+                Foreground="White"
+                FontStyle="Italic"
+                FontFamily="Century Gothic"
+                Margin="100,18,88,0"
+                VerticalAlignment="Top"
+                Text="Get instant answers, find creative inspiration, learn something new." Grid.Row="3" Height="141"
+        />
             <materialDesign:ColorZone
                 Background="#011129"
                 Padding="16"
@@ -52,20 +62,19 @@
                                 FontSize="40"
                                 Margin="16,0,0,0"
                                 VerticalAlignment="Center"
-                                Text="UIT AI" />
+                                Text="UIT AI"
+                                />
                     </StackPanel>
                 </DockPanel>
             </materialDesign:ColorZone>
             <ToggleButton
-                Width="60"
-                Height="60"
                 Background="DeepSkyBlue"
                 IsChecked="True"
                 Style="{StaticResource MaterialDesignSwitchSecondaryToggleButton}"
-                ToolTip="MaterialDesignSwitchSecondaryToggleButton" Margin="1196,384,20,22" Grid.Row="2" />
+                ToolTip="MaterialDesignSwitchSecondaryToggleButton" Margin="1209,384,33,22" Grid.Row="3" />
             <materialDesign:RatingBar
                 x:Name="BasicRatingBar"
-                Value="3" Margin="10,358,-10,27" Grid.Row="2" RenderTransformOrigin="0.5,0.5" >
+                Value="3" Margin="10,358,-10,27" Grid.Row="3" RenderTransformOrigin="0.5,0.5" >
                 <materialDesign:RatingBar.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
@@ -76,10 +85,10 @@
                 </materialDesign:RatingBar.RenderTransform>
             </materialDesign:RatingBar>
             <ProgressBar
-                IsIndeterminate="True" Margin="20,444,20,10" Grid.Row="2" />
+                IsIndeterminate="True" Margin="20,469,20,-26" Grid.Row="3" />
             <Grid
                 Grid.Row="1"
-                Margin="20,20,20,99">
+                Margin="20,20,20,69">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="7*" />
@@ -88,7 +97,7 @@
                 <Ellipse
                     Height="200"
                     Width="200"
-                    HorizontalAlignment="Center" Margin="0,171,0,-128" Grid.Column="1">
+                    HorizontalAlignment="Center" Margin="0,122,0,-79" Grid.Column="1">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Assets/uitai.png" Stretch="UniformToFill" />
 
