@@ -15,7 +15,7 @@
     WindowStyle="None"
     mc:Ignorable="d">
     <Border
-        Background="#1f1e1e"
+        Background="#0c1a56"
         BorderThickness="2"
         CornerRadius="15">
         <Grid RenderTransformOrigin="0.5,0.5">
@@ -24,12 +24,13 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid Background="#001822">
+            <Grid Background="#ffffff" Grid.RowSpan="2" Margin="0,0,0,240">
                 <Grid Grid.Row="0" HorizontalAlignment="Right" />
             </Grid>
             <materialDesign:ColorZone
+                Background="#011129"
                 Padding="16"
-                Mode="Inverted" Margin="0,-5,0,0" Height="122" Grid.RowSpan="2">
+                Mode="Inverted" Height="122" Grid.RowSpan="2">
                 <DockPanel>
                     <materialDesign:PopupBox
                         DockPanel.Dock="Right"
@@ -64,7 +65,16 @@
                 ToolTip="MaterialDesignSwitchSecondaryToggleButton" Margin="1196,384,20,22" Grid.Row="2" />
             <materialDesign:RatingBar
                 x:Name="BasicRatingBar"
-                Value="3" Margin="10,627,-10,33" Grid.Row="2" />
+                Value="3" Margin="10,358,-10,27" Grid.Row="2" RenderTransformOrigin="0.5,0.5" >
+                <materialDesign:RatingBar.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </materialDesign:RatingBar.RenderTransform>
+            </materialDesign:RatingBar>
             <ProgressBar
                 IsIndeterminate="True" Margin="20,444,20,10" Grid.Row="2" />
             <Grid
@@ -84,7 +94,7 @@
 
                     </Ellipse.Fill>
                 </Ellipse>
-                <Grid Grid.ColumnSpan="3" Margin="137,-77,137,77">
+                <Grid Grid.ColumnSpan="3" Margin="137,-72,137,72">
                     <Border
                         Width="650"
                         Height="50"
