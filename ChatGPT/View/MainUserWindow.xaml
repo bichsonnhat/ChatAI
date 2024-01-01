@@ -207,18 +207,18 @@
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Youtube" 
+                            Kind="NintendoSwitch" 
                             Foreground="White" VerticalAlignment="Center"/>
                     </Button>
                     <Button
-                        Background="#876cd7"
+                        Background="Silver"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                         ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1101,181,1114,1">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Github" 
+                            Kind="Ghost" 
                             Foreground="White" VerticalAlignment="Center"/>
                     </Button>
                     <Button
@@ -229,7 +229,7 @@
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Google" 
+                            Kind="Clover" 
                             Foreground="White" VerticalAlignment="Center"/>
                     </Button>
                     <Button
@@ -242,6 +242,17 @@
                             Height="50"
                             Kind="Folder" 
                             Foreground="White"/>
+                    </Button>
+                    <Button
+                        Background="#f285c5"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-796,103,809,79">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="HeartMultiple" 
+                            Foreground="White" VerticalAlignment="Center"/>
                     </Button>
                 </Grid>
             </Grid>
