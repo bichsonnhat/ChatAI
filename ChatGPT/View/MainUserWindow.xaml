@@ -298,6 +298,17 @@
                             Kind="NinjaStar" 
                             Foreground="White"/>
                     </Button>
+                    <Button
+                        Background="#ff8b3c"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1101,262,1114,-80">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="ZodiacScorpio" 
+                            Foreground="White" VerticalAlignment="Center"/>
+                    </Button>
                 </Grid>
             </Grid>
         </Grid>
