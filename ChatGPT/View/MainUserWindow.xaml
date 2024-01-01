@@ -15,21 +15,32 @@
     WindowStyle="None"
     mc:Ignorable="d">
     <Border
-        Background="#1f1e1e"
+        Background="#280f41"
         BorderThickness="2"
         CornerRadius="15">
         <Grid RenderTransformOrigin="0.5,0.5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="327" />
+                <RowDefinition Height="46"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid Background="#001822">
+            <Grid Background="#ffffff" Grid.RowSpan="2" Margin="0,0,0,210">
                 <Grid Grid.Row="0" HorizontalAlignment="Right" />
             </Grid>
+            <TextBlock
+                FontSize="34"
+                Foreground="White"
+                FontStyle="Italic"
+                FontFamily="Century Gothic"
+                Margin="100,18,88,0"
+                VerticalAlignment="Top"
+                Text="Get instant answers, find creative inspiration, learn something new." Grid.Row="3" Height="141"
+        />
             <materialDesign:ColorZone
+                Background="#1b0431"
                 Padding="16"
-                Mode="Inverted" Margin="0,-5,0,0" Height="122" Grid.RowSpan="2">
+                Mode="Inverted" Height="117" Grid.RowSpan="2">
                 <DockPanel>
                     <materialDesign:PopupBox
                         DockPanel.Dock="Right"
@@ -51,25 +62,45 @@
                                 FontSize="40"
                                 Margin="16,0,0,0"
                                 VerticalAlignment="Center"
-                                Text="UIT AI" />
+                                Text="UIT AI"
+                                />
                     </StackPanel>
                 </DockPanel>
             </materialDesign:ColorZone>
             <ToggleButton
-                Width="60"
-                Height="60"
-                Background="DeepSkyBlue"
+                Height="80"
+                Width="80"
+                Background="Lavender"
                 IsChecked="True"
                 Style="{StaticResource MaterialDesignSwitchSecondaryToggleButton}"
-                ToolTip="MaterialDesignSwitchSecondaryToggleButton" Margin="1196,384,20,22" Grid.Row="2" />
+                ToolTip="MaterialDesignSwitchSecondaryToggleButton" Margin="1176,348,20,27" Grid.Row="3" Checked="ToggleButton_Checked" />
             <materialDesign:RatingBar
                 x:Name="BasicRatingBar"
-                Value="3" Margin="10,627,-10,33" Grid.Row="2" />
-            <ProgressBar
-                IsIndeterminate="True" Margin="20,444,20,10" Grid.Row="2" />
+                Value="3" Margin="10,339,-10,46" Grid.Row="3" RenderTransformOrigin="0.5,0.5" >
+                <materialDesign:RatingBar.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </materialDesign:RatingBar.RenderTransform>
+            </materialDesign:RatingBar>
+            <materialDesign:Snackbar         
+                x:Name="SnackbarThree"
+                MessageQueue="{materialDesign:MessageQueue}" Margin="222,266,0,0" Grid.Row="3" VerticalAlignment="Top" Height="162" RenderTransformOrigin="0.5,0.5" Width="852" HorizontalAlignment="Left" >
+                <materialDesign:Snackbar.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </materialDesign:Snackbar.RenderTransform>
+            </materialDesign:Snackbar>
             <Grid
                 Grid.Row="1"
-                Margin="20,20,20,99">
+                Margin="20,20,20,69">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="7*" />
@@ -78,7 +109,7 @@
                 <Ellipse
                     Height="200"
                     Width="200"
-                    HorizontalAlignment="Center" Margin="0,171,0,-128" Grid.Column="1">
+                    HorizontalAlignment="Center" Margin="0,122,0,-79" Grid.Column="1">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Assets/uitai.png" Stretch="UniformToFill" />
 
@@ -88,7 +119,7 @@
                     <Border
                         Width="650"
                         Height="50"
-                        Background="#0b5394"
+                        Background="#461d6c"
                         BorderThickness="2"
                         CornerRadius="15">
                         <Grid>
@@ -123,39 +154,149 @@
                         Grid.Column="0"
                         Width="50"
                         Height="50"
-                        Background="#0b5394"
+                        Background="#461d6c"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-33,21,52,172">
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-33,12,52,176">
                         <materialDesign:PackIcon
-                            Width="20"
-                            Height="20"
+                            Width="30"
+                            Height="30"
                             Foreground="White"
                             Kind="Settings" />
                     </Button>
                     <Button
                         Width="50"
                         Height="50"
-                        Background="#0b5394"
+                        Background="#461d6c"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="44,21,43,172" Grid.ColumnSpan="2">
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="44,12,43,176" Grid.ColumnSpan="2">
                         <materialDesign:PackIcon
-                            Width="20"
-                            Height="20"
+                            Width="30"
+                            Height="30"
                             Foreground="White"
-                            Kind="People" />
+                            Kind="Account" />
                     </Button>
                     <Button
                             Grid.Column="0"
                             Width="50"
                             Height="50"
-                            Background="#0b5394"
+                            Background="#461d6c"
                             Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                            ToolTip="MaterialDesignFloatingActionLightButton" Margin="-108,21,127,172">
+                            ToolTip="MaterialDesignFloatingActionLightButton" Margin="-108,12,127,176">
                         <materialDesign:PackIcon
                             Width="30"
                             Height="30"
                             Foreground="White"
                             Kind="Phone" />
+                    </Button>
+                    <Button
+                        Background="#4267B2"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1026,103,1039,79">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="Pirate" 
+                            Foreground="White"/>
+                    </Button>
+                    <Button
+                        Background="#FF0000"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1101,103,1114,79">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="CardsPlaying" 
+                            Foreground="White" VerticalAlignment="Center"/>
+                    </Button>
+                    <Button
+                        Background="Silver"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1101,181,1114,1">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="DogSide" 
+                            Foreground="White" VerticalAlignment="Center"/>
+                    </Button>
+                    <Button
+                        Background="#0F9D58"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-872,103,885,79">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="Motorbike" 
+                            Foreground="White" VerticalAlignment="Center"/>
+                    </Button>
+                    <Button
+                        Background="#ffd966"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-949,103,962,79">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="HandBackRight" 
+                            Foreground="White"/>
+                    </Button>
+                    <Button
+                        Background="#f285c5"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-796,103,809,79">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="Feather" 
+                            Foreground="White" VerticalAlignment="Center"/>
+                    </Button>
+                    <Button
+                        Background="#f1c232"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1026,181,1039,1">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="Bug" 
+                        Foreground="White" VerticalAlignment="Center"/>
+                    </Button>
+                    <Button
+                        Background="Black"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-949,181,962,1">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="DinosaurPixel" 
+                            Foreground="White"/>
+                    </Button>
+                    <Button
+                        Background="White"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-872,181,885,1">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="Cat" 
+                            Foreground="Black"/>
+                    </Button>
+                    <Button
+                        Background="#653a8d"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-796,181,809,1">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="NinjaStar" 
+                            Foreground="White"/>
                     </Button>
                 </Grid>
             </Grid>
