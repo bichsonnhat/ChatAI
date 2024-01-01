@@ -196,7 +196,7 @@
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Facebook" 
+                            Kind="Pirate" 
                             Foreground="White"/>
                     </Button>
                     <Button
@@ -207,7 +207,7 @@
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="NintendoSwitch" 
+                            Kind="CardsPlaying" 
                             Foreground="White" VerticalAlignment="Center"/>
                     </Button>
                     <Button
@@ -229,7 +229,7 @@
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Clover" 
+                            Kind="Motorbike" 
                             Foreground="White" VerticalAlignment="Center"/>
                     </Button>
                     <Button
@@ -240,7 +240,7 @@
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Folder" 
+                            Kind="HandBackRight" 
                             Foreground="White"/>
                     </Button>
                     <Button
@@ -251,7 +251,7 @@
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="HeartMultiple" 
+                            Kind="Feather" 
                             Foreground="White" VerticalAlignment="Center"/>
                     </Button>
                     <Button
