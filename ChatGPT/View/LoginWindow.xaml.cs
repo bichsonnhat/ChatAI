@@ -52,7 +52,8 @@ namespace ChatAI.View
                         if (dt.Rows.Count > 0)
                         {
                             IsLogin = true;
-                            MessageBox.Show("Login successful", "ChatGPT-UIT", MessageBoxButton.OK, MessageBoxImage.Information);
+                            //MessageBox.Show("Login successful", "ChatGPT-UIT", MessageBoxButton.OK, MessageBoxImage.Information);
+                            bool? Result = new MessageBoxCustom("Operation Successfully Done.", MessageType.Success, MessageButtons.Ok).ShowDialog();
                             Close();
                             //Environment.Exit(0);
                         }
