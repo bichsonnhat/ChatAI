@@ -19,65 +19,68 @@ namespace ChatAI.View
     /// </summary>
     public partial class MessageBoxCustom : Window
     {
-        public MessageBoxCustom(string Message, MessageType Type, MessageButtons Buttons)
+        public MessageBoxCustom(string Title, string Message, MessageType Type, MessageButtons Buttons)
         {
             InitializeComponent();
-            txtMessage.Content = Message;
+            txtMessage.Text = Message;
+            if (txtMessage.Text.Length > 27)
+                txtMessage.Margin = new Thickness(15, 5, 5, 5);
+            if (txtMessage.Text.Length > 54)
+            {
+                txtMessage.Margin = new Thickness(4, 10, 5, 5);
+                txtMessage.FontSize = 16;
+                txtMessage.Width = 255;
+                txtMessage.Height = 55;
+                ImgMessage.Margin = new Thickness(0, 0, 0, 5);
+            }
+            txtTitle.Text = Title;
             switch (Type)
             {
+
                 case MessageType.Info:
-                    txtTitle.Text = "Info";
-                    break;
-                case MessageType.Confirmation:
-                    txtTitle.Text = "Confirmation";
+                    System.Media.SystemSounds.Beep.Play();
+                    ChangeBackGround((Color)ColorConverter.ConvertFromString("#FF2196F3"));
+                    ImgMessage.Source = new BitmapImage(new Uri("pack://application:,,,/ChatAI;component/Assets/MessageBoxIcon/info.png"));
                     break;
                 case MessageType.Success:
-                    {
-                        string defaultColor = "#4527a0";
-                        Color bkColor = (Color)ColorConverter.ConvertFromString(defaultColor);
-                        changeBackgroundThemeColor(Colors.Green);
-                        txtTitle.Text = "Success";
-                    }
+                    System.Media.SystemSounds.Beep.Play();
+                    ChangeBackGround((Color)ColorConverter.ConvertFromString("#FF4CAF50"));
+                    ImgMessage.Source = new BitmapImage(new Uri("pack://application:,,,/ChatAI;component/Assets/MessageBoxIcon/succes.png"));
                     break;
                 case MessageType.Warning:
-                    txtTitle.Text = "Warning";
+                    System.Media.SystemSounds.Beep.Play();
+                    ChangeBackGround((Color)ColorConverter.ConvertFromString("#FFF3BA0E"));
+                    ImgMessage.Source = new BitmapImage(new Uri("pack://application:,,,/ChatAI;component/Assets/MessageBoxIcon/warning.png"));
                     break;
                 case MessageType.Error:
-                    {
-                        string defaultColor = "#F44336";
-                        Color bkColor = (Color)ColorConverter.ConvertFromString(defaultColor);
-                        changeBackgroundThemeColor(bkColor);
-                        changeBackgroundThemeColor(Colors.Red);
-                        txtTitle.Text = "Error";
-                    }
+                    System.Media.SystemSounds.Hand.Play();
+                    ChangeBackGround((Color)ColorConverter.ConvertFromString("#FFED4538"));
+                     ImgMessage.Source = new BitmapImage(new Uri("pack://application:,,,/ChatAI;component/Assets/MessageBoxIcon/ErrorIcon.png"));
                     break;
             }
-
             switch (Buttons)
             {
-                case MessageButtons.OkCancel:
+                case MessageButtons.OKCancel:
                     btnYes.Visibility = Visibility.Collapsed; btnNo.Visibility = Visibility.Collapsed;
                     break;
                 case MessageButtons.YesNo:
                     btnOk.Visibility = Visibility.Collapsed; btnCancel.Visibility = Visibility.Collapsed;
                     break;
-                case MessageButtons.Ok:
+                case MessageButtons.OK:
                     btnOk.Visibility = Visibility.Visible;
                     btnCancel.Visibility = Visibility.Collapsed;
                     btnYes.Visibility = Visibility.Collapsed; btnNo.Visibility = Visibility.Collapsed;
                     break;
             }
         }
-        public void changeBackgroundThemeColor(Color newColor)
+        public void ChangeBackGround(Color newcolor)
         {
-            cardHeader.Background = new SolidColorBrush(newColor);
-            btnClose.Foreground = new SolidColorBrush(newColor);
-            btnYes.Background = new SolidColorBrush(newColor);
-            btnNo.Background = new SolidColorBrush(newColor);
-
-            btnOk.Background = new SolidColorBrush(newColor);
-            btnCancel.Background = new SolidColorBrush(newColor);
+            BackGroundTittle.Background = new SolidColorBrush(newcolor);
+            btnOk.Background = new SolidColorBrush(newcolor);
+            btnYes.Background = new SolidColorBrush(newcolor);
+            btnClose.Foreground = new SolidColorBrush(newcolor);
         }
+
         private void btnYes_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
@@ -108,18 +111,17 @@ namespace ChatAI.View
             this.Close();
         }
     }
+    public enum MessageButtons
+    {
+        OKCancel,
+        YesNo,
+        OK,
+    }
     public enum MessageType
     {
         Info,
-        Confirmation,
         Success,
         Warning,
         Error,
-    }
-    public enum MessageButtons
-    {
-        OkCancel,
-        YesNo,
-        Ok,
     }
 }

@@ -13,7 +13,12 @@
     <None Remove="Assets\chatgpt-icon.png" />
     <None Remove="Assets\chatgpt-icon.svg" />
     <None Remove="Assets\delete.png" />
+    <None Remove="Assets\GPTLogo.ico" />
     <None Remove="Assets\logo.ico" />
+    <None Remove="Assets\MessageBoxIcon\ErrorIcon.png" />
+    <None Remove="Assets\MessageBoxIcon\info.png" />
+    <None Remove="Assets\MessageBoxIcon\succes.png" />
+    <None Remove="Assets\MessageBoxIcon\warning.png" />
     <None Remove="Assets\Poster1.png" />
     <None Remove="Assets\Poster2.jpg" />
     <None Remove="Assets\Poster3.jpg" />
@@ -47,6 +52,11 @@
 
   <ItemGroup>
     <Resource Include="Assets\bin.png" />
+    <Resource Include="Assets\GPTLogo.ico" />
+    <Resource Include="Assets\MessageBoxIcon\ErrorIcon.png" />
+    <Resource Include="Assets\MessageBoxIcon\info.png" />
+    <Resource Include="Assets\MessageBoxIcon\succes.png" />
+    <Resource Include="Assets\MessageBoxIcon\warning.png" />
     <Resource Include="Assets\usa.png" />
     <Resource Include="Assets\vietnam.png" />
     <Resource Include="Assets\logo.ico" />

@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,6 +21,7 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using System.Windows.Xps.Serialization;
 using Wpf.Ui.Contracts;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace ChatAI
 {
@@ -276,12 +278,14 @@ namespace ChatAI
             {
                 if (!string.IsNullOrEmpty(sendMessage.Prompt))
                 {
-                    System.Windows.MessageBox.Show("Please turn off Advance!", "Notification", MessageBoxButton.OK, MessageBoxImage.Stop);
+                    MessageBoxCustom mb = new MessageBoxCustom("Notification", "Please turn off Advanced mode!", MessageType.Error, MessageButtons.OK);
+                    mb.ShowDialog();
                     return;
                 }
                 if (String.IsNullOrEmpty(getTopic) || String.IsNullOrEmpty(GetSkill) || String.IsNullOrEmpty(getBand))
                 {
-                    System.Windows.MessageBox.Show("Please completely fill in the fields: Topic, Skills, Band!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBoxCustom mb = new MessageBoxCustom("Notification", "Please completely fill in the fields: Topic, Skills, Band!", MessageType.Warning, MessageButtons.OK);
+                    mb.ShowDialog();
                     return;
                 }
                 if (getSkill == "📖 Reading")
