@@ -15,7 +15,7 @@
     WindowStyle="None"
     mc:Ignorable="d">
     <Border
-        Background="#0c1a56"
+        Background="#280f41"
         BorderThickness="2"
         CornerRadius="15">
         <Grid RenderTransformOrigin="0.5,0.5">
@@ -38,7 +38,7 @@
                 Text="Get instant answers, find creative inspiration, learn something new." Grid.Row="3" Height="141"
         />
             <materialDesign:ColorZone
-                Background="#011129"
+                Background="#1b0431"
                 Padding="16"
                 Mode="Inverted" Height="117" Grid.RowSpan="2">
                 <DockPanel>
@@ -70,7 +70,7 @@
             <ToggleButton
                 Height="80"
                 Width="80"
-                Background="DeepSkyBlue"
+                Background="Lavender"
                 IsChecked="True"
                 Style="{StaticResource MaterialDesignSwitchSecondaryToggleButton}"
                 ToolTip="MaterialDesignSwitchSecondaryToggleButton" Margin="1176,348,20,27" Grid.Row="3" Checked="ToggleButton_Checked" />
@@ -119,7 +119,7 @@
                     <Border
                         Width="650"
                         Height="50"
-                        Background="#0b5394"
+                        Background="#461d6c"
                         BorderThickness="2"
                         CornerRadius="15">
                         <Grid>
@@ -154,7 +154,7 @@
                         Grid.Column="0"
                         Width="50"
                         Height="50"
-                        Background="#0b5394"
+                        Background="#461d6c"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                         ToolTip="MaterialDesignFloatingActionLightButton" Margin="-33,12,52,176">
                         <materialDesign:PackIcon
@@ -166,7 +166,7 @@
                     <Button
                         Width="50"
                         Height="50"
-                        Background="#0b5394"
+                        Background="#461d6c"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                         ToolTip="MaterialDesignFloatingActionLightButton" Margin="44,12,43,176" Grid.ColumnSpan="2">
                         <materialDesign:PackIcon
@@ -179,7 +179,7 @@
                             Grid.Column="0"
                             Width="50"
                             Height="50"
-                            Background="#0b5394"
+                            Background="#461d6c"
                             Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                             ToolTip="MaterialDesignFloatingActionLightButton" Margin="-108,12,127,176">
                         <materialDesign:PackIcon
