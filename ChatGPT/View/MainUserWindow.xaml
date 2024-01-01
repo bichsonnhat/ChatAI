@@ -309,6 +309,17 @@
                             Kind="ZodiacScorpio" 
                             Foreground="White" VerticalAlignment="Center"/>
                     </Button>
+                    <Button
+                        Background="#8cc5e7"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1026,262,1039,-80">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="HarryPotter" 
+                            Foreground="White" VerticalAlignment="Center"/>
+                    </Button>
                 </Grid>
             </Grid>
         </Grid>
