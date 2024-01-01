@@ -192,18 +192,18 @@
                         Background="#4267B2"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1101,103,1114,79">
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1026,103,1039,79">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
                             Kind="Facebook" 
-                            Foreground="White" VerticalAlignment="Center"/>
+                            Foreground="White"/>
                     </Button>
                     <Button
                         Background="#FF0000"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1026,103,1039,79">
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1101,103,1114,79">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
@@ -214,7 +214,7 @@
                         Background="#876cd7"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-949,103,962,79">
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1101,181,1114,1">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
@@ -236,7 +236,7 @@
                         Background="#f1c232"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1101,181,1114,1">
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-949,103,962,79">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
