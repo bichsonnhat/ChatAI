@@ -287,6 +287,17 @@
                             Kind="DinosaurPixel" 
                             Foreground="Black"/>
                     </Button>
+                    <Button
+                        Background="#653a8d"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-796,181,809,1">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="NinjaStar" 
+                            Foreground="White"/>
+                    </Button>
                 </Grid>
             </Grid>
         </Grid>
