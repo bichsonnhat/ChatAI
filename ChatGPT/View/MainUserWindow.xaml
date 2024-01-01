@@ -265,6 +265,17 @@
                             Kind="Bug" 
                         Foreground="White" VerticalAlignment="Center"/>
                     </Button>
+                    <Button
+                        Background="Black"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-949,181,962,1">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="Sword" 
+                            Foreground="White"/>
+                    </Button>
                     
                 </Grid>
             </Grid>
