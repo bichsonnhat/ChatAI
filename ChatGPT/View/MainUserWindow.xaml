@@ -233,7 +233,7 @@
                             Foreground="White" VerticalAlignment="Center"/>
                     </Button>
                     <Button
-                        Background="#f1c232"
+                        Background="#ffd966"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                         ToolTip="MaterialDesignFloatingActionLightButton" Margin="-949,103,962,79">
@@ -254,6 +254,18 @@
                             Kind="HeartMultiple" 
                             Foreground="White" VerticalAlignment="Center"/>
                     </Button>
+                    <Button
+                        Background="#f1c232"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1026,181,1039,1">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="Bug" 
+                        Foreground="White" VerticalAlignment="Center"/>
+                    </Button>
+                    
                 </Grid>
             </Grid>
         </Grid>
