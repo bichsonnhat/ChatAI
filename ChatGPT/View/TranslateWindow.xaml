@@ -15,7 +15,8 @@
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Icon="/Assets/translate.ico">
     <Border BorderThickness="2" CornerRadius="15">
         <Border.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -25,11 +26,11 @@
             </LinearGradientBrush>
         </Border.Background>
         <Grid>
-            <Rectangle Margin="10,28,746,377">
-                <Rectangle.Fill>
-                    <ImageBrush ImageSource="/Assets/usa.png" Stretch="UniformToFill" />
-                </Rectangle.Fill>
-            </Rectangle>
+            <Ellipse Margin="10,28,743,376">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/Assets/global.jpg" Stretch="UniformToFill" />
+                </Ellipse.Fill>
+            </Ellipse>
             <uc:ControlBarUC Margin="755,-210,-21,210" />
 
             <Rectangle Margin="10,248,743,154">
@@ -48,7 +49,7 @@
                         x:Name="engBox"
                         FontFamily="UltraBlack"
                         FontSize="15"
-                        FontWeight="Bold"
+                        FontWeight="DemiBold"
                         Foreground="White"
                         TextWrapping="Wrap" />
                 </ScrollViewer>
@@ -71,7 +72,7 @@
                         x:Name="transBox"
                         FontFamily="UltraBlack"
                         FontSize="15"
-                        FontWeight="Bold"
+                        FontWeight="DemiBold"
                         Foreground="White"
                         TextWrapping="Wrap" />
                 </ScrollViewer>

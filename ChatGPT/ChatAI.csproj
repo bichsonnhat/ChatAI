@@ -13,7 +13,11 @@
     <None Remove="Assets\chatgpt-icon.png" />
     <None Remove="Assets\chatgpt-icon.svg" />
     <None Remove="Assets\delete.png" />
+    <None Remove="Assets\dictionary.ico" />
+    <None Remove="Assets\dictionary.jpg" />
+    <None Remove="Assets\global.jpg" />
     <None Remove="Assets\GPTLogo.ico" />
+    <None Remove="Assets\GPTLogo.png" />
     <None Remove="Assets\logo.ico" />
     <None Remove="Assets\MessageBoxIcon\ErrorIcon.png" />
     <None Remove="Assets\MessageBoxIcon\info.png" />
@@ -24,6 +28,7 @@
     <None Remove="Assets\Poster3.jpg" />
     <None Remove="Assets\Poster4.jpg" />
     <None Remove="Assets\Poster5.jpeg" />
+    <None Remove="Assets\translate.ico" />
     <None Remove="Assets\uit-ai.ico" />
     <None Remove="Assets\uitai %282%29.png" />
     <None Remove="Assets\uitai.png" />
@@ -52,11 +57,16 @@
 
   <ItemGroup>
     <Resource Include="Assets\bin.png" />
+    <Resource Include="Assets\dictionary.ico" />
+    <Resource Include="Assets\dictionary.jpg" />
+    <Resource Include="Assets\global.jpg" />
     <Resource Include="Assets\GPTLogo.ico" />
+    <Resource Include="Assets\GPTLogo.png" />
     <Resource Include="Assets\MessageBoxIcon\ErrorIcon.png" />
     <Resource Include="Assets\MessageBoxIcon\info.png" />
     <Resource Include="Assets\MessageBoxIcon\succes.png" />
     <Resource Include="Assets\MessageBoxIcon\warning.png" />
+    <Resource Include="Assets\translate.ico" />
     <Resource Include="Assets\usa.png" />
     <Resource Include="Assets\vietnam.png" />
     <Resource Include="Assets\logo.ico" />

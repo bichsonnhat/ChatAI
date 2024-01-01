@@ -13,7 +13,8 @@
         DataContext="{Binding WordWindowViewModel}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Background="Transparent">
+        Background="Transparent"
+        Icon="/Assets/dictionary.ico">
 
     <Grid Background="White">
         <materialDesign:Card
