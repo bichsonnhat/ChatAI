@@ -276,7 +276,17 @@
                             Kind="Sword" 
                             Foreground="White"/>
                     </Button>
-                    
+                    <Button
+                        Background="White"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-872,181,885,1">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="DinosaurPixel" 
+                            Foreground="Black"/>
+                    </Button>
                 </Grid>
             </Grid>
         </Grid>
