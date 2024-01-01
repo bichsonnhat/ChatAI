@@ -218,7 +218,7 @@
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Ghost" 
+                            Kind="DogSide" 
                             Foreground="White" VerticalAlignment="Center"/>
                     </Button>
                     <Button
@@ -273,7 +273,7 @@
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Sword" 
+                            Kind="DinosaurPixel" 
                             Foreground="White"/>
                     </Button>
                     <Button
@@ -284,7 +284,7 @@
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="DinosaurPixel" 
+                            Kind="Cat" 
                             Foreground="Black"/>
                     </Button>
                     <Button
