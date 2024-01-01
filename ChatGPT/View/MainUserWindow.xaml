@@ -342,6 +342,17 @@
                             Kind="Compass" 
                             Foreground="White" VerticalAlignment="Center"/>
                     </Button>
+                    <Button
+                        Background="#b4a7d6"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-796,262,809,-80">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="Butterfly" 
+                            Foreground="White" VerticalAlignment="Center"/>
+                    </Button>
                 </Grid>
             </Grid>
         </Grid>
