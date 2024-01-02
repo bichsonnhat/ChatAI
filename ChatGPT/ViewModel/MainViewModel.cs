@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using LiteDB;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Linq;
 using OpenAI;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ using System.Windows.Threading;
 using System.Windows.Xps.Serialization;
 using Wpf.Ui.Contracts;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+using RestSharp;
 
 namespace ChatAI
 {
@@ -274,6 +276,7 @@ namespace ChatAI
         private async Task Send(ChatMessageViewModel sendMessage)
         {
             //System.Windows.MessageBox.Show(getTopic + " " + getSkill + " " + getBand, "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+            String userRequest = sendMessage.Prompt;
             if (isAdvance == true)
             {
                 if (!string.IsNullOrEmpty(sendMessage.Prompt))
@@ -450,23 +453,50 @@ namespace ChatAI
             {
                 if (SelectedChat.Name == "New Chat")
                 {
-                    if (getSkill == "📖 Reading")
+                    if (isAdvance == true)
                     {
-                        SelectedChat.Name = "📖";
-                    }
-                    if (getSkill == "✎ Writing")
+                        if (getSkill == "📖 Reading")
+                        {
+                            SelectedChat.Name = "📖";
+                        }
+                        if (getSkill == "✎ Writing")
+                        {
+                            SelectedChat.Name = "✎";
+                        }
+                        if (getSkill == "🗣️ Speaking")
+                        {
+                            SelectedChat.Name = "🗣️";
+                        }
+                        if (getSkill == "👂 Listening")
+                        {
+                            SelectedChat.Name = "👂";
+                        }
+                        SelectedChat.Name += GetBand + " - " + GetTopic;
+                    } else
                     {
-                        SelectedChat.Name = "✎";
+                        var YOUR_API_KEY = "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";
+                        var userInput = "What is the main content of \"Conversation Content\"? Please only answer in the form: \"The main content is...\" Conversation content: " + userRequest;
+                        var client = new RestClient("https://api.openai.com/v1");
+                        var request = new RestRequest("engines/text-davinci-003/completions", Method.Post);
+                        request.AddHeader("Content-Type", "application/json");
+                        request.AddHeader("Authorization", $"Bearer {YOUR_API_KEY}");
+                        request.AddJsonBody(new { prompt = userInput, max_tokens = 4000, temperature = 0 });
+                        var response = client.Execute(request);
+                        var responseData = JObject.Parse(response.Content);
+                        string output = responseData["choices"][0]["text"].ToString();
+                        string searchPhrase = "The main content is";
+                        int index = output.IndexOf(searchPhrase);
+                        if (index != -1)
+                        {
+                            // Adding the length of the search phrase to get the substring after it
+                            string result = output.Substring(index + searchPhrase.Length).Trim();
+                            result = result.TrimStart();
+                            string name = char.ToUpper(result[0]) + result.Substring(1);
+                            // System.Windows.Forms.MessageBox.Show(name);
+                            SelectedChat.Name = name;
+                        }
+                        //System.Windows.Forms.MessageBox.Show(output);
                     }
-                    if (getSkill == "🗣️ Speaking")
-                    {
-                        SelectedChat.Name = "🗣️";
-                    }
-                    if (getSkill == "👂 Listening")
-                    {
-                        SelectedChat.Name = "👂";
-                    }
-                    SelectedChat.Name += GetBand + " - " + GetTopic;
                     //SelectedChat.Name = resultMessage.Message; // Replace this with the desired new name
                 }
             }

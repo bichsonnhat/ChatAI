@@ -73,7 +73,7 @@
                 Background="Lavender"
                 IsChecked="True"
                 Style="{StaticResource MaterialDesignSwitchSecondaryToggleButton}"
-                ToolTip="MaterialDesignSwitchSecondaryToggleButton" Margin="1176,348,20,27" Grid.Row="3" Checked="ToggleButton_Checked" />
+                ToolTip="MaterialDesignSwitchSecondaryToggleButton" Margin="1176,348,20,27" Grid.Row="3" />
             <materialDesign:RatingBar
                 x:Name="BasicRatingBar"
                 Value="3" Margin="10,339,-10,46" Grid.Row="3" RenderTransformOrigin="0.5,0.5" >
