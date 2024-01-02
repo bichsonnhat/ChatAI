@@ -23,6 +23,7 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
             <Grid Background="#001822">
                 <Grid Grid.Row="0" HorizontalAlignment="Right" />
@@ -43,7 +44,6 @@
                     HorizontalAlignment="Left">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Assets/uitai.png" Stretch="UniformToFill" />
-
                     </Ellipse.Fill>
                 </Ellipse>
                 <Grid Grid.Column="1">
@@ -79,6 +79,8 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Button
                         Grid.Column="0"
@@ -92,6 +94,92 @@
                             Height="20"
                             Foreground="White"
                             Kind="Settings" />
+                    </Button>
+                    <Button
+                        Grid.Column="2"
+                        Width="50"
+                        Height="50"
+                        Background="#001822"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton">
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Foreground="White"
+                            Kind="People" />
+                    </Button>
+                    <Button
+                        Grid.Column="3"
+                        Width="50"
+                        Height="50"
+                        Background="#001822"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton">
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Foreground="White"
+                            Kind="People" />
+                    </Button>
+                    <Button
+                        Grid.Column="1"
+                        Width="50"
+                        Height="50"
+                        Background="#001822"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton">
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Foreground="White"
+                            Kind="People" />
+                    </Button>
+                </Grid>
+                <Grid Grid.Column="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        Grid.Column="0"
+                        Width="50"
+                        Height="50"
+                        Background="#001822"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton">
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Foreground="White"
+                            Kind="Settings" />
+                    </Button>
+                    <Button
+                        Grid.Column="2"
+                        Width="50"
+                        Height="50"
+                        Background="#001822"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton">
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Foreground="White"
+                            Kind="People" />
+                    </Button>
+                    <Button
+                        Grid.Column="3"
+                        Width="50"
+                        Height="50"
+                        Background="#001822"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton">
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Foreground="White"
+                            Kind="People" />
                     </Button>
                     <Button
                         Grid.Column="1"
