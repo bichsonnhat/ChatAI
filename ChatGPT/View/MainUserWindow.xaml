@@ -22,95 +22,106 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="327" />
-                <RowDefinition Height="46"/>
+                <RowDefinition Height="46" />
+                <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid Background="#ffffff" Grid.RowSpan="2" Margin="0,0,0,210">
+            <Grid
+                Grid.RowSpan="2"
+                Margin="0,0,0,210"
+                Background="#ffffff">
                 <Grid Grid.Row="0" HorizontalAlignment="Right" />
             </Grid>
             <TextBlock
-                FontSize="34"
-                Foreground="White"
-                FontStyle="Italic"
-                FontFamily="Century Gothic"
+                Grid.Row="3"
+                Height="141"
                 Margin="100,18,88,0"
                 VerticalAlignment="Top"
-                Text="Get instant answers, find creative inspiration, learn something new." Grid.Row="3" Height="141"
-        />
+                FontFamily="Century Gothic"
+                FontSize="34"
+                FontStyle="Italic"
+                Foreground="White"
+                Text="Get instant answers, find creative inspiration, learn something new." />
             <materialDesign:ColorZone
-                Background="#1b0431"
+                Grid.RowSpan="2"
+                Height="117"
                 Padding="16"
-                Mode="Inverted" Height="117" Grid.RowSpan="2">
+                Background="#1b0431"
+                Mode="Inverted">
                 <DockPanel>
-                    <materialDesign:PopupBox
-                        DockPanel.Dock="Right"
-                        PlacementMode="BottomAndAlignRightEdges">
+                    <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges">
                         <ListBox>
-                            <ListBoxItem
-                                Content="Login" />
-                            <ListBoxItem
-                                Content="Sign Up" />
-                            <ListBoxItem
-                                Content="Information" />
+                            <ListBoxItem Content="Login" />
+                            <ListBoxItem Content="Sign Up" />
+                            <ListBoxItem Content="Information" />
                         </ListBox>
                     </materialDesign:PopupBox>
-                    <StackPanel
-                                Orientation="Horizontal">
-                        <ToggleButton
-                                Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
+                    <StackPanel Orientation="Horizontal">
+                        <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
                         <TextBlock
-                                FontSize="40"
-                                Margin="16,0,0,0"
-                                VerticalAlignment="Center"
-                                Text="UIT AI"
-                                />
+                            Margin="16,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="40"
+                            Text="UIT AI" />
                     </StackPanel>
                 </DockPanel>
             </materialDesign:ColorZone>
             <ToggleButton
-                Height="80"
+                Grid.Row="3"
                 Width="80"
+                Height="80"
+                Margin="1176,348,20,27"
                 Background="Lavender"
                 IsChecked="True"
                 Style="{StaticResource MaterialDesignSwitchSecondaryToggleButton}"
-                ToolTip="MaterialDesignSwitchSecondaryToggleButton" Margin="1176,348,20,27" Grid.Row="3" />
+                ToolTip="MaterialDesignSwitchSecondaryToggleButton" />
             <materialDesign:RatingBar
                 x:Name="BasicRatingBar"
-                Value="3" Margin="10,339,-10,46" Grid.Row="3" RenderTransformOrigin="0.5,0.5" >
+                Grid.Row="3"
+                Margin="10,339,-10,46"
+                RenderTransformOrigin="0.5,0.5"
+                Value="3">
                 <materialDesign:RatingBar.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform ScaleY="-1"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
+                        <ScaleTransform ScaleY="-1" />
+                        <SkewTransform />
+                        <RotateTransform />
+                        <TranslateTransform />
                     </TransformGroup>
                 </materialDesign:RatingBar.RenderTransform>
             </materialDesign:RatingBar>
-            <materialDesign:Snackbar         
+            <materialDesign:Snackbar
                 x:Name="SnackbarThree"
-                MessageQueue="{materialDesign:MessageQueue}" Margin="222,266,0,0" Grid.Row="3" VerticalAlignment="Top" Height="162" RenderTransformOrigin="0.5,0.5" Width="852" HorizontalAlignment="Left" >
+                Grid.Row="3"
+                Width="852"
+                Height="162"
+                Margin="222,266,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                MessageQueue="{materialDesign:MessageQueue}"
+                RenderTransformOrigin="0.5,0.5">
                 <materialDesign:Snackbar.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform ScaleY="-1"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
+                        <ScaleTransform ScaleY="-1" />
+                        <SkewTransform />
+                        <RotateTransform />
+                        <TranslateTransform />
                     </TransformGroup>
                 </materialDesign:Snackbar.RenderTransform>
             </materialDesign:Snackbar>
-            <Grid
-                Grid.Row="1"
-                Margin="20,20,20,69">
+            <Grid Grid.Row="1" Margin="20,20,20,69">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="7*" />
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
                 <Ellipse
-                    Height="200"
+                    Grid.Column="1"
                     Width="200"
-                    HorizontalAlignment="Center" Margin="0,122,0,-79" Grid.Column="1">
+                    Height="200"
+                    Margin="0,122,0,-79"
+                    HorizontalAlignment="Center">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Assets/uitai.png" Stretch="UniformToFill" />
                     </Ellipse.Fill>
@@ -136,12 +147,13 @@
                                 Foreground="White"
                                 Kind="Magnify" />
                             <TextBox
-                                FontSize="17"
                                 Grid.Column="1"
                                 Margin="0,-8,16,-8"
                                 materialDesign:HintAssist.Hint="Search"
+                                FontSize="17"
                                 Foreground="white"
-                                Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" />
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                Text="" />
                         </Grid>
                     </Border>
                 </Grid>
@@ -216,9 +228,10 @@
                         Grid.Column="0"
                         Width="50"
                         Height="50"
+                        Margin="-33,12,52,176"
                         Background="#461d6c"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-33,12,52,176">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="30"
                             Height="30"
@@ -226,11 +239,13 @@
                             Kind="Settings" />
                     </Button>
                     <Button
+                        Grid.ColumnSpan="2"
                         Width="50"
                         Height="50"
+                        Margin="44,12,43,176"
                         Background="#461d6c"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="44,12,43,176" Grid.ColumnSpan="2">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="30"
                             Height="30"
@@ -238,12 +253,13 @@
                             Kind="Account" />
                     </Button>
                     <Button
-                            Grid.Column="0"
-                            Width="50"
-                            Height="50"
-                            Background="#461d6c"
-                            Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                            ToolTip="MaterialDesignFloatingActionLightButton" Margin="-108,12,127,176">
+                        Grid.Column="0"
+                        Width="50"
+                        Height="50"
+                        Margin="-108,12,127,176"
+                        Background="#461d6c"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="30"
                             Height="30"
@@ -251,171 +267,266 @@
                             Kind="Phone" />
                     </Button>
                     <Button
+                        Margin="-1026,103,1039,79"
                         Background="#4267B2"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1026,103,1039,79">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Pirate" 
-                            Foreground="White"/>
+                            Foreground="White"
+                            Kind="Pirate" />
                     </Button>
                     <Button
+                        Margin="-1101,103,1114,79"
                         Background="#FF0000"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1101,103,1114,79">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="CardsPlaying" 
-                            Foreground="White" VerticalAlignment="Center"/>
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Kind="CardsPlaying" />
                     </Button>
                     <Button
+                        Margin="-1101,181,1114,1"
                         Background="Silver"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1101,181,1114,1">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="DogSide" 
-                            Foreground="White" VerticalAlignment="Center"/>
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Kind="DogSide" />
                     </Button>
                     <Button
+                        Margin="-872,103,885,79"
                         Background="#0F9D58"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-872,103,885,79">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Motorbike" 
-                            Foreground="White" VerticalAlignment="Center"/>
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Kind="Motorbike" />
                     </Button>
                     <Button
+                        Margin="-949,103,962,79"
                         Background="#ffd966"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-949,103,962,79">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="HandBackRight" 
-                            Foreground="White"/>
+                            Foreground="White"
+                            Kind="HandBackRight" />
                     </Button>
                     <Button
+                        Margin="-796,103,809,79"
                         Background="#f285c5"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-796,103,809,79">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Feather" 
-                            Foreground="White" VerticalAlignment="Center"/>
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Kind="Feather" />
                     </Button>
                     <Button
+                        Margin="-1026,181,1039,1"
                         Background="#f1c232"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1026,181,1039,1">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Bug" 
-                        Foreground="White" VerticalAlignment="Center"/>
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Kind="Bug" />
                     </Button>
                     <Button
+                        Margin="-949,181,962,1"
                         Background="Black"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-949,181,962,1">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="DinosaurPixel" 
-                            Foreground="White"/>
+                            Foreground="White"
+                            Kind="DinosaurPixel" />
                     </Button>
                     <Button
+                        Margin="-872,181,885,1"
                         Background="White"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-872,181,885,1">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Cat" 
-                            Foreground="Black"/>
+                            Foreground="Black"
+                            Kind="Cat" />
                     </Button>
                     <Button
+                        Margin="-796,181,809,1"
                         Background="#653a8d"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-796,181,809,1">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="NinjaStar" 
-                            Foreground="White"/>
+                            Foreground="White"
+                            Kind="NinjaStar" />
                     </Button>
                     <Button
+                        Margin="-1101,262,1114,-80"
                         Background="#ff8b3c"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1101,262,1114,-80">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="ZodiacScorpio" 
-                            Foreground="White" VerticalAlignment="Center"/>
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Kind="ZodiacScorpio" />
                     </Button>
                     <Button
+                        Margin="-1026,262,1039,-80"
                         Background="#8cc5e7"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1026,262,1039,-80">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="HarryPotter" 
-                            Foreground="White" VerticalAlignment="Center"/>
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Kind="HarryPotter" />
                     </Button>
                     <Button
+                        Margin="-949,262,962,-80"
                         Background="#720101"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-949,262,962,-80">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Sword" 
-                            Foreground="White" VerticalAlignment="Center"/>
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Kind="Sword" />
                     </Button>
                     <Button
+                        Margin="-872,262,885,-80"
                         Background="#6f3a03"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-872,262,885,-80">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Compass" 
-                            Foreground="White" VerticalAlignment="Center"/>
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Kind="Compass" />
                     </Button>
                     <Button
+                        Margin="-796,262,809,-80"
                         Background="#b4a7d6"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-796,262,809,-80">
+                        ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon
                             Width="50"
                             Height="50"
-                            Kind="Butterfly" 
-                            Foreground="White" VerticalAlignment="Center"/>
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Kind="Butterfly" />
                     </Button>
                 </Grid>
+            </Grid>
+            <Grid Grid.Row="5">
+                <TreeView MinWidth="220">
+                    <TreeViewItem Header="Fruit">
+                        <TreeViewItem>
+                            <TreeViewItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Viewbox Width="16" Height="16">
+                                        <Canvas Width="24" Height="24">
+                                            <Path Data="M20,10C22,13 17,22 15,22C13,22 13,21 12,21C11,21 11,22 9,22C7,22 2,13 4,10C6,7 9,7 11,8V5C5.38,8.07 4.11,3.78 4.11,3.78C4.11,3.78 6.77,0.19 11,5V3H13V8C15,7 18,7 20,10Z" Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}, Path=Foreground}" />
+                                        </Canvas>
+                                    </Viewbox>
+                                    <TextBlock Margin="8,0,0,0" Text="Apple" />
+                                </StackPanel>
+                            </TreeViewItem.Header>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Banana" />
+                        <TreeViewItem Header="Grape">
+                            <TextBlock>
+                                <Run Text="Grapes for us" />
+                            </TextBlock>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Peach" />
+                        <TreeViewItem Header="Pear" />
+                        <TreeViewItem Header="Strawberry" />
+                    </TreeViewItem>
+                    <TreeViewItem Header="OS" IsExpanded="True">
+                        <TreeViewItem Header="Amiga" />
+                        <TreeViewItem>
+                            <TreeViewItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Viewbox Width="16" Height="16">
+                                        <Canvas Width="24" Height="24">
+                                            <Path Data="M15,5H14V4H15M10,5H9V4H10M15.53,2.16L16.84,0.85C17.03,0.66 17.03,0.34 16.84,0.14C16.64,-0.05 16.32,-0.05 16.13,0.14L14.65,1.62C13.85,1.23 12.95,1 12,1C11.04,1 10.14,1.23 9.34,1.63L7.85,0.14C7.66,-0.05 7.34,-0.05 7.15,0.14C6.95,0.34 6.95,0.66 7.15,0.85L8.46,2.16C6.97,3.26 6,5 6,7H18C18,5 17,3.25 15.53,2.16M20.5,8A1.5,1.5 0 0,0 19,9.5V16.5A1.5,1.5 0 0,0 20.5,18A1.5,1.5 0 0,0 22,16.5V9.5A1.5,1.5 0 0,0 20.5,8M3.5,8A1.5,1.5 0 0,0 2,9.5V16.5A1.5,1.5 0 0,0 3.5,18A1.5,1.5 0 0,0 5,16.5V9.5A1.5,1.5 0 0,0 3.5,8M6,18A1,1 0 0,0 7,19H8V22.5A1.5,1.5 0 0,0 9.5,24A1.5,1.5 0 0,0 11,22.5V19H13V22.5A1.5,1.5 0 0,0 14.5,24A1.5,1.5 0 0,0 16,22.5V19H17A1,1 0 0,0 18,18V8H6V18Z" Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}, Path=Foreground}" />
+                                        </Canvas>
+                                    </Viewbox>
+                                    <TextBlock Margin="8,0,0,0" Text="Android" />
+                                </StackPanel>
+                            </TreeViewItem.Header>
+                        </TreeViewItem>
+                        <TreeViewItem Header="iOS" />
+                        <TreeViewItem>
+                            <TreeViewItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Viewbox Width="16" Height="16">
+                                        <Canvas Width="24" Height="24">
+                                            <Path Data="M13.18,14.5C12.53,15.26 11.47,15.26 10.82,14.5L7.44,10.5C7.16,11.28 7,12.12 7,13C7,14.67 7.57,16.18 8.5,17.27C10,17.37 11.29,17.96 11.78,19C11.85,19 11.93,19 12.22,19C12.71,18 13.95,17.44 15.46,17.33C16.41,16.24 17,14.7 17,13C17,12.12 16.84,11.28 16.56,10.5L13.18,14.5M20,20.75C20,21.3 19.3,22 18.75,22H13.25C12.7,22 12,21.3 12,20.75C12,21.3 11.3,22 10.75,22H5.25C4.7,22 4,21.3 4,20.75C4,19.45 4.94,18.31 6.3,17.65C5.5,16.34 5,14.73 5,13C4,15 2.7,15.56 2.09,15C1.5,14.44 1.79,12.83 3.1,11.41C3.84,10.6 5,9.62 5.81,9.25C6.13,8.56 6.54,7.93 7,7.38V7A5,5 0 0,1 12,2A5,5 0 0,1 17,7V7.38C17.46,7.93 17.87,8.56 18.19,9.25C19,9.62 20.16,10.6 20.9,11.41C22.21,12.83 22.5,14.44 21.91,15C21.3,15.56 20,15 19,13C19,14.75 18.5,16.37 17.67,17.69C19.05,18.33 20,19.44 20,20.75M9.88,9C9.46,9.5 9.46,10.27 9.88,10.75L11.13,12.25C11.54,12.73 12.21,12.73 12.63,12.25L13.88,10.75C14.29,10.27 14.29,9.5 13.88,9H9.88M10,5.25C9.45,5.25 9,5.9 9,7C9,8.1 9.45,8.75 10,8.75C10.55,8.75 11,8.1 11,7C11,5.9 10.55,5.25 10,5.25M14,5.25C13.45,5.25 13,5.9 13,7C13,8.1 13.45,8.75 14,8.75C14.55,8.75 15,8.1 15,7C15,5.9 14.55,5.25 14,5.25Z" Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}, Path=Foreground}" />
+                                        </Canvas>
+                                    </Viewbox>
+                                    <TextBlock Margin="8,0,0,0" Text="Linux" />
+                                </StackPanel>
+                            </TreeViewItem.Header>
+                        </TreeViewItem>
+                        <TreeViewItem>
+                            <TreeViewItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Viewbox Width="16" Height="16">
+                                        <Canvas Width="24" Height="24">
+                                            <Path Data="M3,12V6.75L9,5.43V11.91L3,12M20,3V11.75L10,11.9V5.21L20,3M3,13L9,13.09V19.9L3,18.75V13M20,13.25V22L10,20.09V13.1L20,13.25Z" Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}, Path=Foreground}" />
+                                        </Canvas>
+                                    </Viewbox>
+                                    <TextBlock Margin="8,0,0,0">
+                                        Windows
+                                    </TextBlock>
+                                </StackPanel>
+                            </TreeViewItem.Header>
+                        </TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Empty" />
+                </TreeView>
             </Grid>
         </Grid>
     </Border>
