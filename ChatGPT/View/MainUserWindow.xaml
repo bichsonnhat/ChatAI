@@ -298,6 +298,61 @@
                             Kind="NinjaStar" 
                             Foreground="White"/>
                     </Button>
+                    <Button
+                        Background="#ff8b3c"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1101,262,1114,-80">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="ZodiacScorpio" 
+                            Foreground="White" VerticalAlignment="Center"/>
+                    </Button>
+                    <Button
+                        Background="#8cc5e7"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-1026,262,1039,-80">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="HarryPotter" 
+                            Foreground="White" VerticalAlignment="Center"/>
+                    </Button>
+                    <Button
+                        Background="#720101"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-949,262,962,-80">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="Sword" 
+                            Foreground="White" VerticalAlignment="Center"/>
+                    </Button>
+                    <Button
+                        Background="#6f3a03"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-872,262,885,-80">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="Compass" 
+                            Foreground="White" VerticalAlignment="Center"/>
+                    </Button>
+                    <Button
+                        Background="#b4a7d6"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        ToolTip="MaterialDesignFloatingActionLightButton" Margin="-796,262,809,-80">
+                        <materialDesign:PackIcon
+                            Width="50"
+                            Height="50"
+                            Kind="Butterfly" 
+                            Foreground="White" VerticalAlignment="Center"/>
+                    </Button>
                 </Grid>
             </Grid>
         </Grid>
