@@ -48,7 +48,6 @@ Trong thời đại công nghệ phát triển mạnh mẽ, nhu cầu học ngo�
 
 * Ứng dụng này cũng được xây dựng trên mô hình MVVM, cho phép phân chia rõ ràng giữa giao diện người dùng và xử lý logic, tăng cường khả năng tái sử dụng và linh hoạt trong việc cập nhật giao diện mà không cần thay đổi quá nhiều trong mã nguồn, đẩy nhanh tốc độ phát triển và thuận tiện trong việc bảo trì cũng như nâng cấp.
 
-* Lập trình theo hướng đa luồng (MultiThreading) giúp tối ưu hóa hiệu suất của phần cứng và tăng tốc độ xử lý của ứng dụng.
 * Áp dụng SQL Database kết hợp với LiteDatabase (NoSQL), một hệ thống quản lý cơ sở dữ liệu mạnh mẽ, giúp việc đồng bộ hóa dữ liệu trên nhiều thiết bị của người dùng, đảm bảo dữ liệu luôn nhất quán và chính xác.
 
 
@@ -94,19 +93,23 @@ Trong thời đại công nghệ phát triển mạnh mẽ, nhu cầu học ngo�
 
 ### 5. Tính năng
 * Với đối tượng muốn học tiếng Anh:
-   * Chỉ cần bật chế độ "Advance", Chat GPT sẽ trở thành một trợ lí đắc lực cho người dùng, phục vụ cho việc học tiếng Anh, giải đáp các thắc mắc, đưa ra những bài tập với đa dạng *chủ đề, band* điểm chuẩn trong chứng chỉ quốc tế IELTS với bốn kĩ năng cần thiết (nghe, nói, đọc, viết) và hỗ trợ dịch từ ngữ *Anh-Việt* ở mọi nơi trên thiết bị.
+   * Khi bật chế độ `Advance`, Chat GPT sẽ trở thành một trợ lí đắc lực cho người dùng, phục vụ cho việc học tiếng Anh, giải đáp các thắc mắc, đưa ra những bài tập với đa dạng *chủ đề, band* điểm chuẩn trong chứng chỉ quốc tế IELTS với bốn kĩ năng cần thiết (nghe, nói, đọc, viết) và hỗ trợ dịch từ ngữ *Anh-Việt* ở mọi nơi trên thiết bị.
+   * Khi bôi đen một đoạn văn bản ở bất kì nơi đâu, hệ thống sẽ có hai `option` cho người dùng lựa chọn:
+      * `trans` - Dịch đoạn văn bản được chọn `selected text` (mọi ngôn ngữ) sang tiếng Việt
+      * `spk` - Đọc đoạn văn bản được chọn bằng tiếng Anh 
 * Với đối tượng muốn sử dụng cho học tập, công việc:
-   * Chỉ cần tắt chế độ "Advance", Chat GPT sẽ trả lời các câu hỏi về đa dạng chủ đề khác nhau như sửa lỗi trong lập trình, sáng tạo làm thơ, soạn nhạc,... phục vụ tối đa nhu cầu của người dùng.
+   * Khi tắt chế độ "Advance", Chat GPT sẽ trả lời các câu hỏi về đa dạng chủ đề khác nhau như sửa lỗi trong lập trình, sáng tạo làm thơ, soạn nhạc,... phục vụ tối đa nhu cầu của người dùng.
 <div id="Huongdansudung"></div>
 
 ### 6. Hướng dẫn sử dụng
-* Bước 1: Clone repo về thiết bị
+* **Bước 1**: Clone repository về thiết bị
    ```
    git clone https://github.com/bichsonnhat/ChatAI.git
    ```
-* Bước 2: Open project trong Visual Studio 2022
-* Bước 3: Vào phần `LoginWindow.xaml.cs`, thay đổi `NhatBS` thành *sever name* của thiết bị trong SQL Server
-* Bước 4: Chạy và màn hình `login` hiện lên, nhập key = `admin` để sử dụng ứng dụng.
+* **Bước 2**: Mở file `LoginChat` trong `SQL Server`, lần lượt thực hiện `execute` các câu truy vấn trong file. 
+* **Bước 3**: Open project trong Visual Studio 2022, vào `Tools` -> `Connect to Database`, nhập *server name* trong `SQL Server` và lựa chọn `database name` là `LoginChat`
+* **Bước 4**: Vào phần `LoginWindow.xaml.cs`, thay đổi `NhatBS` thành *sever name* của thiết bị trong SQL Server
+* **Bước 5**: Chạy và màn hình `login` hiện lên, nhập key = `admin` (hoặc các key đã thực thi trong `SQL Server` trước đó) để sử dụng ứng dụng.
 <!-- TÁC GIẢ -->
 <div id="Tacgia"></div>
 

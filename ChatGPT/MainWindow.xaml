@@ -24,7 +24,7 @@
         WindowCornerPreference="Default"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Icon="/Assets/logo.ico">
+        Icon="/Assets/GPTLogo.ico">
     <ui:FluentWindow.Resources>
         <Style x:Key="SendButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="Transparent"/>
@@ -391,7 +391,7 @@
 
         <ui:TitleBar
             Title="{Binding ViewModel.ApplicationTitle}"
-            Icon="pack://application:,,,/Assets/uitai (2).png" Height="55" VerticalAlignment="Center" />
+            Icon="pack://application:,,,/Assets/GPTLogo.png" Height="55" VerticalAlignment="Center" />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>

@@ -21,7 +21,7 @@ using System.Windows.Forms;
 using ChatAI.View;
 using SharpHook;
 using SharpHook.Native;
-using ChatWpfUI.View;
+using ChatAI.View;
 using LiteDB;
 using System.ComponentModel;
 
@@ -127,7 +127,6 @@ namespace ChatAI
                 designButtonTrans.Topmost = true;
                 designButtonTrans.WindowStartupLocation = WindowStartupLocation.Manual;
                 designButtonTrans.Show();
-                //DesignButtonTrans.Position = 
             });
         }
         private void Window_Closed(object? sender, System.EventArgs e)
@@ -140,7 +139,12 @@ namespace ChatAI
             // Access the selected chat
             var selectedChat = ViewModel.SelectedChat;
             // Delete the selected chat
-            ViewModel.DeleteChat(selectedChat);
+            MessageBoxCustom result = new MessageBoxCustom("Notification", "Are you sure, You want to delete this chat?", MessageType.Info, MessageButtons.YesNo);
+            result.ShowDialog();
+            if (result.DialogResult == true)
+            {
+                ViewModel.DeleteChat(selectedChat);
+            }
             //ViewModel.NewChat();
         }
 
@@ -154,7 +158,8 @@ namespace ChatAI
             String getTopic = AddTopic.Text;
             if (String.IsNullOrWhiteSpace(getTopic))
             {
-                System.Windows.MessageBox.Show("Please fill topic box!", "Notification", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBoxCustom mb = new MessageBoxCustom("Notification", "Please fill topic box!", MessageType.Warning, MessageButtons.OK);
+                mb.ShowDialog();
             }
             else
             {
@@ -171,7 +176,8 @@ namespace ChatAI
                     };
                     comboBoxItems.Insert(newItemModel);
                 }
-                System.Windows.MessageBox.Show("Add your topic successful", "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBoxCustom mb = new MessageBoxCustom("Notification", "Add your topic successful!", MessageType.Success, MessageButtons.OK);
+                mb.ShowDialog();
             }
         }
 

@@ -15,6 +15,7 @@ using System.Diagnostics;
 using System.Windows.Navigation;
 using System.Data.SqlClient;
 using System.Data;
+using MaterialDesignThemes.Wpf;
 
 namespace ChatAI.View
 {
@@ -35,7 +36,8 @@ namespace ChatAI.View
             string enteredPassword = passwordBox.Password;
             if (string.IsNullOrEmpty(enteredPassword))
             {
-                MessageBox.Show("Please enter your key", "Login Unsucessful", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBoxCustom mb = new MessageBoxCustom("Login Unsucessful", "Please enter your key", MessageType.Warning, MessageButtons.OK);
+                mb.ShowDialog();
             }
             else
             {
@@ -52,19 +54,22 @@ namespace ChatAI.View
                         if (dt.Rows.Count > 0)
                         {
                             IsLogin = true;
-                            MessageBox.Show("Login successful", "ChatGPT-UIT", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBoxCustom mb = new MessageBoxCustom("System", "Login Successful!", MessageType.Success, MessageButtons.OK);
+                            mb.ShowDialog();
                             Close();
                             //Environment.Exit(0);
                         }
                         else
                         {
-                            MessageBox.Show("Oops! You pressed the wrong key! Try again!", "Login Unsucessful", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBoxCustom mb = new MessageBoxCustom("Login Unsucessful", "Oops! You pressed the wrong key! Try again!", MessageType.Error, MessageButtons.OK);
+                            mb.ShowDialog();
                         }
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("Error", "Login Unsucessful", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBoxCustom mb = new MessageBoxCustom("Error", "Login Unsuccessful", MessageType.Error, MessageButtons.OK);
+                    mb.ShowDialog();
                 }
             }
         }
